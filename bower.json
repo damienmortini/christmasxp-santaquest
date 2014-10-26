@@ -1,0 +1,9 @@
+{
+  "name": "santa-race",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.2",
+    "js-signals": "~1.0.0",
+    "gsap": "~1.14.1"
+  }
+}
