@@ -1,1 +1,1 @@
-console.log "'Allo from CoffeeScript!"
+world = new World document.getElementById 'canvas'

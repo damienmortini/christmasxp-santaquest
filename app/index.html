@@ -9,7 +9,6 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -25,20 +24,24 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-      <li>HTML5 Boilerplate</li>
-      <li>Sass</li>
-      <li>Modernizr</li>
-      </ul>
-    </div>
-
+    <canvas id="canvas"></canvas>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/js-signals/dist/signals.js"></script>
+    <script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+    <script src="bower_components/threejs/build/three.js"></script>
+    <script src="bower_components/threejs-trackballcontrols/index.js"></script>
+    <script src="bower_components/threejs-bloompass/index.js"></script>
+    <script src="bower_components/threejs-effectcomposer/index.js"></script>
+    <script src="bower_components/threejs-renderpass/index.js"></script>
+    <script src="bower_components/threejs-shaderpass/index.js"></script>
+    <script src="bower_components/threejs-maskpass/index.js"></script>
+    <script src="bower_components/threejs-fxaashader/index.js"></script>
+    <script src="bower_components/threejs-copyshader/index.js"></script>
+    <script src="bower_components/threejs-brightnesscontrastshader/index.js"></script>
+    <script src="bower_components/threejs-convolutionshader/index.js"></script>
+    <script src="bower_components/threejs-rgbshiftshader/index.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -53,6 +56,7 @@
     </script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/World.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

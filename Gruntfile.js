@@ -149,6 +149,9 @@ module.exports = function (grunt) {
 
     // Compiles CoffeeScript to JavaScript
     coffee: {
+      options: {
+        bare: true
+      },
       dist: {
         files: [{
           expand: true,
@@ -447,7 +450,7 @@ module.exports = function (grunt) {
     'uglify',
     'copy:dist',
     'modernizr',
-    'rev',
+    // 'rev',
     'usemin',
     'htmlmin'
   ]);
