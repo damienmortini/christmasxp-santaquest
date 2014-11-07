@@ -8,14 +8,33 @@ class World
 
     @controls = new THREE.TrackballControls(@camera)
 
+    # @initComposer()
     @resize()
     @update()
 
-    @path = new Path()
-    @scene.add @path
-
     window.addEventListener 'resize', @resize
     return
+
+  initComposer: =>
+    parameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat, stencilBuffer: false }
+    devicePixelRatio = window.devicePixelRatio || 1
+
+    @composer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(window.innerWidth * devicePixelRatio, window.innerHeight * devicePixelRatio, parameters) 
+    
+    renderPass = new THREE.RenderPass @scene, @camera
+
+    shaderPass = new THREE.ShaderPass WorldShader
+    # shaderPass.uniforms[ 'tDiffuse2' ].value = @composer1.renderTarget2
+    @composer.addPass shaderPass
+
+    # renderPass = new THREE.RenderPass @scene, @camera
+    # @composer.addPass renderPass
+
+    shaderPass = new THREE.ShaderPass(THREE.FXAAShader)
+    shaderPass.uniforms['resolution'].value.set(1 / (window.innerWidth * devicePixelRatio), 1 / (window.innerHeight * devicePixelRatio))
+    shaderPass.renderToScreen = true
+    @composer.addPass shaderPass
+    null
 
   resize: =>
     @camera.aspect = @canvas.offsetWidth / @canvas.offsetHeight
