@@ -6,44 +6,72 @@ class World
     @renderer = new THREE.WebGLRenderer
       canvas: @canvas
 
+    @pointer =
+      x: 0
+      y: 0
+
     @controls = new THREE.TrackballControls(@camera)
 
-    # @initComposer()
+    @initComposer()
     @resize()
     @update()
 
     window.addEventListener 'resize', @resize
+    window.addEventListener 'mousemove', @onPointerMove
     return
 
+  buildShader: =>
+    return {
+      uniforms: 
+        'resolution':
+          type: 'v2'
+          value: new THREE.Vector2()
+        'time':
+          type: 'f'
+          value: 0
+        'pointer':
+          type: 'v2'
+          value: new THREE.Vector2()
+      vertexShader: document.querySelector('#world-shader-vertex').import.body.innerText
+      fragmentShader: document.querySelector('#world-shader-fragment').import.body.innerText
+    }
+
   initComposer: =>
-    parameters = { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBFormat, stencilBuffer: false }
-    devicePixelRatio = window.devicePixelRatio || 1
+    @composer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget() 
 
-    @composer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(window.innerWidth * devicePixelRatio, window.innerHeight * devicePixelRatio, parameters) 
-    
-    renderPass = new THREE.RenderPass @scene, @camera
+    @worldShaderPass = new THREE.ShaderPass @buildShader()
+    @composer.addPass(lastPass = @worldShaderPass)
 
-    shaderPass = new THREE.ShaderPass WorldShader
-    # shaderPass.uniforms[ 'tDiffuse2' ].value = @composer1.renderTarget2
-    @composer.addPass shaderPass
+    @renderPass = new THREE.RenderPass @scene, @camera
+    # @composer.addPass(lastPass = @renderPass)
 
-    # renderPass = new THREE.RenderPass @scene, @camera
-    # @composer.addPass renderPass
+    @fxaaShaderPass = new THREE.ShaderPass(THREE.FXAAShader)
+    # @composer.addPass(lastPass = @fxaaShaderPass)
 
-    shaderPass = new THREE.ShaderPass(THREE.FXAAShader)
-    shaderPass.uniforms['resolution'].value.set(1 / (window.innerWidth * devicePixelRatio), 1 / (window.innerHeight * devicePixelRatio))
-    shaderPass.renderToScreen = true
-    @composer.addPass shaderPass
-    null
+    lastPass.renderToScreen = true
+    return
+
+  onPointerMove: (e) =>
+    @pointer.x = e.x
+    @pointer.y = e.y
+    return
 
   resize: =>
     @camera.aspect = @canvas.offsetWidth / @canvas.offsetHeight
     @camera.updateProjectionMatrix()
-    @renderer.setSize @canvas.offsetWidth, @canvas.offsetHeight
+    devicePixelRatio = window.devicePixelRatio || 1
+    width = window.innerWidth * devicePixelRatio
+    height = window.innerHeight * devicePixelRatio
+    @renderer.setSize width, height
+    @fxaaShaderPass.uniforms['resolution'].value.set(1 / width, 1 / height)
+    @worldShaderPass.uniforms['resolution'].value.set width, height
+    @composer.setSize width, height
     return
 
   update: =>
     requestAnimationFrame @update
+    @worldShaderPass.uniforms['time'].value += .01
+    @worldShaderPass.uniforms['pointer'].value.x = @pointer.x
     @controls.update()
-    @renderer.render @scene, @camera
+    @composer.render()
     return

@@ -120,7 +120,8 @@ gulp.task('watch', ['connect', 'serve'], function () {
         'app/*.html',
         '.tmp/styles/**/*.css',
         '{.tmp,app}/scripts/**/*.js',
-        'app/images/**/*'
+        'app/images/**/*',
+        'app/shaders/**/*'
     ]).on('change', function (file) {
         server.changed(file.path);
     });

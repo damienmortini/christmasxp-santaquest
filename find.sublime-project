@@ -4,10 +4,11 @@
 		{
 			"folder_exclude_patterns":
 			[
-				// ".tmp",
-				// ".sass-cache",
-				// "node_modules",
-				// "test"
+				".tmp",
+				".sass-cache",
+				"node_modules",
+				// "app/bower_components",
+				"test"
 			],
 			"follow_symlinks": true,
 			"path": "."

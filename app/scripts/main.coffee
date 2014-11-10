@@ -1,1 +1,1 @@
-world = new World document.getElementById 'canvas'
+world = new World document.getElementById('canvas')
