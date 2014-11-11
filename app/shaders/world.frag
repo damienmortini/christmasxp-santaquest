@@ -45,7 +45,7 @@ void main(void)
   vec3 direction = vec3(cos(rotation + PI * .5), 0.0, sin(rotation + PI * .5));
   rd = normalize(direction + vec3( cos(rotation) * p.x, p.y, sin(rotation) * p.x ));
 
-  vec3 col = vec3(.8);
+  vec3 col = vec3(0.0);
   
   float tmax = 100.0;
   float h = 1.0;
@@ -58,8 +58,9 @@ void main(void)
   }
   
   if (t < tmax) {
-      col = calcNormal(ro + rd * t);
+      // col = vec3(1.0 - t / tmax);
+      col = calcNormal(ro + rd * t) * vec3(1.0 - t / tmax);
   }
     
-  gl_FragColor = vec4(col, 1.0);
+  gl_FragColor = vec4(col, vec3(1.0 - t / tmax));
 }

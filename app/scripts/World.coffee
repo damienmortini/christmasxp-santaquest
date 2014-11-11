@@ -2,9 +2,11 @@ class World
   constructor: (@canvas) ->
     @scene = new THREE.Scene()
     @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, .1, 10000
-    @camera.position.z = -1000
+    @camera.position.z = -100
     @renderer = new THREE.WebGLRenderer
       canvas: @canvas
+      alpha: true
+    @renderer.render(@scene, @camera)
 
     @pointer =
       x: 0
@@ -15,6 +17,12 @@ class World
     @initComposer()
     @resize()
     @update()
+
+    geometry = new THREE.BoxGeometry 20, 20, 20
+    material = new THREE.MeshNormalMaterial
+      color: 0x00ff00
+    cube = new THREE.Mesh geometry, material
+    @scene.add cube
 
     window.addEventListener 'resize', @resize
     window.addEventListener 'mousemove', @onPointerMove
@@ -37,18 +45,18 @@ class World
     }
 
   initComposer: =>
-    @composer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget() 
-
-    @worldShaderPass = new THREE.ShaderPass @buildShader()
-    @composer.addPass(lastPass = @worldShaderPass)
+    @composer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(1, 1, { format: THREE.RGBAFormat }) 
 
     @renderPass = new THREE.RenderPass @scene, @camera
-    # @composer.addPass(lastPass = @renderPass)
+    @composer.addPass(@renderPass)
+
+    @worldShaderPass = new THREE.ShaderPass @buildShader()
+    @composer.addPass(@worldShaderPass)
 
     @fxaaShaderPass = new THREE.ShaderPass(THREE.FXAAShader)
-    # @composer.addPass(lastPass = @fxaaShaderPass)
+    @composer.addPass(@fxaaShaderPass)
 
-    lastPass.renderToScreen = true
+    @fxaaShaderPass.renderToScreen = true
     return
 
   onPointerMove: (e) =>
@@ -73,5 +81,6 @@ class World
     @worldShaderPass.uniforms['time'].value += .01
     @worldShaderPass.uniforms['pointer'].value.x = @pointer.x
     @controls.update()
+    # @renderer.render @scene, @camera
     @composer.render()
     return
