@@ -37,13 +37,31 @@ class World
   createWorldShader: ->
     return {
       uniforms:
-        'resolution':
-          type: 'v2'
-          value: new THREE.Vector2()
-        'time':
+        'uCameraAspect':
           type: 'f'
           value: 0
-        'pointer':
+        'uCameraNear':
+          type: 'f'
+          value: 0
+        'uCameraFar':
+          type: 'f'
+          value: 0
+        'uCameraRotation':
+          type: 'v3'
+          value: new THREE.Vector3()
+        'uCameraQuaternion':
+          type: 'v4'
+          value: new THREE.Quaternion()
+        'uCameraPosition':
+          type: 'v3'
+          value: new THREE.Vector3()
+        'uResolution':
+          type: 'v2'
+          value: new THREE.Vector2()
+        'uTime':
+          type: 'f'
+          value: 0
+        'uPointer':
           type: 'v2'
           value: new THREE.Vector2()
       vertexShader: document.querySelector('#world-shader-vertex').import.body.innerText
@@ -53,13 +71,13 @@ class World
   createMixDepthShader: ->
     return {
       uniforms:
-        'texture':
+        'uTexture':
           type: 't'
           value: null
-        'textureDepth':
+        'uTextureDepth':
           type: 't'
           value: null
-        'textureAlphaDepth':
+        'uTextureAlphaDepth':
           type: 't'
           value: null
       vertexShader: document.querySelector('#mix-depth-shader-vertex').import.body.innerText
@@ -138,23 +156,34 @@ class World
     width = Math.floor(window.innerWidth * devicePixelRatio * .5)
     height = Math.floor(window.innerHeight * devicePixelRatio * .5)
     # @fxaaShaderPass.uniforms['resolution'].value.set 1 / width, 1 / height
-    @worldShaderPass.uniforms['resolution'].value.set width, height
+    @worldShaderPass.uniforms['uResolution'].value.set width, height
     @renderer.setSize width, height
     @worldShaderComposer.setSize width, height
     @renderComposer.setSize width, height
     @composer.setSize width, height
 
-    @mixDepthShaderPass.uniforms['textureAlphaDepth'].value = @worldShaderComposer.renderTarget1
-    @mixDepthShaderPass.uniforms['texture'].value = @renderComposer.renderTarget2
-    @mixDepthShaderPass.uniforms['textureDepth'].value = @renderComposer.renderTarget1
+    @worldShaderPass.uniforms['uCameraAspect'].value = @camera.aspect
+    @worldShaderPass.uniforms['uCameraNear'].value = @camera.near
+    @worldShaderPass.uniforms['uCameraFar'].value = @camera.far
+    @mixDepthShaderPass.uniforms['uTextureAlphaDepth'].value = @worldShaderComposer.renderTarget1
+    @mixDepthShaderPass.uniforms['uTexture'].value = @renderComposer.renderTarget2
+    @mixDepthShaderPass.uniforms['uTextureDepth'].value = @renderComposer.renderTarget1
     return
 
   update: =>
     requestAnimationFrame @update
-    @worldShaderPass.uniforms['time'].value += .01
-    @worldShaderPass.uniforms['pointer'].value.x = @pointer.x
+    @worldShaderPass.uniforms['uTime'].value += .01
+    @worldShaderPass.uniforms['uPointer'].value.x = @pointer.x
     @controls.update()
     @worldShaderComposer.render()
     @renderComposer.render()
     @composer.render()
+
+    @worldShaderPass.uniforms['uCameraPosition'].value.copy @camera.position
+    @worldShaderPass.uniforms['uCameraRotation'].value.copy @camera.rotation
+    @worldShaderPass.uniforms['uCameraQuaternion'].value.copy @camera.quaternion
+    # @worldShaderPass.uniforms['uCameraQuaternion'].value.inverse()
+
+    # console.log @camera.quaternion
+    # console.log @worldShaderPass.uniforms['uCameraRotation'].value
     return
