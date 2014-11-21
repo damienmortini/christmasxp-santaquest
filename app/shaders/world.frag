@@ -1,4 +1,4 @@
-precision mediump float;
+precision highp float;
 
 #define PI 3.1415926535897932384626433832795
 
@@ -10,18 +10,19 @@ uniform float uCameraNear;
 uniform float uCameraFar;
 uniform vec3 uCameraPosition;
 uniform vec3 uCameraRotation;
+uniform float uCameraFov;
 uniform vec4 uCameraQuaternion;
 
 float map( in vec3 p) {
-  vec3 firstSpherePosition = vec3(0.0, .6, 2.0);
+  vec3 firstSpherePosition = vec3(0.0, -1., 2.0);
   vec3 q = p;
-  q.xz = mod(p.xz + firstSpherePosition.xz, 4.0) - 2.0;
+  q.xz = mod(p.xz + firstSpherePosition.xz, 10.0) - 5.0;
   q.y = length(p.y + firstSpherePosition.y);
-  float dSphere = length( q ) - .35 + cos(uTime) * .15;
+  float dSphere = length( q ) - .5 - 1. - cos(uTime);
 
   float dPlane = p.y + 1.0;
 
-  float blendingRatio = .3;
+  float blendingRatio = .8;
   float ratio = clamp(.5 + .5 * (dSphere - dPlane) / blendingRatio, 0., 1.);
   
   float dist = mix(dSphere, dPlane, ratio) - blendingRatio * ratio * (1. - ratio);
@@ -71,8 +72,8 @@ void main(void)
   p.x *= uCameraAspect;
 
   // vec3 ro = vec3(0., 0., 0.);
-  vec3 ro = uCameraPosition * .1;
-  vec3 rd = normalize( vec3( p, -1.0 ));
+  vec3 ro = uCameraPosition;
+  vec3 rd = normalize( vec3( p, -1 ));
   rd = applyQuaternion(rd, uCameraQuaternion);
 
   vec3 col = vec3(0.0);

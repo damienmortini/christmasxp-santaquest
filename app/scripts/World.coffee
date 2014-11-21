@@ -12,6 +12,7 @@ class World
       x: 0
       y: 0
 
+    # @controls = new THREE.FirstPersonControls(@camera)
     @controls = new THREE.TrackballControls(@camera)
 
     @initComposer()
@@ -44,6 +45,9 @@ class World
           type: 'f'
           value: 0
         'uCameraFar':
+          type: 'f'
+          value: 0
+        'uCameraFov':
           type: 'f'
           value: 0
         'uCameraRotation':
@@ -98,6 +102,14 @@ class World
     # @worldShaderPass.renderToScreen = true
     @worldShaderComposer.addPass @worldShaderPass
 
+    # verticalBlurPass = new THREE.ShaderPass THREE.VerticalBlurShader
+    # verticalBlurPass.uniforms['v'].value = .001
+    # @worldShaderComposer.addPass verticalBlurPass
+
+    # horizontalBlurPass = new THREE.ShaderPass THREE.HorizontalBlurShader
+    # horizontalBlurPass.uniforms['h'].value = .001
+    # @worldShaderComposer.addPass horizontalBlurPass
+
     # copyShaderPass = new THREE.ShaderPass THREE.CopyShader
     # copyShaderPass.renderToScreen = true
     # copyShaderPass.needsSwap = false
@@ -112,13 +124,15 @@ class World
     )
     renderPass = new THREE.RenderPass @scene, @camera
     renderPass.needsSwap = true
-    # renderPass.clear = false
     @renderComposer.addPass renderPass
 
     renderPass = new THREE.RenderPass @scene, @camera, new THREE.MeshDepthMaterial()
-    # renderPass.clear = false
     renderPass.needsSwap = false
     @renderComposer.addPass renderPass
+
+    copyShaderPass = new THREE.ShaderPass THREE.CopyShader
+    copyShaderPass.renderToScreen = true
+    @renderComposer.addPass copyShaderPass
 
     @composer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(1, 1,
       minFilter: THREE.LinearFilter
@@ -129,16 +143,24 @@ class World
 
     @mixDepthShaderPass = new THREE.ShaderPass @createMixDepthShader()
 
-    @mixDepthShaderPass.needsSwap = false
-    @mixDepthShaderPass.renderToScreen = true
+    # @mixDepthShaderPass.needsSwap = false
+    # @mixDepthShaderPass.renderToScreen = true
     @composer.addPass @mixDepthShaderPass
 
     # copyShaderPass = new THREE.ShaderPass THREE.CopyShader
     # @composer.addPass copyShaderPass
 
-    # @fxaaShaderPass = new THREE.ShaderPass(THREE.FXAAShader)
-    # @fxaaShaderPass.renderToScreen = true
-    # @composer.addPass(@fxaaShaderPass)
+    # verticalBlurPass = new THREE.ShaderPass THREE.VerticalBlurShader
+    # verticalBlurPass.uniforms['v'].value = .01
+    # @composer.addPass verticalBlurPass
+
+    # horizontalBlurPass = new THREE.ShaderPass THREE.HorizontalBlurShader
+    # horizontalBlurPass.uniforms['h'].value = .01
+    # @composer.addPass horizontalBlurPass
+
+    @fxaaShaderPass = new THREE.ShaderPass(THREE.FXAAShader)
+    @fxaaShaderPass.renderToScreen = true
+    @composer.addPass(@fxaaShaderPass)
 
     # @fxaaShaderPass.uniforms['resolution'].value.set 512, 512
 
@@ -153,18 +175,19 @@ class World
     @camera.aspect = @canvas.offsetWidth / @canvas.offsetHeight
     @camera.updateProjectionMatrix()
     devicePixelRatio = window.devicePixelRatio || 1
-    width = Math.floor(window.innerWidth * devicePixelRatio * .5)
-    height = Math.floor(window.innerHeight * devicePixelRatio * .5)
-    # @fxaaShaderPass.uniforms['resolution'].value.set 1 / width, 1 / height
-    @worldShaderPass.uniforms['uResolution'].value.set width, height
+    width = Math.floor(window.innerWidth * devicePixelRatio)
+    height = Math.floor(window.innerHeight * devicePixelRatio)
+    @fxaaShaderPass.uniforms['resolution'].value.set 1 / width, 1 / height
+    @worldShaderPass.uniforms['uResolution'].value.set width * .3, height * .3
     @renderer.setSize width, height
-    @worldShaderComposer.setSize width, height
+    @worldShaderComposer.setSize width * .3, height * .3
     @renderComposer.setSize width, height
     @composer.setSize width, height
 
     @worldShaderPass.uniforms['uCameraAspect'].value = @camera.aspect
     @worldShaderPass.uniforms['uCameraNear'].value = @camera.near
     @worldShaderPass.uniforms['uCameraFar'].value = @camera.far
+    @worldShaderPass.uniforms['uCameraFov'].value = @camera.fov
     @mixDepthShaderPass.uniforms['uTextureAlphaDepth'].value = @worldShaderComposer.renderTarget1
     @mixDepthShaderPass.uniforms['uTexture'].value = @renderComposer.renderTarget2
     @mixDepthShaderPass.uniforms['uTextureDepth'].value = @renderComposer.renderTarget1
@@ -182,6 +205,8 @@ class World
     @worldShaderPass.uniforms['uCameraPosition'].value.copy @camera.position
     @worldShaderPass.uniforms['uCameraRotation'].value.copy @camera.rotation
     @worldShaderPass.uniforms['uCameraQuaternion'].value.copy @camera.quaternion
+
+    # console.log @controls.object.rotation, @camera.object.position
     # @worldShaderPass.uniforms['uCameraQuaternion'].value.inverse()
 
     # console.log @camera.quaternion
