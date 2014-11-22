@@ -8,17 +8,25 @@ uniform vec2 uPointer;
 uniform float uCameraAspect;
 uniform float uCameraNear;
 uniform float uCameraFar;
+uniform float uCameraFov;
 uniform vec3 uCameraPosition;
 uniform vec3 uCameraRotation;
-uniform float uCameraFov;
 uniform vec4 uCameraQuaternion;
+
+uniform mat4 modelMatrix;
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+// uniform mat4 viewMatrix;
+uniform mat3 normalMatrix;
+// uniform vec3 cameraPosition;
 
 float map( in vec3 p) {
   vec3 firstSpherePosition = vec3(0.0, -1., 2.0);
   vec3 q = p;
   q.xz = mod(p.xz + firstSpherePosition.xz, 10.0) - 5.0;
   q.y = length(p.y + firstSpherePosition.y);
-  float dSphere = length( q ) - .5 - 1. - cos(uTime);
+  float dSphere = length( q ) - .5 - 1.;
+  // float dSphere = length( q ) - .5 - 1. - cos(uTime);
 
   float dPlane = p.y + 1.0;
 
@@ -69,29 +77,67 @@ void main(void)
 {
   vec2 uv = gl_FragCoord.xy / uResolution.xy;
   vec2 p = -1.0 + 2.0 * uv;
-  p.x *= uCameraAspect;
+  float fovHorizontal = uCameraFov * uCameraAspect;
+  vec2 fovAngle = vec2((fovHorizontal / 180.0) * PI, (uCameraFov / 180.0) * PI);
+  vec3 rayDirection = vec3(0.0);
+  rayDirection.x = sin(p.x * fovAngle.x * .5);
+  rayDirection.z = -cos(p.x * fovAngle.x * .5);
+  rayDirection.y = sin(p.y * fovAngle.y * .5);
+  rayDirection.x *= cos(p.y * fovAngle.y * .5);
+  rayDirection.z *= cos(p.y * fovAngle.y * .5);
+
+  // float ditanceRatio = 1.0 + (1.0 - dot(vec3(0.0, 0.0, 1.0), rayDirection));
+
+  // rayDirection *= ditanceRatio;
 
   // vec3 ro = vec3(0., 0., 0.);
-  vec3 ro = uCameraPosition;
-  vec3 rd = normalize( vec3( p, -1 ));
-  rd = applyQuaternion(rd, uCameraQuaternion);
+  vec3 rayOrigin = uCameraPosition;
+  // vec3 rayDirection = normalize( vec3( p, -1 ));
+  rayDirection = applyQuaternion(rayDirection, uCameraQuaternion);
 
   vec3 col = vec3(0.0);
   
-  float tmax = uCameraFar;
-  float h = 1.0;
-  float t = uCameraNear;
+  float rayMarchingStep = 0.00001;
+  float dist = uCameraNear;
   
   for(int i = 0; i < 100; i++) {
-      if (h < 0.00001 || h > tmax) break;
-      h = map( ro + rd * t);
-      t += h;
+      if (rayMarchingStep < 0.00001 || rayMarchingStep > uCameraFar) break;
+      rayMarchingStep = map( rayOrigin + rayDirection * dist);
+      dist += rayMarchingStep;
   }
   
-  if (t < tmax) {
-      // col = vec3(1.0 - t / tmax);
-      col = calcNormal(ro + rd * t) * vec3(1.0 - t / tmax);
+  if (dist < uCameraFar) {
+      // col = vec3(1.0 - t / uCameraFar);
+      col = calcNormal(rayOrigin + rayDirection * dist) * vec3(1.0 - dist / uCameraFar);
   }
+
+  // float a = (uCameraFar+uCameraNear)/(uCameraFar-uCameraNear);
+  // float b = 2.0*uCameraFar*uCameraNear/(uCameraFar-uCameraNear);
+  // float depth = a + b / t;
+// gl_FragDepth = a + b/z;
+
+  vec3 cameraForward = applyQuaternion(vec3(0, 0, -1), uCameraQuaternion);
+
+  float eyeHitZ = -dist * dot( cameraForward, rayDirection);
+  eyeHitZ /= uCameraFar;
+  // float depth = ((uCameraFar+uCameraNear) + (2.0*uCameraFar*uCameraNear)/eyeHitZ)/(uCameraFar-uCameraNear);
+
+  float a = (uCameraFar + uCameraNear) / (uCameraFar - uCameraNear);
+  float b = 2.0 * uCameraFar * uCameraNear / (uCameraFar - uCameraNear);
+  float ndcDepth = a + b / eyeHitZ;
+
+  float depth = ((gl_DepthRange.diff * ndcDepth) + gl_DepthRange.near + gl_DepthRange.far) / 2.0;
+
+
+  // float depth = eyeHitZ / uCameraFar;
+
+  // depth *= .1;
+
+  // float zc = ( projectionMatrix * vec4( intersectionPoint, 1.0 ) ).z;
+  // float wc = ( projectionMatrix * vec4( intersectionPoint, 1.0 ) ).w;
+  // float depth = zc/wc;
+  // gl_FragDepth = zc/wc;
     
-  gl_FragColor = vec4(col, vec3(1.0 - t / tmax));
+  // gl_FragColor = vec4(vec3(col), 1.);
+  gl_FragColor = vec4(col, 1. - depth);
 }
