@@ -25,8 +25,8 @@ float map( in vec3 p) {
   vec3 q = p;
   q.xz = mod(p.xz + firstSpherePosition.xz, 10.0) - 5.0;
   q.y = length(p.y + firstSpherePosition.y);
-  float dSphere = length( q ) - .5 - 1.;
-  // float dSphere = length( q ) - .5 - 1. - cos(uTime);
+  // float dSphere = length( q ) - .5 - 1.;
+  float dSphere = length( q ) - .5 - 1. - cos(uTime);
 
   float dPlane = p.y + 1.0;
 
@@ -95,6 +95,8 @@ void main(void)
   // vec3 rayDirection = normalize( vec3( p, -1 ));
   rayDirection = applyQuaternion(rayDirection, uCameraQuaternion);
 
+  // rayDirection = normalize(rayDirection);
+
   vec3 col = vec3(0.0);
   
   float rayMarchingStep = 0.00001;
@@ -113,20 +115,23 @@ void main(void)
 
   // float a = (uCameraFar+uCameraNear)/(uCameraFar-uCameraNear);
   // float b = 2.0*uCameraFar*uCameraNear/(uCameraFar-uCameraNear);
-  // float depth = a + b / t;
-// gl_FragDepth = a + b/z;
+  // float depth = dist / uCameraFar;
 
-  vec3 cameraForward = applyQuaternion(vec3(0, 0, -1), uCameraQuaternion);
-
+  vec3 cameraForward = applyQuaternion(vec3(0, 0, 1), uCameraQuaternion);
   float eyeHitZ = -dist * dot( cameraForward, rayDirection);
-  eyeHitZ /= uCameraFar;
+  float depth = eyeHitZ / uCameraFar;
+
+  // float depth = /z;
+
+  // float eyeHitZ = -dist * dot( cameraForward, rayDirection);
+  // eyeHitZ /= uCameraFar;
   // float depth = ((uCameraFar+uCameraNear) + (2.0*uCameraFar*uCameraNear)/eyeHitZ)/(uCameraFar-uCameraNear);
 
-  float a = (uCameraFar + uCameraNear) / (uCameraFar - uCameraNear);
-  float b = 2.0 * uCameraFar * uCameraNear / (uCameraFar - uCameraNear);
-  float ndcDepth = a + b / eyeHitZ;
+  // float a = (uCameraFar + uCameraNear) / (uCameraFar - uCameraNear);
+  // float b = 2.0 * uCameraFar * uCameraNear / (uCameraFar - uCameraNear);
+  // float ndcDepth = a + b / eyeHitZ;
 
-  float depth = ((gl_DepthRange.diff * ndcDepth) + gl_DepthRange.near + gl_DepthRange.far) / 2.0;
+  // float depth = ((gl_DepthRange.diff * ndcDepth) + gl_DepthRange.near + gl_DepthRange.far) / 2.0;
 
 
   // float depth = eyeHitZ / uCameraFar;

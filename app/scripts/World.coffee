@@ -19,17 +19,24 @@ class World
     @resize()
     @update()
 
-    for i in [0...20]
-      geometry = new THREE.BoxGeometry 20, 20, 20
-      material = new THREE.MeshNormalMaterial
-        color: 0x00ff00
-      cube = new THREE.Mesh geometry, material
-      cube.position.set(
-        Math.random() * 100 - 50
-        Math.random() * 100 - 50
-        Math.random() * 100 - 50
-      )
-      @scene.add cube
+    plane = new THREE.Mesh(new THREE.PlaneGeometry(10000, 10000))
+    plane.position.y = 0
+    plane.rotation.x = -Math.PI * .5
+    @scene.add plane
+
+    for i in [0...4]
+      for j in [0...4]
+        geometry = new THREE.BoxGeometry 20, 20, 20
+        material = new THREE.MeshNormalMaterial
+          color: 0x00ff00
+
+        cube = new THREE.Mesh geometry, material
+        cube.position.set(
+          i * 40 - 40
+          10
+          j * 40 - 40
+        )
+        # @scene.add cube
 
     window.addEventListener 'resize', @resize
     window.addEventListener 'mousemove', @onPointerMove
@@ -178,9 +185,9 @@ class World
     width = Math.floor(window.innerWidth * devicePixelRatio)
     height = Math.floor(window.innerHeight * devicePixelRatio)
     @fxaaShaderPass.uniforms['resolution'].value.set 1 / width, 1 / height
-    @worldShaderPass.uniforms['uResolution'].value.set width * .3, height * .3
+    @worldShaderPass.uniforms['uResolution'].value.set width * .5, height * .5
     @renderer.setSize width, height
-    @worldShaderComposer.setSize width * .3, height * .3
+    @worldShaderComposer.setSize width * .5, height * .5
     @renderComposer.setSize width, height
     @composer.setSize width, height
 
