@@ -1,7 +1,7 @@
 class World
   constructor: (@canvas) ->
     @scene = new THREE.Scene()
-    @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, .1, 200
+    @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, 1, 400
     @camera.position.z = -100
     @renderer = new THREE.WebGLRenderer
       canvas: @canvas
@@ -19,10 +19,10 @@ class World
     @resize()
     @update()
 
-    plane = new THREE.Mesh(new THREE.PlaneGeometry(10000, 10000))
+    plane = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000))
     plane.position.y = -5
     plane.rotation.x = -Math.PI * .5
-    @scene.add plane
+    # @scene.add plane
 
     for i in [0...4]
       for j in [0...4]
@@ -82,7 +82,10 @@ class World
           type: 'm4'
           value: new THREE.Matrix4()
       vertexShader: document.querySelector('#world-shader-vertex').import.body.innerText
-      fragmentShader: document.querySelector('#world-shader-fragment').import.body.innerText
+      fragmentShader: [
+        document.querySelector('#world-shader-fragment').import.body.innerText,
+        document.querySelector('#noise-3d').import.body.innerText
+      ].join('\n');
     }
 
   createMixDepthShader: ->
@@ -107,7 +110,6 @@ class World
       minFilter: THREE.LinearFilter
       magFilter: THREE.LinearFilter
       format: THREE.RGBAFormat
-      stencilBuffer: false
     )
 
     @worldShaderPass = new THREE.ShaderPass @createWorldShader()
@@ -133,7 +135,6 @@ class World
       minFilter: THREE.LinearFilter
       magFilter: THREE.LinearFilter
       format: THREE.RGBFormat
-      stencilBuffer: false
     )
     renderPass = new THREE.RenderPass @scene, @camera
     renderPass.needsSwap = true
@@ -218,6 +219,8 @@ class World
     @worldShaderComposer.render()
     @renderComposer.render()
     @composer.render()
+
+    # @renderer.render(@scene, @camera)
 
     @worldShaderPass.uniforms['uCameraPosition'].value.copy @camera.position
     @worldShaderPass.uniforms['uCameraRotation'].value.copy @camera.rotation

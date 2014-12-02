@@ -69,7 +69,10 @@ gulp.task('clean', function () {
     return gulp.src(['.tmp', 'dist'], { read: false }).pipe($.clean());
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras']);
+gulp.task('build', ['html', 'images', 'fonts', 'extras'], function () {
+    gulp.src('app/shaders/*.*')
+      .pipe(gulp.dest('dist/shaders'));
+});
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');

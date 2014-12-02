@@ -1,4 +1,4 @@
-precision highp float;
+precision mediump float;
 
 uniform sampler2D uTexture;
 uniform sampler2D uTextureDepth;
@@ -14,11 +14,11 @@ void main() {
   vec3 color = vec3(0, 0, 0);
 
   if(texelTextureDepth.r > texelTextureAlphaDepth.a) {
-    color = vec3(texelTextureDepth.rgb);
+    // color = vec3(texelTextureDepth.rgb);
     color = texelTexture.rgb;
   }
   else {
-    color = vec3(texelTextureAlphaDepth.a);
+    // color = vec3(texelTextureAlphaDepth.a);
     color = texelTextureAlphaDepth.rgb;
   }
 

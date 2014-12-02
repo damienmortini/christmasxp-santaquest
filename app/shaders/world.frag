@@ -1,4 +1,4 @@
-precision highp float;
+precision mediump float;
 
 #define PI 3.1415926535897932384626433832795
 
@@ -34,7 +34,10 @@ float map( in vec3 p) {
   q.y = length(p.y + firstSpherePosition.y);
   float dSphere = length( q ) - .5 - 1. - cos(uTime);
 
-  float dPlane = p.y + 5.0;
+  float displacement = sin(p.x)*sin(p.y)*sin(p.z);
+  dSphere += displacement;
+
+  float dPlane = p.y + 0.0;
 
   float blendingRatio = .8;
   float ratio = clamp(.5 + .5 * (dSphere - dPlane) / blendingRatio, 0., 1.);
@@ -70,19 +73,15 @@ void main(void)
   }
   
   if (dist < uCameraFar) {
-      col = calcNormal(rayOrigin + rayDirection * dist) * vec3(1.0 - dist / uCameraFar);
+      col = calcNormal(rayOrigin + rayDirection * dist);
   }
 
   vec3 intersectionPoint = -dist * rayDirection;
   float eyeHitZ = dist * dot(vCameraForward, rayDirection);
-  eyeHitZ /= uCameraFar - uCameraNear;
 
   float depth = eyeHitZ;
 
-  float a = uCameraFar / (uCameraFar - uCameraNear);
-  float b = uCameraFar * uCameraNear / (uCameraNear - uCameraFar);
-  // gl_FragDepth = a + b / eyeHitZ;
-  depth = a + b / eyeHitZ;
+  depth = smoothstep( uCameraNear, uCameraFar, depth );
 
-  gl_FragColor = vec4(vec3(1.0 - depth), 1.0 - depth);
+  gl_FragColor = vec4(col, 1.0 - depth);
 }
