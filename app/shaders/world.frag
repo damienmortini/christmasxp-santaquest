@@ -13,22 +13,28 @@ uniform vec3 uCameraPosition;
 uniform vec3 uCameraRotation;
 uniform vec4 uCameraQuaternion;
 
-uniform mat4 modelMatrix;
-uniform mat4 modelViewMatrix;
-uniform mat4 projectionMatrix;
+uniform mat4 uModelViewMatrix;
+uniform mat4 uProjectionMatrix;
+
+// uniform mat4 modelMatrix;
+// uniform mat4 modelViewMatrix;
+// uniform mat4 projectionMatrix;
 // uniform mat4 viewMatrix;
-uniform mat3 normalMatrix;
+// uniform mat3 normalMatrix;
 // uniform vec3 cameraPosition;
+
+varying vec3 vEye;
+varying vec3 vDir;
+varying vec3 vCameraForward;
 
 float map( in vec3 p) {
   vec3 firstSpherePosition = vec3(0.0, -1., 2.0);
   vec3 q = p;
   q.xz = mod(p.xz + firstSpherePosition.xz, 10.0) - 5.0;
   q.y = length(p.y + firstSpherePosition.y);
-  // float dSphere = length( q ) - .5 - 1.;
   float dSphere = length( q ) - .5 - 1. - cos(uTime);
 
-  float dPlane = p.y + 1.0;
+  float dPlane = p.y + 5.0;
 
   float blendingRatio = .8;
   float ratio = clamp(.5 + .5 * (dSphere - dPlane) / blendingRatio, 0., 1.);
@@ -47,55 +53,10 @@ vec3 calcNormal (in vec3 p) {
   ));
 }
 
-vec3 applyQuaternion ( in vec3 v, vec4 q ) {
-  float x = v.x;
-  float y = v.y;
-  float z = v.z;
-
-  float qx = q.x;
-  float qy = q.y;
-  float qz = q.z;
-  float qw = q.w;
-
-  // calculate quat * vector
-
-  float ix =  qw * x + qy * z - qz * y;
-  float iy =  qw * y + qz * x - qx * z;
-  float iz =  qw * z + qx * y - qy * x;
-  float iw = - qx * x - qy * y - qz * z;
-
-  // calculate result * inverse quat
-
-  v.x = ix * qw + iw * - qx + iy * - qz - iz * - qy;
-  v.y = iy * qw + iw * - qy + iz * - qx - ix * - qz;
-  v.z = iz * qw + iw * - qz + ix * - qy - iy * - qx;
-
-  return v;
-}
-
 void main(void)
 {
-  vec2 uv = gl_FragCoord.xy / uResolution.xy;
-  vec2 p = -1.0 + 2.0 * uv;
-  float fovHorizontal = uCameraFov * uCameraAspect;
-  vec2 fovAngle = vec2((fovHorizontal / 180.0) * PI, (uCameraFov / 180.0) * PI);
-  vec3 rayDirection = vec3(0.0);
-  rayDirection.x = sin(p.x * fovAngle.x * .5);
-  rayDirection.z = -cos(p.x * fovAngle.x * .5);
-  rayDirection.y = sin(p.y * fovAngle.y * .5);
-  rayDirection.x *= cos(p.y * fovAngle.y * .5);
-  rayDirection.z *= cos(p.y * fovAngle.y * .5);
-
-  // float ditanceRatio = 1.0 + (1.0 - dot(vec3(0.0, 0.0, 1.0), rayDirection));
-
-  // rayDirection *= ditanceRatio;
-
-  // vec3 ro = vec3(0., 0., 0.);
-  vec3 rayOrigin = uCameraPosition;
-  // vec3 rayDirection = normalize( vec3( p, -1 ));
-  rayDirection = applyQuaternion(rayDirection, uCameraQuaternion);
-
-  // rayDirection = normalize(rayDirection);
+  vec3 rayOrigin = vEye;
+  vec3 rayDirection = normalize(vDir);
 
   vec3 col = vec3(0.0);
   
@@ -109,40 +70,19 @@ void main(void)
   }
   
   if (dist < uCameraFar) {
-      // col = vec3(1.0 - t / uCameraFar);
       col = calcNormal(rayOrigin + rayDirection * dist) * vec3(1.0 - dist / uCameraFar);
   }
 
-  // float a = (uCameraFar+uCameraNear)/(uCameraFar-uCameraNear);
-  // float b = 2.0*uCameraFar*uCameraNear/(uCameraFar-uCameraNear);
-  // float depth = dist / uCameraFar;
+  vec3 intersectionPoint = -dist * rayDirection;
+  float eyeHitZ = dist * dot(vCameraForward, rayDirection);
+  eyeHitZ /= uCameraFar - uCameraNear;
 
-  vec3 cameraForward = applyQuaternion(vec3(0, 0, 1), uCameraQuaternion);
-  float eyeHitZ = -dist * dot( cameraForward, rayDirection);
-  float depth = eyeHitZ / uCameraFar;
+  float depth = eyeHitZ;
 
-  // float depth = /z;
+  float a = uCameraFar / (uCameraFar - uCameraNear);
+  float b = uCameraFar * uCameraNear / (uCameraNear - uCameraFar);
+  // gl_FragDepth = a + b / eyeHitZ;
+  depth = a + b / eyeHitZ;
 
-  // float eyeHitZ = -dist * dot( cameraForward, rayDirection);
-  // eyeHitZ /= uCameraFar;
-  // float depth = ((uCameraFar+uCameraNear) + (2.0*uCameraFar*uCameraNear)/eyeHitZ)/(uCameraFar-uCameraNear);
-
-  // float a = (uCameraFar + uCameraNear) / (uCameraFar - uCameraNear);
-  // float b = 2.0 * uCameraFar * uCameraNear / (uCameraFar - uCameraNear);
-  // float ndcDepth = a + b / eyeHitZ;
-
-  // float depth = ((gl_DepthRange.diff * ndcDepth) + gl_DepthRange.near + gl_DepthRange.far) / 2.0;
-
-
-  // float depth = eyeHitZ / uCameraFar;
-
-  // depth *= .1;
-
-  // float zc = ( projectionMatrix * vec4( intersectionPoint, 1.0 ) ).z;
-  // float wc = ( projectionMatrix * vec4( intersectionPoint, 1.0 ) ).w;
-  // float depth = zc/wc;
-  // gl_FragDepth = zc/wc;
-    
-  // gl_FragColor = vec4(vec3(col), 1.);
-  gl_FragColor = vec4(col, 1. - depth);
+  gl_FragColor = vec4(vec3(1.0 - depth), 1.0 - depth);
 }

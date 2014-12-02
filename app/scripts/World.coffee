@@ -20,7 +20,7 @@ class World
     @update()
 
     plane = new THREE.Mesh(new THREE.PlaneGeometry(10000, 10000))
-    plane.position.y = 0
+    plane.position.y = -5
     plane.rotation.x = -Math.PI * .5
     @scene.add plane
 
@@ -36,7 +36,7 @@ class World
           10
           j * 40 - 40
         )
-        # @scene.add cube
+        @scene.add cube
 
     window.addEventListener 'resize', @resize
     window.addEventListener 'mousemove', @onPointerMove
@@ -75,6 +75,12 @@ class World
         'uPointer':
           type: 'v2'
           value: new THREE.Vector2()
+        'uModelViewMatrix':
+          type: 'm4'
+          value: new THREE.Matrix4()
+        'uProjectionMatrix':
+          type: 'm4'
+          value: new THREE.Matrix4()
       vertexShader: document.querySelector('#world-shader-vertex').import.body.innerText
       fragmentShader: document.querySelector('#world-shader-fragment').import.body.innerText
     }
@@ -195,12 +201,16 @@ class World
     @worldShaderPass.uniforms['uCameraNear'].value = @camera.near
     @worldShaderPass.uniforms['uCameraFar'].value = @camera.far
     @worldShaderPass.uniforms['uCameraFov'].value = @camera.fov
+    @worldShaderPass.uniforms['uModelViewMatrix'].value = @camera.matrixWorldInverse
+    @worldShaderPass.uniforms['uProjectionMatrix'].value = @camera.projectionMatrix
     @mixDepthShaderPass.uniforms['uTextureAlphaDepth'].value = @worldShaderComposer.renderTarget1
     @mixDepthShaderPass.uniforms['uTexture'].value = @renderComposer.renderTarget2
     @mixDepthShaderPass.uniforms['uTextureDepth'].value = @renderComposer.renderTarget1
     return
 
   update: =>
+    # console.log @worldShaderPass.uniforms['uModelViewMatrix'].value.elements
+    # return
     requestAnimationFrame @update
     @worldShaderPass.uniforms['uTime'].value += .01
     @worldShaderPass.uniforms['uPointer'].value.x = @pointer.x
@@ -212,6 +222,8 @@ class World
     @worldShaderPass.uniforms['uCameraPosition'].value.copy @camera.position
     @worldShaderPass.uniforms['uCameraRotation'].value.copy @camera.rotation
     @worldShaderPass.uniforms['uCameraQuaternion'].value.copy @camera.quaternion
+
+
 
     # console.log @controls.object.rotation, @camera.object.position
     # @worldShaderPass.uniforms['uCameraQuaternion'].value.inverse()
