@@ -83,8 +83,8 @@ class World
           value: new THREE.Matrix4()
       vertexShader: document.querySelector('#world-shader-vertex').import.body.innerText
       fragmentShader: [
-        document.querySelector('#world-shader-fragment').import.body.innerText,
         document.querySelector('#noise-3d').import.body.innerText
+        document.querySelector('#world-shader-fragment').import.body.innerText
       ].join('\n');
     }
 
