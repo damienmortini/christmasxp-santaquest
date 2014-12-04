@@ -34,16 +34,30 @@ float rand(vec2 co){
 vec4 map( in vec3 p) {
   vec3 firstSpherePosition = vec3(0.0, -1., 2.0);
   // p += snoise(p);
+
+  float modulo = 20.;
+  float noisePos = rand(floor(p.xz / modulo));
+
+
   vec3 q = p;
-  q.xz = mod(p.xz + firstSpherePosition.xz, 10.0) - 5.0;
-  q.y = length(p.y + firstSpherePosition.y);
-  float dSphere = length( q ) - .5 - 1. - cos(uTime);
+  q.xz = mod(p.xz, modulo) - modulo * .5;
+  // laaaaa "noisePos"
+  q.y += noisePos * 50.;
+
+  // q -= noisePos * modulo;
+  // q.xz += noisePos * 5.;
+
+  float radius = noisePos;
+
+  float dSphere = length(q) - radius * 5.;
+  // float dSphere = length( q ) - .5 - 1. - cos(uTime);
   vec3 sphereCol = vec3(1.0, 0.0, 0.0);
 
-  float displacement = sin(p.x * 2.0)*sin(p.y * 2.0)*sin(p.z * 2.0);
-  dSphere += displacement;
 
-  float dPlane = p.y + 0.0;
+  float displacement = sin(p.x * 2.0)*sin(p.y * 2.0)*sin(p.z * 2.0);
+  // dSphere += displacement;
+
+  float dPlane = p.y + 50.0;
   vec3 planeCol = vec3(1.0, 1.0, 1.0);
 
   float blendingRatio = .8;
@@ -52,7 +66,8 @@ vec4 map( in vec3 p) {
   float dist = mix(dSphere, dPlane, ratio) - blendingRatio * ratio * (1. - ratio);
   vec3 color = mix(sphereCol, planeCol, ratio) - blendingRatio * ratio * (1. - ratio);
 
-  return vec4(color, dist);
+  return vec4(sphereCol, dSphere);
+  // return vec4(color, dist);
 }
 
 vec3 calcNormal (in vec3 p) {
