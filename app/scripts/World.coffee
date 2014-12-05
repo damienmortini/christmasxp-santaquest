@@ -1,53 +1,41 @@
 class World
   constructor: (@canvas) ->
-    @build()
-    return
-
-  build: =>
     @scene = new THREE.Scene()
     @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, .1, 400
     @camera.position.y = 2
     @renderer = new THREE.WebGLRenderer
       canvas: @canvas
       alpha: true
-
-    # @scene.add @bear
-    # @renderer.render(@scene, @camera)
-
     @pointer =
       x: 0
       y: 0
-
-    # @controls = new THREE.FirstPersonControls(@camera)
+    
     @controls = new Controls(@camera)
 
-    # @camera.position.z = 100
+    # @camera.position.z = 50
     # @controls = new THREE.TrackballControls(@camera)
 
-    loader = new THREE.JSONLoader(true)
-    loader.load '../models/horse.js', (geometry) =>
-      @mesh = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial(
-        color: 0x606060
-        morphTargets: true
-      ))
-      @mesh.scale.set .1, .1, .1
-      @scene.add @mesh
-      @animation = new THREE.MorphAnimation(@mesh)
-      @animation.play()
-      return
-
     @initComposer()
+
+    @addLights()
+    @addObjects()
+
     @resize()
     @update()
 
+    window.addEventListener 'resize', @resize
+    window.addEventListener 'mousemove', @onPointerMove
+    return
+
+  addObjects: =>
     plane = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000))
     plane.position.y = -5
     plane.rotation.x = -Math.PI * .5
-    # @scene.add plane
+    @scene.add plane
 
-    for i in [0...4]
-      for j in [0...4]
-        geometry = new THREE.BoxGeometry 20, 20, 20
+    for i in [0...40]
+      for j in [0...40]
+        geometry = new THREE.BoxGeometry 5, 5, 5
         material = new THREE.MeshNormalMaterial
           color: 0x00ff00
 
@@ -57,100 +45,25 @@ class World
           10
           j * 40 - 40
         )
-        # @scene.add cube
-
-    window.addEventListener 'resize', @resize
-    window.addEventListener 'mousemove', @onPointerMove
+        @scene.add cube
     return
 
-  createWorldShader: ->
-    return {
-      uniforms:
-        'uCameraAspect':
-          type: 'f'
-          value: 0
-        'uCameraNear':
-          type: 'f'
-          value: 0
-        'uCameraFar':
-          type: 'f'
-          value: 0
-        'uCameraFov':
-          type: 'f'
-          value: 0
-        'uCameraRotation':
-          type: 'v3'
-          value: new THREE.Vector3()
-        'uCameraQuaternion':
-          type: 'v4'
-          value: new THREE.Quaternion()
-        'uCameraPosition':
-          type: 'v3'
-          value: new THREE.Vector3()
-        'uResolution':
-          type: 'v2'
-          value: new THREE.Vector2()
-        'uTime':
-          type: 'f'
-          value: 0
-        'uPointer':
-          type: 'v2'
-          value: new THREE.Vector2()
-        'uModelViewMatrix':
-          type: 'm4'
-          value: new THREE.Matrix4()
-        'uProjectionMatrix':
-          type: 'm4'
-          value: new THREE.Matrix4()
-      vertexShader: document.querySelector('#world-shader-vertex').import.body.innerText
-      fragmentShader: [
-        document.querySelector('#noise-3d').import.body.innerText
-        document.querySelector('#world-shader-fragment').import.body.innerText
-      ].join('\n');
-    }
-
-  createMixDepthShader: ->
-    return {
-      uniforms:
-        'uTexture':
-          type: 't'
-          value: null
-        'uTextureDepth':
-          type: 't'
-          value: null
-        'uTextureAlphaDepth':
-          type: 't'
-          value: null
-      vertexShader: document.querySelector('#mix-depth-shader-vertex').import.body.innerText
-      fragmentShader: document.querySelector('#mix-depth-shader-fragment').import.body.innerText
-    }
+  addLights: =>
+    light = new THREE.DirectionalLight(0xffffff, 0.5)
+    light.position.set 0, 1, 0
+    @scene.add light
+    return
 
   initComposer: =>
-
     @worldShaderComposer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(1, 1,
       minFilter: THREE.LinearFilter
       magFilter: THREE.LinearFilter
       format: THREE.RGBAFormat
     )
 
-    @worldShaderPass = new THREE.ShaderPass @createWorldShader()
+    @worldShaderPass = new THREE.ShaderPass new WorldShader()
     @worldShaderPass.needsSwap = false
-    # @worldShaderPass.renderToScreen = true
     @worldShaderComposer.addPass @worldShaderPass
-
-    # verticalBlurPass = new THREE.ShaderPass THREE.VerticalBlurShader
-    # verticalBlurPass.uniforms['v'].value = .001
-    # @worldShaderComposer.addPass verticalBlurPass
-
-    # horizontalBlurPass = new THREE.ShaderPass THREE.HorizontalBlurShader
-    # horizontalBlurPass.uniforms['h'].value = .001
-    # @worldShaderComposer.addPass horizontalBlurPass
-
-    # copyShaderPass = new THREE.ShaderPass THREE.CopyShader
-    # copyShaderPass.renderToScreen = true
-    # copyShaderPass.needsSwap = false
-    # copyShaderPass.clear = true
-    # @worldShaderComposer.addPass copyShaderPass
 
     @renderComposer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(1, 1,
       minFilter: THREE.LinearFilter
@@ -176,28 +89,12 @@ class World
       stencilBuffer: false
     )
 
-    @mixDepthShaderPass = new THREE.ShaderPass @createMixDepthShader()
-
-    # @mixDepthShaderPass.needsSwap = false
-    # @mixDepthShaderPass.renderToScreen = true
+    @mixDepthShaderPass = new THREE.ShaderPass new MixDepthShader()
     @composer.addPass @mixDepthShaderPass
-
-    # copyShaderPass = new THREE.ShaderPass THREE.CopyShader
-    # @composer.addPass copyShaderPass
-
-    # verticalBlurPass = new THREE.ShaderPass THREE.VerticalBlurShader
-    # verticalBlurPass.uniforms['v'].value = .01
-    # @composer.addPass verticalBlurPass
-
-    # horizontalBlurPass = new THREE.ShaderPass THREE.HorizontalBlurShader
-    # horizontalBlurPass.uniforms['h'].value = .01
-    # @composer.addPass horizontalBlurPass
 
     @fxaaShaderPass = new THREE.ShaderPass(THREE.FXAAShader)
     @fxaaShaderPass.renderToScreen = true
     @composer.addPass(@fxaaShaderPass)
-
-    # @fxaaShaderPass.uniforms['resolution'].value.set 512, 512
 
     return
 
@@ -219,10 +116,9 @@ class World
     @renderComposer.setSize width, height
     @composer.setSize width, height
 
-    @worldShaderPass.uniforms['uCameraAspect'].value = @camera.aspect
-    @worldShaderPass.uniforms['uCameraNear'].value = @camera.near
-    @worldShaderPass.uniforms['uCameraFar'].value = @camera.far
-    @worldShaderPass.uniforms['uCameraFov'].value = @camera.fov
+    @worldShaderPass.uniforms['uNear'].value = @camera.near
+    @worldShaderPass.uniforms['uFar'].value = @camera.far
+    @worldShaderPass.uniforms['uFov'].value = @camera.fov
     @worldShaderPass.uniforms['uModelViewMatrix'].value = @camera.matrixWorldInverse
     @worldShaderPass.uniforms['uProjectionMatrix'].value = @camera.projectionMatrix
     @mixDepthShaderPass.uniforms['uTextureAlphaDepth'].value = @worldShaderComposer.renderTarget1
@@ -231,32 +127,13 @@ class World
     return
 
   update: =>
-    # console.log @worldShaderPass.uniforms['uModelViewMatrix'].value.elements
-    # return
     requestAnimationFrame @update
 
-
-    if @animation?
-      @animation.update(.1)
-
     @worldShaderPass.uniforms['uTime'].value += .01
-    @worldShaderPass.uniforms['uPointer'].value.x = @pointer.x
     @controls.update()
     @worldShaderComposer.render()
     @renderComposer.render()
     @composer.render()
 
     # @renderer.render(@scene, @camera)
-
-    @worldShaderPass.uniforms['uCameraPosition'].value.copy @camera.position
-    @worldShaderPass.uniforms['uCameraRotation'].value.copy @camera.rotation
-    @worldShaderPass.uniforms['uCameraQuaternion'].value.copy @camera.quaternion
-
-
-
-    # console.log @controls.object.rotation, @camera.object.position
-    # @worldShaderPass.uniforms['uCameraQuaternion'].value.inverse()
-
-    # console.log @camera.quaternion
-    # console.log @worldShaderPass.uniforms['uCameraRotation'].value
     return

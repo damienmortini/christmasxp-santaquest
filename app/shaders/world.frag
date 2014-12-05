@@ -2,30 +2,13 @@ precision mediump float;
 
 #define PI 3.1415926535897932384626433832795
 
-uniform float uTime;
 uniform vec2 uResolution;
-uniform vec2 uPointer;
-uniform float uCameraAspect;
-uniform float uCameraNear;
-uniform float uCameraFar;
-uniform float uCameraFov;
-uniform vec3 uCameraPosition;
-uniform vec3 uCameraRotation;
-uniform vec4 uCameraQuaternion;
-
+uniform float uNear;
+uniform float uFar;
+uniform float uFov;
+uniform float uTime;
 uniform mat4 uModelViewMatrix;
 uniform mat4 uProjectionMatrix;
-
-// uniform mat4 modelMatrix;
-// uniform mat4 modelViewMatrix;
-// uniform mat4 projectionMatrix;
-// uniform mat4 viewMatrix;
-// uniform mat3 normalMatrix;
-// uniform vec3 cameraPosition;
-
-varying vec3 vEye;
-varying vec3 vDir;
-varying vec3 vCameraForward;
 
 // PRIMITIVES
 
@@ -115,23 +98,33 @@ vec3 calcNormal (in vec3 p) {
 
 void main(void)
 {
+  float fovScaleY = tan((uFov / 180.0) * PI * .5);
+  float aspect = uResolution.x / uResolution.y;
+
+  vec2 position = ( gl_FragCoord.xy / uResolution.xy );
+  position = position * 2. - 1.;
+
+  vec3 vEye = -( uModelViewMatrix[3].xyz ) * mat3( uModelViewMatrix );
+  vec3 vDir = vec3(position.x * fovScaleY * aspect, position.y * fovScaleY,-1.0) * mat3( uModelViewMatrix );
+  vec3 vCameraForward = vec3( 0.0, 0.0, -1.0) * mat3( uModelViewMatrix );
+
   vec3 rayOrigin = vEye;
   vec3 rayDirection = normalize(vDir);
 
   vec3 col = vec3(0.0);
   
   float rayMarchingStep = 0.00001;
-  float dist = uCameraNear;
+  float dist = uNear;
   vec4 result;
   
   for(int i = 0; i < 100; i++) {
-      if (rayMarchingStep < 0.00001 || rayMarchingStep > uCameraFar) break;
+      if (rayMarchingStep < 0.00001 || rayMarchingStep > uFar) break;
       result = map( rayOrigin + rayDirection * dist);
       rayMarchingStep = result.w;
       dist += rayMarchingStep;
   }
   
-  if (dist < uCameraFar) {
+  if (dist < uFar) {
       col = result.rgb;
       col += .5 * dot(calcNormal(rayOrigin + rayDirection * dist), normalize(vec3(0.0, 1.0, 0.0)));
   }
@@ -141,7 +134,7 @@ void main(void)
 
   float depth = eyeHitZ;
 
-  depth = smoothstep( uCameraNear, uCameraFar, depth );
+  depth = smoothstep( uNear, uFar, depth );
 
   gl_FragColor = vec4(col * (1.0 - depth), 1.0 - depth);
 }
