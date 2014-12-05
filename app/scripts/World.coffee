@@ -1,4 +1,7 @@
 class World
+
+  FREE_MODE = false
+
   constructor: (@canvas) ->
     @scene = new THREE.Scene()
     @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, .1, 400
@@ -9,11 +12,23 @@ class World
     @pointer =
       x: 0
       y: 0
-    
-    @controls = new Controls(@camera)
 
-    # @camera.position.z = 50
-    # @controls = new THREE.TrackballControls(@camera)
+    # BACKWARD_QUATERNION = THREE.Quaternion()
+    # BACKWARD_QUATERNION.setFromEuler(new Euler)
+    
+
+    @bike = new Bike()
+    @bike.position.y = 5
+    @scene.add @bike
+
+    @bikeControls = new Controls(@bike, 1)
+
+    if (FREE_MODE)
+      @camera.position.z = 50
+      @cameraControls = new THREE.TrackballControls(@camera)
+    else
+      @cameraControls = new CameraControls(@camera, @bike)
+
 
     @initComposer()
 
@@ -45,12 +60,19 @@ class World
           10
           j * 40 - 40
         )
-        @scene.add cube
+        # @scene.add cube
+    return
+
+  addGifts: =>
+    
     return
 
   addLights: =>
-    light = new THREE.DirectionalLight(0xffffff, 0.5)
+    light = new THREE.DirectionalLight(0xffffff, .5)
     light.position.set 0, 1, 0
+    @scene.add light
+
+    light = new THREE.AmbientLight(0x657a7f)
     @scene.add light
     return
 
@@ -129,8 +151,12 @@ class World
   update: =>
     requestAnimationFrame @update
 
+    @bikeControls.update()
+    @cameraControls.update()
+
+    # render
+
     @worldShaderPass.uniforms['uTime'].value += .01
-    @controls.update()
     @worldShaderComposer.render()
     @renderComposer.render()
     @composer.render()

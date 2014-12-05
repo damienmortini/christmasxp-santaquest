@@ -54,15 +54,16 @@ vec4 sphereMap( in vec3 p) {
   vec3 color = vec3(1.0, 0.0, 0.0);
 
   float modulo = 10.;
-  float noiseRatio = rand(floor(p.xz / modulo)) * 2. - 1.;
 
-  // p.xz += noiseRatio * 40.;
+  vec2 gridPos = floor(p.xz / modulo);
+
+  float noiseRatio = rand(gridPos) * 2. - 1.;
 
   p.xz = mod(p.xz, modulo) - modulo * .5;
 
   float radius = noiseRatio;
 
-  float dist = length(p) - radius;
+  float dist = length(p) - radius * 5. * sin(uTime * sin(gridPos.x * 2.0)*sin(gridPos.y * 2.0));
 
   return vec4(color, dist);
 }

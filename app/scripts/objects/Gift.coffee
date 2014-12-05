@@ -1,4 +1,4 @@
-class Bike extends THREE.Object3D
+class Gift extends THREE.Object3D
   constructor: ->
     super()
 
@@ -7,8 +7,7 @@ class Bike extends THREE.Object3D
       geometry.computeMorphNormals()
 
       mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial(
-        color: 0xffffff
-        # shading: THREE.FlatShading
+        color: 0xdd8888
       ))
       @add mesh
       return

@@ -6,11 +6,12 @@ class Controls
   FLAG_SPACE = 16
 
   SPEED = 2
+  JUMP_INTENSITY = 3
   ROTATION_SPEED = .05
 
-  GRAVITY = -2
+  GRAVITY = -.81
 
-  constructor: (@camera) ->
+  constructor: (@object, @initialSpeed = 0) ->
     @keyFlags = 0
     @velocity = new THREE.Vector3()
     @movement = new THREE.Vector3()
@@ -20,7 +21,7 @@ class Controls
     @currentVelocity = @velocity.clone()
 
     @speed = 0
-    @groundRefY = @camera.position.y
+    @groundRefY = @object.position.y
 
     window.addEventListener 'keydown', @onKeyDown
     window.addEventListener 'keyup', @onKeyUp
@@ -59,30 +60,26 @@ class Controls
       @euler.y -= ROTATION_SPEED
     if (@keyFlags & FLAG_LEFT)
       @euler.y += ROTATION_SPEED
-    @movement.z = 0
+    @movement.z = @initialSpeed
     if (@keyFlags & FLAG_UP)
-      @movement.z = -SPEED
+      @movement.z = @initialSpeed + SPEED
     if (@keyFlags & FLAG_DOWN)
-      @movement.z = if (@movement.z is -SPEED) then 0 else SPEED
+      @movement.z = if (@movement.z is SPEED) then 0 else @initialSpeed - SPEED
 
     @quaternion.setFromEuler(@euler)
-    @camera.quaternion.slerp(@quaternion, .1)
+    @object.quaternion.slerp(@quaternion, .1)
     @velocity.copy @movement
-    @velocity.applyQuaternion(@camera.quaternion)
+    @velocity.applyQuaternion(@object.quaternion)
 
     @velocity.y += GRAVITY
 
-    if (@keyFlags & FLAG_SPACE && @camera.position.y is @groundRefY)
-      @currentVelocity.y += 10
+    if (@keyFlags & FLAG_SPACE && @object.position.y is @groundRefY)
+      @currentVelocity.y += JUMP_INTENSITY
 
     @currentVelocity.lerp(@velocity, .1)
     
-    @camera.position.add @currentVelocity
+    @object.position.add @currentVelocity
 
-    if @camera.position.y < @groundRefY
-      @camera.position.y = @groundRefY
-    # @camera
-    # if(@keyFlags & 1) {
-
-    # }
+    if @object.position.y < @groundRefY
+      @object.position.y = @groundRefY
     return
