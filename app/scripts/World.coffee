@@ -1,19 +1,40 @@
 class World
   constructor: (@canvas) ->
+    @build()
+    return
+
+  build: =>
     @scene = new THREE.Scene()
-    @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, 1, 400
-    @camera.position.z = -100
+    @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, .1, 400
+    @camera.position.y = 2
     @renderer = new THREE.WebGLRenderer
       canvas: @canvas
       alpha: true
-    @renderer.render(@scene, @camera)
+
+    # @scene.add @bear
+    # @renderer.render(@scene, @camera)
 
     @pointer =
       x: 0
       y: 0
 
     # @controls = new THREE.FirstPersonControls(@camera)
-    @controls = new THREE.TrackballControls(@camera)
+    @controls = new Controls(@camera)
+
+    # @camera.position.z = 100
+    # @controls = new THREE.TrackballControls(@camera)
+
+    loader = new THREE.JSONLoader(true)
+    loader.load '../models/horse.js', (geometry) =>
+      @mesh = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial(
+        color: 0x606060
+        morphTargets: true
+      ))
+      @mesh.scale.set .1, .1, .1
+      @scene.add @mesh
+      @animation = new THREE.MorphAnimation(@mesh)
+      @animation.play()
+      return
 
     @initComposer()
     @resize()
@@ -36,7 +57,7 @@ class World
           10
           j * 40 - 40
         )
-        @scene.add cube
+        # @scene.add cube
 
     window.addEventListener 'resize', @resize
     window.addEventListener 'mousemove', @onPointerMove
@@ -213,6 +234,11 @@ class World
     # console.log @worldShaderPass.uniforms['uModelViewMatrix'].value.elements
     # return
     requestAnimationFrame @update
+
+
+    if @animation?
+      @animation.update(.1)
+
     @worldShaderPass.uniforms['uTime'].value += .01
     @worldShaderPass.uniforms['uPointer'].value.x = @pointer.x
     @controls.update()

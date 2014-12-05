@@ -70,14 +70,14 @@ vec4 sphereMap( in vec3 p) {
 
   vec3 color = vec3(1.0, 0.0, 0.0);
 
-  float modulo = 100.;
+  float modulo = 10.;
   float noiseRatio = rand(floor(p.xz / modulo)) * 2. - 1.;
 
-  p.xz += noiseRatio * 40.;
+  // p.xz += noiseRatio * 40.;
 
   p.xz = mod(p.xz, modulo) - modulo * .5;
 
-  float radius = noiseRatio * 10.;
+  float radius = noiseRatio;
 
   float dist = length(p) - radius;
 
