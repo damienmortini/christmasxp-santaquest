@@ -10,14 +10,14 @@ class CameraControls
     @tempPosition = new THREE.Vector3()
     return
 
-  update: =>
+  update: (dt) =>
     @tempQuaternion.copy @object.quaternion
     @tempQuaternion.multiply @offsetQuaternion
-    @camera.quaternion.slerp @tempQuaternion, .1
+    @camera.quaternion.slerp @tempQuaternion, .1 * dt
 
     @tempOffsetAxis.copy @offsetAxis
     @tempOffsetAxis.applyQuaternion(@camera.quaternion)
     @tempPosition.copy @object.position
     @tempPosition.add @tempOffsetAxis
-    @camera.position.lerp @tempPosition, .2
+    @camera.position.lerp @tempPosition, .2 * dt
     return

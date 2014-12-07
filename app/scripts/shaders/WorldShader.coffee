@@ -22,6 +22,9 @@ class WorldShader
       'uProjectionMatrix':
         type: 'm4'
         value: new THREE.Matrix4()
+      'uNoiseTexture':
+        type: 't'
+        value: null
 
     @vertexShader = document.querySelector('#world-shader-vertex').import.body.innerText
 

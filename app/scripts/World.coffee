@@ -4,8 +4,9 @@ class World
 
   constructor: (@canvas) ->
     @scene = new THREE.Scene()
-    @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, .1, 400
+    @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, .1, 1000
     @camera.position.y = 2
+    @raf = null
     @renderer = new THREE.WebGLRenderer
       canvas: @canvas
       alpha: true
@@ -13,15 +14,11 @@ class World
       x: 0
       y: 0
 
-    # BACKWARD_QUATERNION = THREE.Quaternion()
-    # BACKWARD_QUATERNION.setFromEuler(new Euler)
-    
-
     @bike = new Bike()
     @bike.position.y = 5
     @scene.add @bike
 
-    @bikeControls = new Controls(@bike, 1)
+    @bikeControls = new BikeControls(@bike, 2)
 
     if (FREE_MODE)
       @camera.position.z = 50
@@ -36,31 +33,45 @@ class World
     @addObjects()
 
     @resize()
-    @update()
+
+    @start()
 
     window.addEventListener 'resize', @resize
-    window.addEventListener 'mousemove', @onPointerMove
+    # window.addEventListener 'mousemove', @onPointerMove
+    return
+
+  start: =>
+    if @raf?
+      return
+    @prevTime = Date.now()
+    @update()
+    return
+
+  stop: =>
+    cancelAnimationFrame(@raf)
+    @bikeControls.reset()
+    @raf = null
     return
 
   addObjects: =>
-    plane = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000))
-    plane.position.y = -5
-    plane.rotation.x = -Math.PI * .5
-    @scene.add plane
+    # plane = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000))
+    # plane.position.y = -5
+    # plane.rotation.x = -Math.PI * .5
+    # @scene.add plane
 
-    for i in [0...40]
-      for j in [0...40]
-        geometry = new THREE.BoxGeometry 5, 5, 5
-        material = new THREE.MeshNormalMaterial
-          color: 0x00ff00
+    for i in [0...10]
+      for j in [0...10]
+        geometry = new THREE.BoxGeometry 200, 200, 200
+        material = new THREE.MeshPhongMaterial
+          color: 0xff0000
 
         cube = new THREE.Mesh geometry, material
         cube.position.set(
-          i * 40 - 40
-          10
-          j * 40 - 40
+          Math.random() * 10000 - 5000
+          100
+          Math.random() * 10000 - 5000
         )
-        # @scene.add cube
+        @scene.add cube
     return
 
   addGifts: =>
@@ -68,11 +79,11 @@ class World
     return
 
   addLights: =>
-    light = new THREE.DirectionalLight(0xffffff, .5)
-    light.position.set 0, 1, 0
+    light = new THREE.DirectionalLight(0xffffff, 1)
+    light.position.set 1, 1, 0
     @scene.add light
 
-    light = new THREE.AmbientLight(0x657a7f)
+    light = new THREE.AmbientLight(0x333333)
     @scene.add light
     return
 
@@ -85,6 +96,7 @@ class World
 
     @worldShaderPass = new THREE.ShaderPass new WorldShader()
     @worldShaderPass.needsSwap = false
+    @worldShaderPass.uniforms['uNoiseTexture'].value = THREE.ImageUtils.loadTexture( 'images/tex03.jpg' )
     @worldShaderComposer.addPass @worldShaderPass
 
     @renderComposer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(1, 1,
@@ -100,9 +112,9 @@ class World
     renderPass.needsSwap = false
     @renderComposer.addPass renderPass
 
-    copyShaderPass = new THREE.ShaderPass THREE.CopyShader
-    copyShaderPass.renderToScreen = true
-    @renderComposer.addPass copyShaderPass
+    # copyShaderPass = new THREE.ShaderPass THREE.CopyShader
+    # copyShaderPass.renderToScreen = true
+    # @renderComposer.addPass copyShaderPass
 
     @composer = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(1, 1,
       minFilter: THREE.LinearFilter
@@ -149,17 +161,22 @@ class World
     return
 
   update: =>
-    requestAnimationFrame @update
+    @raf = requestAnimationFrame @update
 
-    @bikeControls.update()
-    @cameraControls.update()
+    time = Date.now()
+    dt = (time - @prevTime) / 1000 * 60
+    dt = 1 # temp
+
+    @bikeControls.update(dt)
+    @cameraControls.update(dt)
 
     # render
 
-    @worldShaderPass.uniforms['uTime'].value += .01
+    @worldShaderPass.uniforms['uTime'].value += dt / 60
     @worldShaderComposer.render()
     @renderComposer.render()
     @composer.render()
 
+    @prevTime = time
     # @renderer.render(@scene, @camera)
     return
