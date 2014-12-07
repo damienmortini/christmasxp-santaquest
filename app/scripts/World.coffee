@@ -14,6 +14,9 @@ class World
       x: 0
       y: 0
 
+    @deltaTimesSum = 0
+    @deltaTimesNumber = 0
+
     @bike = new Bike()
     @bike.position.y = 5
     @scene.add @bike
@@ -165,7 +168,11 @@ class World
 
     time = Date.now()
     dt = (time - @prevTime) / 1000 * 60
-    dt = 1 # temp
+
+    @deltaTimesSum += dt
+    @deltaTimesNumber++
+
+    dt = @deltaTimesSum / @deltaTimesNumber
 
     @bikeControls.update(dt)
     @cameraControls.update(dt)

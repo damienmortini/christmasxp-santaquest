@@ -61,8 +61,6 @@ class BikeControls
 
   update: (dt) =>
 
-    dt = 1
-
     # z
     if (@keyFlags & FLAG_RIGHT)
       @euler.z += ROTATION_SPEED.z * dt
@@ -72,7 +70,7 @@ class BikeControls
       @euler.z = 0
 
     # velocity
-    @velocity.set 0, 0, @initialSpeed
+    @velocity.set 0, 0, @initialSpeed * dt
     if (@keyFlags & FLAG_UP)
       @velocity.z += SPEED * dt
     if (@keyFlags & FLAG_DOWN)
@@ -96,12 +94,6 @@ class BikeControls
       @euler.y -= ROTATION_SPEED.y * dt
     if (@keyFlags & FLAG_LEFT)
       @euler.y += ROTATION_SPEED.y * dt
-
-    # @euler.multiply(dt)
-    # @euler.x *= dt
-    # @euler.y *= dt
-    # @euler.z *= dt
-    # @velocity.multiplyScalar(dt)
 
     @angleQuaternion.setFromEuler(@angleEuler)
 

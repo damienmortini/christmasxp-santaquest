@@ -119,7 +119,7 @@ voxel min( voxel voxel1, voxel voxel2 )
 }
 
 vec4 getTexture(sampler2D texture, vec2 position, float scale) {
-  return texture2D(uNoiseTexture, mod(position / scale, 1.));
+  return texture2D(uNoiseTexture, fract(position / scale));
 }
 
 // MAIN
@@ -128,25 +128,25 @@ voxel spheres( vec3 p, float modulo, float radius, vec2 offset, float duration )
 
   vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
 
-  p.xz += offset;
+  // p.xz += offset;
 
   vec2 pos = floor(p.xz / modulo);
 
-  vec2 noiseRatio = hash2(pos);
+  // vec2 noiseRatio = hash2(pos);
   // vec4 texel = getTexture(uNoiseTexture, pos, 512.);
   // float noiseRatio = texel.r;
 
   vec3 q = p;
 
-  float elevationRatio = mod(uTime, duration) / duration;
+  // float elevationRatio = mod(uTime, duration) / duration;
 
-  duration = noiseRatio.x + noiseRatio.y;
+  // duration = noiseRatio.x + noiseRatio.y;
 
   q.xz = mod(q.xz, modulo) - modulo * .5;
-  q.xz += (noiseRatio * .5 - .25) * modulo;
-  q.y += radius * 2. - 200. * elevationRatio;
+  // q.xz += (noiseRatio * .5 - .25) * modulo;
+  // q.y += radius * 2. - 200. * elevationRatio;
 
-  radius *= (1. - elevationRatio) * noiseRatio.x;
+  // radius *= (1. - elevationRatio) * noiseRatio.x;
 
   float dist = length(q) - radius;
   // float dist = length(q) - 5.;
@@ -164,8 +164,10 @@ voxel ground( vec3 p, vec4 tex ) {
   // color = tex;
   // color *= color;
   
-  float displacement = (tex.r + tex.g + tex.b) / 3.;
-  float dist = p.y  + 5. - displacement * 10.;
+  // float displacement = (tex.r + tex.g + tex.b) / 3.;
+  float displacement = sin(p.x * .01) * sin(p.z * .01);
+  float dist = p.y  + 5.;
+  dist += displacement * 10.;
 
   return voxel(dist, color);
 }
@@ -173,17 +175,76 @@ voxel ground( vec3 p, vec4 tex ) {
 voxel map( vec3 p) {
 
   vec4 noiseTex = getTexture(uNoiseTexture, p.xz, 100.);
+  // vec4 noiseTex = texture2D(uNoiseTexture, fract(p.xz / vec2(1000., 1000.)));
 
   voxel voxel = ground(p, noiseTex);
 
-  for(float i = 0.; i < 2.; i++) {
-    float seed = i + 1.;
-    voxel = smin(spheres(p, seed * 100., seed * 20., vec2(5. + seed * 160.0), seed * 1.), voxel);
-  }
+  // voxel = smin(spheres(p, 100., 20., vec2(160.0), 1.), voxel);
 
   // voxel = min(groundMap(p), voxel);
 
   return voxel;
+  // return voxel(length(p), vec4(1., 0., 0., .0));
+}
+
+voxel trace( vec3 ro, vec3 rd)
+{
+
+  ro = vec3(1., 5., 0.);
+  // if(uTime < 1.) {
+  // ro.x = uTime;
+  // }
+  // ro = vec3(0., 5., 0.);
+
+  float margin = 2.1;
+
+     
+  vec2 pos = floor(ro.xz);
+  // ro *= 1. / margin;
+  vec3 rdi = 1.0/rd;
+  vec3 rda = abs(rdi);
+  vec2 rds = sign(rd.xz);
+  vec2 dis = (pos- ro.xz + 0.5 + rds*0.5) * rdi.xz;
+  
+  voxel res = voxel( -1.0, vec4(1.) );
+
+    // traverse regular grid (in 2D)
+  vec2 mm = vec2(2.0);
+  for( int i=0; i<50; i++ ) 
+  {
+           
+    // intersect box
+    vec3  ce = vec3( (pos.x + .5) * margin, 2., (pos.y + 0.5) * margin);
+    vec3  rc = (ro - ce) * margin;
+    // vec3  rc = ro - ce;
+    float tN = 1.;
+    float tF = 50.;
+    if( tN < tF )//&& tF > 0.0 )
+    {
+      // raymarch
+      float s = tN;
+      float h = 1.0;
+      for( int j=0; j<24; j++ )
+      {
+        h = sdSphere( rc+s*rd, .5); 
+        s += h;
+        if( s>tF ) break;
+      }
+
+      if( h < (0.001*s*2.0) )
+      {
+        res = voxel( s, vec4((rc+s*rd).xyz ,1.) );
+        break; 
+      }
+    }
+
+    // step to next cell    
+    mm = step( dis.xy, dis.yx ); 
+    dis += mm*rda.xz;
+    pos += mm*rds;
+  }
+    
+  return res;
 }
 
 vec3 calcNormal ( vec3 p ) {
@@ -210,31 +271,33 @@ void main()
   vec3 rayOrigin = vEye;
   vec3 rayDirection = normalize(vDir);
 
-  vec4 col = vec4(0.0);
+  voxel voxel = voxel(uFar, vec4(0.0));
   
   float rayMarchingStep = 0.00001;
   float dist = uNear;
-  voxel voxel;
-  
+
   for(int i = 0; i < 64; i++) {
       if (rayMarchingStep < 0.00001 || rayMarchingStep > uFar) break;
       voxel = map( rayOrigin + rayDirection * dist);
       rayMarchingStep = voxel.dist;
       dist += rayMarchingStep;
   }
-  
-  if (dist < uFar) {
-      col = voxel.color;
-      col *= .75 + dot(calcNormal(rayOrigin + rayDirection * dist), vec3(0.0, 1.0, 0.0)) * .25;
-  }
 
-  vec3 intersectionPoint = -dist * rayDirection;
+  if (dist < uFar) {
+      voxel.color *= .75 + dot(calcNormal(rayOrigin + rayDirection * dist), vec3(0.0, 1.0, 0.0)) * .25;
+  }
+  // voxel = smin(trace(rayOrigin, rayDirection), voxel);
+  // voxel = trace(vec3(.20, 5., 0.), rayDirection);
+  // voxel = trace(rayOrigin, rayDirection);
+  
+
   float eyeHitZ = dist * dot(vCameraForward, rayDirection);
 
   float depth = eyeHitZ;
 
   depth = smoothstep( uNear, uFar, depth );
 
-  gl_FragColor = vec4(col.rgb, 1.0 - depth);
+  gl_FragColor = vec4(voxel.color.rgb, 1.0 - depth);
+  // gl_FragColor = vec4(voxel.color.rgb, 1.0);
 
 }
