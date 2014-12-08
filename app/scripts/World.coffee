@@ -5,7 +5,6 @@ class World
   constructor: (@canvas) ->
     @scene = new THREE.Scene()
     @camera = new THREE.PerspectiveCamera 75, @canvas.offsetWidth / @canvas.offsetHeight, .1, 1000
-    @camera.position.y = 2
     @raf = null
     @renderer = new THREE.WebGLRenderer
       canvas: @canvas
@@ -18,7 +17,7 @@ class World
     @deltaTimesNumber = 0
 
     @bike = new Bike()
-    @bike.position.y = 5
+    @bike.position.y = 10
     @scene.add @bike
 
     @bikeControls = new BikeControls(@bike, 2)

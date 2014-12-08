@@ -28,5 +28,6 @@ void main() {
   // color = vec3(texelTextureAlphaDepth.a);
   // vec4 color = texture2D( test0, vUv );
   // gl_FragColor = vec4(vec3(texelTextureDepth.r), 1.);
+  // gl_FragColor = vec4(vec3(texelTextureAlphaDepth.a), 1.);
   gl_FragColor = vec4(color * depth, 1.);
 }
