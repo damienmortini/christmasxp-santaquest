@@ -236,7 +236,7 @@ Voxel trace( vec3 ro, vec3 rd)
 
   // ro = vec3(0., 0., 0.);
 
-  Voxel voxel = Voxel( -1., vec4(vec3(0.5), 1.) );
+  Voxel voxel = Voxel( uFar, vec4(vec3(0.), 1.) );
 
   vec2 pos = floor(ro.xz);
   pos -= mod(pos, cellSize);
@@ -249,7 +249,7 @@ Voxel trace( vec3 ro, vec3 rd)
 
   // traverse regular grid (in 2D)
   vec2 mm = vec2(0.0);
-  for( int i=0; i<100; i++ ) 
+  for( int i=0; i<20; i++ ) 
   {        
     // intersect box
     vec3  ce = vec3( pos.x + 0.5 * cellSize, 2., pos.y+0.5 * cellSize );
@@ -263,7 +263,7 @@ Voxel trace( vec3 ro, vec3 rd)
       // raymarch
       float s = tN;
       float h = 1.0;
-      for( int j=0; j<24; j++ )
+      for( float j=0.; j<24.; j++ )
       {
         h = mapGridRayMarching( rc+s*rd).dist; 
         s += h;
@@ -273,8 +273,8 @@ Voxel trace( vec3 ro, vec3 rd)
       if( h < (.0001*s*2.0) )
       {
         // res = vec3( s, cub.yz );
-        voxel = Voxel(s, vec4(vec3(0.), 1.));
-        break; 
+        voxel = Voxel(s, vec4(vec3(1., 0., 0.), 1.));
+        // break; // cause a bug on windows
       }
     }
         
@@ -331,23 +331,24 @@ Voxel trace( vec3 ro, vec3 rd)
 
   // classic raymarching
 
-  // Voxel voxel2 = Voxel(uFar, vec4(0.0));
+  // voxel = Voxel(uFar, vec4(0.0));
 
   // float rayMarchingStep = 0.00001;
   // float dist = uNear;
 
   // for(int i = 0; i < 64; i++) {
   //     if (rayMarchingStep < 0.00001 || rayMarchingStep > uFar) break;
-  //     voxel2 = mapNormalRayMarching( rayOrigin + rayDirection * dist);
-  //     rayMarchingStep = voxel2.dist;
+  //     voxel = mapNormalRayMarching( ro + rd * dist);
+  //     rayMarchingStep = voxel.dist;
   //     dist += rayMarchingStep;
-  //     voxel2.dist = dist;
+  //     voxel.dist = dist;
   // }
   
   // if (dist < uFar) {
-  //     voxel2.color *= .75 + dot(calcNormalRayMarching(rayOrigin + rayDirection * dist), vec3(0.0, 1.0, 0.0)) * .25;
+  //     voxel.color *= .75 + dot(calcNormalRayMarching(ro + rd * dist), vec3(0.0, 1.0, 0.0)) * .25;
   // }
 
+  // voxel.color = vec4(1., 0., 0., 1.);
   return voxel;
   // return min(voxel, voxel2);
 }
@@ -377,7 +378,7 @@ void main()
   // float eyeHitZ = dist * dot(vCameraForward, rayDirection);
   float eyeHitZ = voxel.dist * dot(vCameraForward, rayDirection);
 
-  float depth = eyeHitZ;
+  float depth = eyeHitZ * 1.;
 
   depth = smoothstep( uNear, uFar, depth );
 
