@@ -32,31 +32,29 @@ class BikeControls
     return
 
   onKeyDown: (e) =>
-    switch e.keyCode
-      when 32
-        @keyFlags |= FLAG_SPACE
-      when 37
-        @keyFlags |= FLAG_LEFT
-      when 38
-        @keyFlags |= FLAG_UP
-      when 39
-        @keyFlags |= FLAG_RIGHT
-      when 40
-        @keyFlags |= FLAG_DOWN
+    if e.keyCode is 32
+      @keyFlags |= FLAG_SPACE
+    else if e.keyCode is 37 or e.keyCode is 65
+      @keyFlags |= FLAG_LEFT
+    else if e.keyCode is 38 or e.keyCode is 87
+      @keyFlags |= FLAG_UP
+    else if e.keyCode is 39 or e.keyCode is 68
+      @keyFlags |= FLAG_RIGHT
+    else if e.keyCode is 40 or e.keyCode is 83
+      @keyFlags |= FLAG_DOWN
     return
 
   onKeyUp: (e) =>
-    switch e.keyCode
-      when 32
-        @keyFlags &= (31 - FLAG_SPACE)
-      when 37
-        @keyFlags &= (31 - FLAG_LEFT)
-      when 38
-        @keyFlags &= (31 - FLAG_UP)
-      when 39
-        @keyFlags &= (31 - FLAG_RIGHT)
-      when 40
-        @keyFlags &= (31 - FLAG_DOWN)
+    if e.keyCode is 32
+      @keyFlags &= (31 - FLAG_SPACE)
+    else if e.keyCode is 37 or e.keyCode is 65
+      @keyFlags &= (31 - FLAG_LEFT)
+    else if e.keyCode is 38 or e.keyCode is 87
+      @keyFlags &= (31 - FLAG_UP)
+    else if e.keyCode is 39 or e.keyCode is 68
+      @keyFlags &= (31 - FLAG_RIGHT)
+    else if e.keyCode is 40 or e.keyCode is 83
+      @keyFlags &= (31 - FLAG_DOWN)
     return
 
   update: (dt) =>

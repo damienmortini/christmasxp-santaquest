@@ -2,14 +2,18 @@ class Gift extends THREE.Object3D
   constructor: ->
     super()
 
-    loader = new THREE.JSONLoader()
-    loader.load '../models/bike.json', (geometry) =>
-      geometry.computeMorphNormals()
+    @opened = false
 
-      mesh = new THREE.Mesh(geometry, new THREE.MeshPhongMaterial(
-        color: 0xdd8888
-      ))
+    loader = new THREE.JSONLoader()
+    loader.load '../models/gift.json', (geometry, materials) =>
+      mesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials))
+      mesh.scale.set(15, 15, 15)
       @add mesh
       return
     
     null
+
+  open: =>
+    @visible = false
+    @opened = true
+    return

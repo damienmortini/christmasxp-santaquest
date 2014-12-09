@@ -12,6 +12,7 @@ class World
     @pointer =
       x: 0
       y: 0
+    @gifts = []
 
     @deltaTimesSum = 0
     @deltaTimesNumber = 0
@@ -28,11 +29,13 @@ class World
     else
       @cameraControls = new CameraControls(@camera, @bike)
 
-
     @initComposer()
 
     @addLights()
     @addObjects()
+    @addGifts()
+
+    @progressionHandler = new ProgressionHandler(@gifts, @bike)
 
     @resize()
 
@@ -56,10 +59,8 @@ class World
     return
 
   addObjects: =>
-    # plane = new THREE.Mesh(new THREE.PlaneGeometry(1000, 1000))
-    # plane.position.y = -5
-    # plane.rotation.x = -Math.PI * .5
-    # @scene.add plane
+    @helper = new THREE.Mesh(new THREE.IcosahedronGeometry(1), new THREE.MeshPhongMaterial())
+    @scene.add @helper
 
     for i in [0...10]
       for j in [0...10]
@@ -77,7 +78,15 @@ class World
     return
 
   addGifts: =>
-    
+    for i in [0...1]
+      gift  = new Gift()
+      gift.position.set(
+        0
+        30
+        500
+      )
+      @gifts.push gift
+      @scene.add gift
     return
 
   addLights: =>
@@ -173,8 +182,15 @@ class World
 
     dt = @deltaTimesSum / @deltaTimesNumber
 
+    @progressionHandler.update(dt)
+    
     @bikeControls.update(dt)
     @cameraControls.update(dt)
+
+    @helper.position.set(0, 0, 0)
+    @helper.position.add @progressionHandler.direction
+    @helper.position.multiplyScalar(10)
+    @helper.position.add @bike.position
 
     # render
 

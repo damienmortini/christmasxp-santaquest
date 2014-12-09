@@ -160,6 +160,8 @@ Voxel spheres( vec3 p, float modulo, float radius, vec2 offset, float duration )
 
   color.g = noiseRatio.x;
   color.b = noiseRatio.y;
+
+  color = color * color * color * color * color * color * color * color * color;
   // vec3 q = p;
 
   // float elevationRatio = mod(uTime, duration) / duration;
@@ -174,7 +176,7 @@ Voxel spheres( vec3 p, float modulo, float radius, vec2 offset, float duration )
 
   // radius 
 
-  float dist = sdSphere(p + cheapNoise(p * .5) * 5., radius + (noiseRatio.x * noiseRatio.y) * 20.);
+  float dist = sdSphere(p, radius + (noiseRatio.x * noiseRatio.y) * 20.);
 
   return Voxel( dist, color );
 }
@@ -189,7 +191,7 @@ Voxel ground( vec3 p, vec4 tex ) {
   float displacement = (tex.r + tex.g + tex.b) / 3.;
   // float displacement = sin(p.x * .1) * sin(p.z * .1);
 
-  p.y += -displacement * 10.;
+  p.y += -displacement * 2.;
 
   float dist = p.y;
 
