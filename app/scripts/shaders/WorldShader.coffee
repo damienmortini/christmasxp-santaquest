@@ -16,6 +16,9 @@ class WorldShader
       'uTime':
         type: 'f'
         value: 0
+      'uLightDirection':
+        type: 'v3'
+        value: new THREE.Vector3()
       'uModelViewMatrix':
         type: 'm4'
         value: new THREE.Matrix4()
@@ -29,7 +32,6 @@ class WorldShader
     @vertexShader = document.querySelector('#world-shader-vertex').import.body.innerText
 
     @fragmentShader = [
-      document.querySelector('#noise-3d').import.body.innerText
       document.querySelector('#world-shader-fragment').import.body.innerText
     ].join('\n')
 

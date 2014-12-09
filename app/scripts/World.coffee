@@ -12,7 +12,6 @@ class World
     @pointer =
       x: 0
       y: 0
-    @gifts = []
 
     @deltaTimesSum = 0
     @deltaTimesNumber = 0
@@ -21,7 +20,7 @@ class World
     @bike.position.y = 10
     @scene.add @bike
 
-    @bikeControls = new BikeControls(@bike, 2)
+    @bikeControls = new BikeControls(@bike, 6)
 
     if (FREE_MODE)
       @camera.position.z = 50
@@ -33,9 +32,8 @@ class World
 
     @addLights()
     @addObjects()
-    @addGifts()
-
-    @progressionHandler = new ProgressionHandler(@gifts, @bike)
+    
+    @progressionHandler = new ProgressionHandler(@addGifts(), @bike)
 
     @resize()
 
@@ -62,32 +60,35 @@ class World
     @helper = new THREE.Mesh(new THREE.IcosahedronGeometry(1), new THREE.MeshPhongMaterial())
     @scene.add @helper
 
-    for i in [0...10]
-      for j in [0...10]
-        geometry = new THREE.BoxGeometry 200, 200, 200
-        material = new THREE.MeshPhongMaterial
-          color: 0xff0000
+    # for i in [0...10]
+    #   for j in [0...10]
+    #     geometry = new THREE.BoxGeometry 200, 200, 200
+    #     material = new THREE.MeshPhongMaterial
+    #       color: 0xff0000
 
-        cube = new THREE.Mesh geometry, material
-        cube.position.set(
-          Math.random() * 10000 - 5000
-          100
-          Math.random() * 10000 - 5000
-        )
-        @scene.add cube
+    #     cube = new THREE.Mesh geometry, material
+    #     cube.position.set(
+    #       Math.random() * 10000 - 5000
+    #       100
+    #       Math.random() * 10000 - 5000
+    #     )
+    #     @scene.add cube
     return
 
   addGifts: =>
-    for i in [0...1]
+    gifts = []
+    for i in [0...5]
       gift  = new Gift()
       gift.position.set(
-        0
+        Math.random() * 5000 - 2500
         30
-        500
+        Math.random() * 5000 - 2500
       )
-      @gifts.push gift
+      gifts.push gift
       @scene.add gift
-    return
+    gifts[0].position.x = 0
+    gifts[0].position.z = 500
+    return gifts
 
   addLights: =>
     light = new THREE.DirectionalLight(0xffffff, 1)
@@ -195,6 +196,7 @@ class World
     # render
 
     @worldShaderPass.uniforms['uTime'].value += dt / 60
+    @worldShaderPass.uniforms['uLightDirection'].value.copy @progressionHandler.direction
     @worldShaderComposer.render()
     @renderComposer.render()
     @composer.render()
