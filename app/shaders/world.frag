@@ -36,9 +36,14 @@ float sdBox( vec3 p, vec3 b )
          length(max(d,0.0));
 }
 
-float udBox( vec3 p, vec3 b )
+float udRoundBox( vec3 p, vec3 b )
 {
   return length(max(abs(p)-b,0.0));
+}
+
+float udRoundBox( vec3 p, vec3 b, float r )
+{
+  return length(max(abs(p)-b,0.0))-r;
 }
 
 // NOISES
@@ -196,18 +201,18 @@ Voxel mapNormalRayMarching( vec3 p) {
   // return voxel(length(p), vec4(1., 0., 0., .0));
 }
 
-Voxel mapGridRayMarching( vec3 p) {
+Voxel mapGrid( vec3 p) {
 
   // vec4 noiseTex = getTexture(uNoiseTexture, p.xz, 500.);
 
   // Voxel voxel = Voxel(p.y + 5., vec4(hash1(p.x + p.y * 56.) * 50.));
   // 
-  // Voxel voxel = Voxel(sdBox(p, vec3(100., 100., 100.)), vec4(1.));
-  Voxel voxel = Voxel(sdSphere(p, .5), vec4(1.));
-  // Voxel voxel = Voxel(sdBox(p, vec3(.5, .5, .5)), vec4(1.));
+  // Voxel voxel = Voxel(udRoundBox(p, vec3(50., 1., 50.), 0.), vec4(1.));
+  // Voxel voxel = Voxel(sdSphere(p + vec3(0., 20., 0.), 20.), vec4(1.));
+  Voxel voxel = Voxel(sdBox(p, vec3(250., 5., 250.)), vec4(1.));
 
   // Voxel voxel = Voxel(length(max(abs(p + vec3(0., - 8., 0.))-vec3(250., 1., 250.),0.0)), vec4(hash1(p.x + p.y * 56.) * 50.));
-  // voxel = min(Voxel(sdSphere(p, 40.), vec4(hash1(p.x + p.y * 56.) * 50.)), voxel);
+  voxel = smin(Voxel(sdSphere(p, 40.), vec4(hash1(p.x + p.y * 56.) * 50.)), voxel);
 
   // voxel = smin(, voxel);
   
@@ -230,13 +235,25 @@ vec3 calcNormalRayMarching ( vec3 p ) {
   ));
 }
 
+vec3 calcNormalGridRayMarching ( vec3 p ) {
+  vec2 e = vec2(1., 0.0);
+  return normalize(vec3(
+    mapGrid(p + e.xyy).dist - mapGrid(p - e.xyy).dist,
+    mapGrid(p + e.yxy).dist - mapGrid(p - e.yxy).dist,
+    mapGrid(p + e.yyx).dist - mapGrid(p - e.yyx).dist
+  ));
+}
+
 Voxel trace( vec3 ro, vec3 rd)
 {
-  float cellSize = 10.;
+
+  ro += uNear*rd;
+
+  float cellSize = 500.;
 
   // ro = vec3(0., 0., 0.);
 
-  Voxel voxel = Voxel( uFar, vec4(vec3(0.), 1.) );
+  Voxel voxel = Voxel( uFar, vec4(vec3(.5), 1.) );
 
   vec2 pos = floor(ro.xz);
   pos -= mod(pos, cellSize);
@@ -245,36 +262,47 @@ Voxel trace( vec3 ro, vec3 rd)
   vec2 rds = sign(rd.xz);
   vec2 dis = (pos-ro.xz+ 0.5 * cellSize + rds*0.5 * cellSize) * rdi.xz;
   
-  vec3 res = vec3( -1.0 );
+  // vec3 res = vec3( -1.0 );
 
   // traverse regular grid (in 2D)
   vec2 mm = vec2(0.0);
-  for( int i=0; i<20; i++ ) 
+  for( int i=0; i<10; i++ ) 
   {        
+
+    vec2 pr = pos+0.5-ro.xz;
+    vec2 mini = (pr-0.5*rds)*rdi.xz;
+    float s = max( mini.x, mini.y );
+    if( (uNear+s)>uFar ) break;
+
     // intersect box
     vec3  ce = vec3( pos.x + 0.5 * cellSize, 2., pos.y+0.5 * cellSize );
     vec3  rb = vec3(0.3,2.,0.3);
     vec3  ra = rb + 0.12;
     vec3  rc = ro - ce;
-    float tN = maxcomp( -rdi*rc - rda*ra );
-    float tF = maxcomp( -rdi*rc + rda*ra );
+    rc.y += hash1(pos) * 50.;
+    float tN = maxcomp( -rdi*rc - rda*cellSize );
+    float tF = maxcomp( -rdi*rc + rda*cellSize );
     if( tN < tF )//&& tF > 0.0 )
     {
       // raymarch
       float s = tN;
       float h = 1.0;
-      for( float j=0.; j<24.; j++ )
+      for( float j=0.; j<32.; j++ )
       {
-        h = mapGridRayMarching( rc+s*rd).dist; 
+        h = mapGrid( rc+s*rd ).dist;
         s += h;
         if( s>tF ) break;
       }
 
       if( h < (.0001*s*2.0) )
       {
-        // res = vec3( s, cub.yz );
-        voxel = Voxel(s, vec4(vec3(1., 0., 0.), 1.));
-        // break; // cause a bug on windows
+        vec3 nor = calcNormalGridRayMarching( rc+s*rd );
+        // voxel.color.r = 1.;
+        if (s < voxel.dist) { // TEST ADDED
+          voxel.dist = s;
+          voxel.color.rgb = nor;
+          // break;
+        }
       }
     }
         
@@ -284,7 +312,9 @@ Voxel trace( vec3 ro, vec3 rd)
     pos += mm*rds * cellSize;
   }
 
-  // voxel.dist += 100.;
+  voxel.dist += uNear;
+
+  // voxel.dist += .1;
      
   // vec2 cellPos = floor( rayOrigin.xz );
   // cellPos -= mod(cellPos, cellSize);
@@ -307,7 +337,7 @@ Voxel trace( vec3 ro, vec3 rd)
   //     float rayMarchingStep = 1.;
   //     for( int j=0; j < 64; j++ )
   //     {
-  //       voxel = mapGridRayMarching( rayCenterOrigin + dist * rayDirection);
+  //       voxel = mapGrid( rayCenterOrigin + dist * rayDirection);
   //       rayMarchingStep = voxel.dist;
   //       dist += rayMarchingStep;
   //       if (rayMarchingStep > uFar) break;
@@ -369,6 +399,22 @@ void main()
   vec3 rayDirection = normalize(vDir);
   
   Voxel voxel = trace(rayOrigin, rayDirection);
+
+  // if( res.y > -0.5 )
+  // {
+    // float t = voxel.dist;
+    // vec3 pos = rayOrigin + t * rayDirection;
+    // vec3 nor = calcNormalGridRayMarching( pos, t );
+      // material 
+    // voxel.color.rgb = nor;
+     //  col = 0.5 + 0.5*cos( 6.2831*res.y + vec3(0.0, 0.4, 0.8) );
+     //  vec3 ff = texcube( iChannel1, 0.1*vec3(pos.x,4.0*res.z-pos.y,pos.z), nor ).xyz;
+     //  col *= ff.x;
+
+     //  // lighting
+     // col = doLighting( col, ff.x, pos, nor, rd );
+     // col *= 1.0 - smoothstep( 20.0, 40.0, t );
+  // }
 
   // voxel = trace(vec3(.20, 5., 0.), rayDirection);
   // voxel = trace(rayOrigin, rayDirection);
