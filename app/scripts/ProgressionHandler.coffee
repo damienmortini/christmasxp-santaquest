@@ -49,12 +49,14 @@ class ProgressionHandler
   update: =>
     @soundsMatrix.update()
 
+    @progress += (@level - @progress) * .1
+
     if @grabbedGift
       @grabbedGift.scale.x += (.1 - @grabbedGift.scale.x) * .8
       @grabbedGift.scale.y += (.1 - @grabbedGift.scale.y) * .8
       @grabbedGift.scale.z += (.1 - @grabbedGift.scale.z) * .8
-      @grabbedGift.position.lerp @object.position, .8
-      @grabbedGift.position.y += 5
+      @grabbedGift.position.lerp @object.position, .5
+      @grabbedGift.position.y += 3
       @grabbedGift.rotation.x += .08
       @grabbedGift.rotation.y += .06
       @grabbedGift.rotation.z += .1
@@ -62,8 +64,8 @@ class ProgressionHandler
         @grabbedGift.open()
         @grabbedGift = null
         @gotoLevel(@level + 1)
+      return
 
-    @progress += (@level - @progress) * .1
 
     if !@gifts.length
       return
@@ -73,6 +75,9 @@ class ProgressionHandler
     @hotness = (@direction.dot(@objectDirection) + 1) / 2
 
     for gift in @gifts
+      gift.rotation.x += .02
+      gift.rotation.y += .04
+      gift.rotation.z += .06
       if @object.position.distanceTo(gift.position) < 100
         @gifts.splice(@gifts.indexOf(gift), 1)
         @grabbedGift = gift
