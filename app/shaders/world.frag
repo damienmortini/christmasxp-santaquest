@@ -159,7 +159,7 @@ Voxel spheres( vec3 p ) {
 
   vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
 
-  float modulo = 300.;
+  float modulo = 400.;
 
   vec2 pos = floor(p.xz / modulo);
 
@@ -248,7 +248,7 @@ Voxel trace( vec3 ro, vec3 rd)
   
   if (dist < uFar) {
     vec3 normal = calcNormal(ro + rd * dist);
-    voxel.color *= .75 + dot(normal, vec3(0., 1., 0.)) * .25 * vec4(.4, .4, 1., 1.);
+    voxel.color *= .75 + dot(normal, normalize(vec3(1., 1., 0.))) * .75 * vec4(.4, .4, 1., 1.);
     voxel.color += max(1. - (abs(length(uLightPosition - (ro + rd * voxel.dist))) / 50.), 0.) * vec4(1., .2, .2, 1.) * 3.;
     // voxel.color *= dot(normal, uLightPosition * -1.) * vec4(0., 0., .2, 1.);
     // voxel.color += dot(normal, uLightPosition * -1.) * vec4(0., 0., .2, 1.);

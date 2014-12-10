@@ -94,7 +94,7 @@ class World
     return gifts
 
   addLights: =>
-    light = new THREE.DirectionalLight(0xffffff, 1)
+    light = new THREE.DirectionalLight(0xffffff, 2)
     light.position.set 1, 1, 0
     @scene.add light
 
@@ -165,7 +165,7 @@ class World
     @renderComposer.setSize width, height
     @composer.setSize width, height
 
-    @worldShaderPass.uniforms['uNear'].value = @camera.near
+    @worldShaderPass.uniforms['uNear'].value = 20
     @worldShaderPass.uniforms['uFar'].value = @camera.far
     @worldShaderPass.uniforms['uFov'].value = @camera.fov
     @worldShaderPass.uniforms['uModelViewMatrix'].value = @camera.matrixWorldInverse
@@ -190,6 +190,7 @@ class World
     
     @bikeControls.update(smoothDeltaTime)
     @cameraControls.update(smoothDeltaTime)
+    @bike.update(smoothDeltaTime)
 
 
     @helperPositionTarget.set(0, 0, 0)
@@ -204,7 +205,6 @@ class World
 
     @worldShaderPass.uniforms['uTime'].value += deltaTime
     @worldShaderPass.uniforms['uProgress'].value = @progressionHandler.progress
-    console.log @worldShaderPass.uniforms['uProgress'].value
     @worldShaderPass.uniforms['uLightPosition'].value.copy @helper.position
     # @worldShaderPass.uniforms['uLightPosition'].value.copy @progressionHandler.direction
     @worldShaderComposer.render()
