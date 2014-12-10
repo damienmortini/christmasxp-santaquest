@@ -20,7 +20,7 @@ class World
     @bike.position.y = 10
     @scene.add @bike
 
-    @bikeControls = new BikeControls(@bike, 6)
+    @bikeControls = new BikeControls(@bike, 4)
 
     if (FREE_MODE)
       @camera.position.z = 50

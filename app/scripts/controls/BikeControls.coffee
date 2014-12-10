@@ -5,8 +5,8 @@ class BikeControls
   FLAG_DOWN = 8
   FLAG_SPACE = 16
 
-  SPEED = 6
-  ROTATION_SPEED = new THREE.Vector3(.01, .05, .01)
+  SPEED = 2
+  ROTATION_SPEED = new THREE.Vector3(.01, .02, .01)
 
   GRAVITY = -.81
 
