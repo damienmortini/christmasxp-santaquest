@@ -12,6 +12,9 @@ class ProgressionHandler
 
     @hotness = 0
     @level = 0
+    @progress = 0
+
+    @grabbedGift = null
 
     # dir = new THREE.Vector3(0, 0, 1)
     # origin = new THREE.Vector3(0, 0, 0)
@@ -34,6 +37,22 @@ class ProgressionHandler
   update: =>
     @soundsMatrix.update()
 
+    if @grabbedGift
+      @grabbedGift.scale.x += (.05 - @grabbedGift.scale.x) * .8
+      @grabbedGift.scale.y += (.05 - @grabbedGift.scale.y) * .8
+      @grabbedGift.scale.z += (.05 - @grabbedGift.scale.z) * .8
+      @grabbedGift.position.lerp @object.position, .8
+      @grabbedGift.position.y += 4
+      @grabbedGift.rotation.x += .04
+      @grabbedGift.rotation.y += .02
+      @grabbedGift.rotation.z += .06
+      if @soundsMatrix.playbackPosition % 16 is 15
+        @grabbedGift.open()
+        @grabbedGift = null
+        @gotoNextLevel()
+
+    @progress += (@level - @progress) * .1
+
     if !@gifts.length
       return
 
@@ -43,9 +62,8 @@ class ProgressionHandler
 
     for gift in @gifts
       if @object.position.distanceTo(gift.position) < 40
-        gift.open()
         @gifts.splice(@gifts.indexOf(gift), 1)
-        @gotoNextLevel()
+        @grabbedGift = gift
         break
-        
+
     return

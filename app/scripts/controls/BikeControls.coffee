@@ -105,8 +105,8 @@ class BikeControls
 
     @currentVelocity.lerp(@velocity, .1 * dt)
 
-    if @object.position.y < 0
-      @object.position.y = 0
+    if @object.position.y < @groundRefY
+      @object.position.y = @groundRefY
 
     if @object.position.y < @groundRefY
       @object.position.y += (@groundRefY - @object.position.y) * .1 * dt

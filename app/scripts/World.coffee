@@ -57,7 +57,10 @@ class World
     return
 
   addObjects: =>
-    @helper = new THREE.Mesh(new THREE.IcosahedronGeometry(1), new THREE.MeshPhongMaterial())
+    @helperPositionTarget = new THREE.Vector3()
+    @helper = new THREE.Mesh(new THREE.IcosahedronGeometry(4), new THREE.MeshPhongMaterial(
+      emissive: 0xcccccc
+    ))
     @scene.add @helper
 
     # for i in [0...10]
@@ -87,7 +90,7 @@ class World
       gifts.push gift
       @scene.add gift
     gifts[0].position.x = 0
-    gifts[0].position.z = 500
+    gifts[0].position.z = 2000
     return gifts
 
   addLights: =>
@@ -176,27 +179,34 @@ class World
     @raf = requestAnimationFrame @update
 
     time = Date.now()
-    dt = (time - @prevTime) / 1000 * 60
+    deltaTime = (time - @prevTime) / 1000 * 60
 
-    @deltaTimesSum += dt
+    @deltaTimesSum += deltaTime
     @deltaTimesNumber++
 
-    dt = @deltaTimesSum / @deltaTimesNumber
+    smoothDeltaTime = @deltaTimesSum / @deltaTimesNumber
 
-    @progressionHandler.update(dt)
+    @progressionHandler.update(smoothDeltaTime)
     
-    @bikeControls.update(dt)
-    @cameraControls.update(dt)
+    @bikeControls.update(smoothDeltaTime)
+    @cameraControls.update(smoothDeltaTime)
 
-    @helper.position.set(0, 0, 0)
-    @helper.position.add @progressionHandler.direction
-    @helper.position.multiplyScalar(10)
-    @helper.position.add @bike.position
+
+    @helperPositionTarget.set(0, 0, 0)
+    @helperPositionTarget.add @progressionHandler.direction
+    @helperPositionTarget.multiplyScalar(500)
+    @helperPositionTarget.add @bike.position
+    @helperPositionTarget.y += 10
+
+    @helper.position.lerp @helperPositionTarget, .05
 
     # render
 
-    @worldShaderPass.uniforms['uTime'].value += dt / 60
-    @worldShaderPass.uniforms['uLightDirection'].value.copy @progressionHandler.direction
+    @worldShaderPass.uniforms['uTime'].value += deltaTime
+    @worldShaderPass.uniforms['uProgress'].value = @progressionHandler.progress
+    console.log @worldShaderPass.uniforms['uProgress'].value
+    @worldShaderPass.uniforms['uLightPosition'].value.copy @helper.position
+    # @worldShaderPass.uniforms['uLightPosition'].value.copy @progressionHandler.direction
     @worldShaderComposer.render()
     @renderComposer.render()
     @composer.render()

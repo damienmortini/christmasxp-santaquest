@@ -16,7 +16,10 @@ class WorldShader
       'uTime':
         type: 'f'
         value: 0
-      'uLightDirection':
+      'uProgress':
+        type: 'f'
+        value: 0
+      'uLightPosition':
         type: 'v3'
         value: new THREE.Vector3()
       'uModelViewMatrix':

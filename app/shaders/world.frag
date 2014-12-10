@@ -7,7 +7,8 @@ uniform float uNear;
 uniform float uFar;
 uniform float uFov;
 uniform float uTime;
-uniform vec3 uLightDirection;
+uniform float uProgress;
+uniform vec3 uLightPosition;
 uniform mat4 uModelViewMatrix;
 uniform mat4 uProjectionMatrix;
 uniform sampler2D uNoiseTexture;
@@ -136,60 +137,72 @@ vec4 getTexture(sampler2D texture, vec2 position, float scale) {
 
 // MAIN
 
-Voxel spheres( vec3 p, float modulo, float radius, vec2 offset, float duration ) {
+Voxel stars( vec3 p ) {
 
-  vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
+  vec4 color = vec4(1.0, 1.0, 1.0, 1.0);
 
-  // p.xz += offset;
+  float modulo = 150.;
 
   vec2 pos = floor(p.xz / modulo);
 
-  // vec2 noiseRatio = hash2(pos);
-  // vec4 texel = getTexture(uNoiseTexture, pos, 512.);
-  // float noiseRatio = texel.r;
+  vec3 noiseRatio = hash3(pos);
 
-  // vec4 tex = getTexture(uNoiseTexture,pos, 100.);
-  // p -= tex.xyz * 20.;
+  p += noiseRatio * 100.;
+
+  p = mod(p, modulo) - modulo * .5;
+  float dist = sdSphere(p, .5);
+  
+  return Voxel( dist, color );
+}
+
+Voxel spheres( vec3 p ) {
+
+  vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
+
+  float modulo = 300.;
+
+  vec2 pos = floor(p.xz / modulo);
 
   vec2 noiseRatio = hash2(pos);
 
-  p.xz += noiseRatio * 100.;
   p.y += (noiseRatio.x + noiseRatio.y) * -40.;
 
   color.g = noiseRatio.x;
   color.b = noiseRatio.y;
 
-  color = color * color * color * color * color * color * color * color * color;
-  // vec3 q = p;
-
-  // float elevationRatio = mod(uTime, duration) / duration;
-
-  // duration = noiseRatio.x + noiseRatio.y;
-
   p.xz = mod(p.xz, modulo) - modulo * .5;
-  // p.xz += (noiseRatio * .5 - .25) * modulo;
-  // p.y += radius * 2. - 200. * elevationRatio;
-
-  // radius *= (1. - elevationRatio) * noiseRatio.x;
+  p.xz += noiseRatio * 100.;
 
   // radius 
+  float radius = 0.;
 
-  float dist = sdSphere(p, radius + (noiseRatio.x * noiseRatio.y) * 20.);
+  p.y += 100.;
+  if (uProgress > 0.) {
+    p.y -= 100. * (uProgress * 2. - 1.);
+    radius += (20. + (noiseRatio.x * noiseRatio.y) * 80.) * (uProgress * 2. - 1.);
+    radius += (sin(uTime * PI * .05 + (noiseRatio.x * noiseRatio.y) * 200.) + 1.) * 3.;
+  }
+  if (uProgress > 2.) {
+    p.y -= p.y * min((uProgress - 2.), 1.);
+    radius -= ((noiseRatio.x * noiseRatio.y) * 800. + (sin(uTime * PI * .05 + (noiseRatio.x + noiseRatio.y) * 200.) + 1.) * 10.) * min((uProgress - 2.), 1.);
+  }
+
+  float dist = sdSphere(p, radius);
 
   return Voxel( dist, color );
 }
 
 Voxel ground( vec3 p, vec4 tex ) {
 
-  vec4 color = vec4(1.0, 1.0, 1.0, 1.0);
+  vec4 color = vec4(.95, .95, .95, 1.);
 
   // color = tex;
-  // color *= vec4(.5, 1., .5, 1.);
+  // color += vec4(.5, 1., .5, 1.);
   
   float displacement = (tex.r + tex.g + tex.b) / 3.;
   // float displacement = sin(p.x * .1) * sin(p.z * .1);
 
-  p.y += -displacement * 2.;
+  p.y += -displacement * 5.;
 
   float dist = p.y;
 
@@ -202,7 +215,9 @@ Voxel map( vec3 p) {
 
   Voxel voxel = ground(p, noiseTex);
 
-  voxel = smin(spheres(p, 300., 20., vec2(160.0), 1.), voxel);
+  voxel = smin(spheres(p), voxel);
+
+  voxel = min(stars(p), voxel);
 
   return voxel;
 }
@@ -233,8 +248,10 @@ Voxel trace( vec3 ro, vec3 rd)
   
   if (dist < uFar) {
     vec3 normal = calcNormal(ro + rd * dist);
-    voxel.color *= .75 + dot(normal, vec3(0.0, 1.0, 0.0)) * .25;
-    voxel.color += dot(normal, uLightDirection * -1.) * vec4(0., 0., .2, 1.);
+    voxel.color *= .75 + dot(normal, vec3(0., 1., 0.)) * .25 * vec4(.4, .4, 1., 1.);
+    voxel.color += max(1. - (abs(length(uLightPosition - (ro + rd * voxel.dist))) / 50.), 0.) * vec4(1., .2, .2, 1.) * 3.;
+    // voxel.color *= dot(normal, uLightPosition * -1.) * vec4(0., 0., .2, 1.);
+    // voxel.color += dot(normal, uLightPosition * -1.) * vec4(0., 0., .2, 1.);
   }
 
   return voxel;
@@ -262,6 +279,9 @@ void main()
   float depth = eyeHitZ * 1.;
 
   depth = smoothstep( uNear, uFar, depth );
+
+  voxel.color.rgb *= (1. - depth);
+  voxel.color.rgb += vec3(0., 0., .1) * depth;
 
   gl_FragColor = vec4(voxel.color.rgb, 1.0 - depth);
   // gl_FragColor = vec4(voxel.color.rgb, 1.0);
