@@ -22,7 +22,13 @@ body {
   transition: filter .4s;
 }
 
-#intro {
+#outro {
+  &:before {
+    opacity: .5;
+  }
+}
+
+#intro, #outro {
   position: absolute;
   left: 0;
   top: 0;
@@ -55,6 +61,12 @@ body {
     font-weight: 100;
     letter-spacing: .5em;
     text-align: center;
+    span {
+      display: inline-block;
+      border-radius: 10px;
+      padding: 10px 40px;
+      border: 1px solid white;
+    }
   }
   .music {
     position: absolute;

@@ -19,8 +19,8 @@ onButtonClick = (e) ->
   window.world.start()
 
   document.body.querySelector('#intro').classList.add 'hide'
-  window.addEventListener 'focus', @onWindowFocus
-  window.addEventListener 'blur', @onWindowBlur
+  window.addEventListener 'focus', onWindowFocus
+  window.addEventListener 'blur', onWindowBlur
   return
 
 for button in buttons
