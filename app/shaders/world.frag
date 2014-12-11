@@ -150,9 +150,57 @@ Voxel stars( vec3 p ) {
   return Voxel( dist, color );
 }
 
+Voxel airCubes( vec3 p ) {
+
+  vec4 color = vec4(1., 0., 0., 1.);
+
+  float modulo = 300.;
+
+  vec2 pos = floor(p.xz / modulo);
+
+  vec2 noiseRatio = hash2(pos);
+
+  color.g = noiseRatio.x;
+  color.b = noiseRatio.y;
+  color *= 3.5;
+
+  p = mod(p, modulo) - modulo * .5;
+  p += (noiseRatio.x * noiseRatio.y) * 100. - 50.;
+
+  // radius 
+  // float radius = 0.;
+
+  p.y -= 100.;
+
+  // p.x += sin(uTime * .11) * 100.;
+
+  // if (uProgress > 0.) {
+  //   p.y -= 100. * (uProgress * 2. - 1.);
+  //   radius += (20. + (noiseRatio.x * noiseRatio.y) * 100.);
+  //   radius *= sounds[0] * 3.;
+  // }
+  
+  vec3 cub = vec3(5., 5., 5.) * (noiseRatio.x + noiseRatio.y);
+  cub *= sounds[1] * 5.;
+  cub *= 1. + sounds[3] * 40.;
+
+  // cub.y *= sounds[0];
+  // cub *= (noiseRatio.x + noiseRatio.y) * 3.;
+
+  float scale = .1;
+  // p += sin(uTime * .1) * 10.;
+  p += sin(p.x * scale * sin(uTime * .1 + (noiseRatio.x + noiseRatio.y))) * sin(p.y * scale) * sin(p.z * scale) * 10.;
+  // cub.y *= sounds[1];
+
+  float dist = udRoundBox(p, cub, 0.);
+
+  return Voxel( dist, color );
+}
+
 Voxel cubes( vec3 p ) {
 
-  vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
+  // vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
+  vec4 color = vec4(1., 0., 0., 1.);
 
   float modulo = 10.;
 
@@ -162,7 +210,7 @@ Voxel cubes( vec3 p ) {
 
   color.g = noiseRatio.x;
   color.b = noiseRatio.y;
-  color *= 2.5;
+  color *= 1.5;
 
   p.xz = mod(p.xz, modulo) - modulo * .5;
   // p.xz += noiseRatio * 100.;
@@ -181,7 +229,7 @@ Voxel cubes( vec3 p ) {
 
   // cub.y *= sounds[0];
   cub.y += (noiseRatio.x + noiseRatio.y) * 10.;
-  cub.y *= sounds[1];
+  cub.y *= sounds[2] * 2.;
 
   float dist = udRoundBox(p, cub, 0.);
 
@@ -212,9 +260,14 @@ Voxel spheres( vec3 p ) {
   p.y += 100.;
   if (uProgress > 0.) {
     p.y -= 100. * (uProgress * 2. - 1.);
-    radius += (20. + (noiseRatio.x * noiseRatio.y) * 150.);
-    radius *= sounds[0] * 3.;
   }
+  if (uProgress > 4.) {
+    p.y = uProgress - .4;
+  }
+
+  radius += (20. + (noiseRatio.x * noiseRatio.y) * 150.);
+  radius *= sounds[0] * 3.;
+  radius *= 1. + sounds[1] * 3.;
 
   float dist = sdSphere(p, radius);
 
@@ -242,6 +295,7 @@ Voxel map( vec3 p) {
 
   voxel = smin(spheres(p), voxel, 10.);
   voxel = smin(cubes(p), voxel, 1.);
+  voxel = smin(airCubes(p), voxel, 10.);
 
   voxel = min(stars(p), voxel);
 
