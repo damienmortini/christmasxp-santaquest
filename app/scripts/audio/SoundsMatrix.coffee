@@ -13,7 +13,6 @@ class SoundsMatrix
     @onProgress = new signals.Signal()
 
     @sounds = []
-    @sounds = []
     @analysers = []
     @byteFrequenciesData = []
     @soundIds = {}
@@ -38,6 +37,7 @@ class SoundsMatrix
     extension = if Modernizr.audio.mp3 then 'mp3' else 'ogg'
     audio.src = "sounds/#{name}.#{extension}"
     audio.addEventListener 'canplaythrough', @onSoundLoad
+    audio.id = name
     @sounds.push audio
 
     # create analyser

@@ -17,8 +17,8 @@ class World
     @deltaTimesNumber = 0
 
     @soundsMatrix = new SoundsMatrix(true)
-    @soundsMatrix.loadSound 'chimney1'
     @soundsMatrix.loadSound 'chimney2'
+    @soundsMatrix.loadSound 'chimney1'
     @soundsMatrix.loadSound 'chimney3'
     @soundsMatrix.loadSound 'chimney4'
     @soundsMatrix.loadSound 'chimney5'
@@ -156,7 +156,7 @@ class World
     return
 
   onChangeLevel: (level) =>
-    @soundsMatrix.toggleSoundAt "chimney#{level}", [0, 16, 32, 48]
+    @soundsMatrix.toggleSoundAt @soundsMatrix.sounds[level - 1].id, [0, 16, 32, 48]
     return
 
   onPointerMove: (e) =>

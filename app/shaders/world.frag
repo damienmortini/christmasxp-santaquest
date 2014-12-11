@@ -36,11 +36,6 @@ float sdBox( vec3 p, vec3 b )
          length(max(d,0.0));
 }
 
-float udRoundBox( vec3 p, vec3 b )
-{
-  return length(max(abs(p)-b,0.0));
-}
-
 float udRoundBox( vec3 p, vec3 b, float r )
 {
   return length(max(abs(p)-b,0.0))-r;
@@ -160,17 +155,15 @@ Voxel spheres( vec3 p ) {
 
   vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
 
-  float modulo = 400.;
+  float modulo = 500.;
 
   vec2 pos = floor(p.xz / modulo);
 
   vec2 noiseRatio = hash2(pos);
 
   p.y += (noiseRatio.x + noiseRatio.y) * -40.;
-
   color.g = noiseRatio.x;
   color.b = noiseRatio.y;
-
   color *= 2.5;
 
   p.xz = mod(p.xz, modulo) - modulo * .5;
@@ -182,16 +175,9 @@ Voxel spheres( vec3 p ) {
   p.y += 100.;
   if (uProgress > 0.) {
     p.y -= 100. * (uProgress * 2. - 1.);
-    radius += (20. + (noiseRatio.x * noiseRatio.y) * 80.) * (uProgress * 2. - 1.);
-    radius += (sin(uTime * PI * .05 + (noiseRatio.x * noiseRatio.y) * 200.) + 1.) * 3.;
-    radius *= sounds[0] * 2.;
+    radius += (20. + (noiseRatio.x * noiseRatio.y) * 100.);
+    radius *= sounds[0] * 3.;
   }
-  if (uProgress > 2.) {
-    p.y -= p.y * min((uProgress - 2.), 1.);
-    radius -= ((noiseRatio.x * noiseRatio.y) * 800. + (sin(uTime * PI * .05 + (noiseRatio.x + noiseRatio.y) * 200.) + 1.) * 10.) * min((uProgress - 2.), 1.);
-    radius *= sounds[1] * 2.;
-  }
-
 
   float dist = sdSphere(p, radius);
 
@@ -201,12 +187,8 @@ Voxel spheres( vec3 p ) {
 Voxel ground( vec3 p, vec4 tex ) {
 
   vec4 color = vec4(.95, .95, .95, 1.);
-
-  // color = tex;
-  // color += vec4(.5, 1., .5, 1.);
   
   float displacement = (tex.r + tex.g + tex.b) / 3.;
-  // float displacement = sin(p.x * .1) * sin(p.z * .1);
 
   p.y += -displacement * 5.;
 
@@ -256,8 +238,6 @@ Voxel trace( vec3 ro, vec3 rd)
     vec3 normal = calcNormal(ro + rd * dist);
     voxel.color *= .75 + dot(normal, normalize(vec3(1., 1., 0.))) * .75 * vec4(.4, .4, 1., 1.);
     voxel.color += max(1. - (abs(length(uLightPosition - (ro + rd * voxel.dist))) / 70.), 0.) * vec4(1., .2, .2, 1.) * 3.;
-    // voxel.color *= dot(normal, uLightPosition * -1.) * vec4(0., 0., .2, 1.);
-    // voxel.color += dot(normal, uLightPosition * -1.) * vec4(0., 0., .2, 1.);
   }
 
   return voxel;
