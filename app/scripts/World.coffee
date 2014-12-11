@@ -16,6 +16,8 @@ class World
     @deltaTimesSum = 0
     @deltaTimesNumber = 0
 
+    @quality = .5
+
     @soundsMatrix = new SoundsMatrix(true)
     @soundsMatrix.loadSound 'chimney2'
     @soundsMatrix.loadSound 'chimney1'
@@ -45,8 +47,6 @@ class World
 
     @resize()
 
-    @start()
-
     window.addEventListener 'resize', @resize
     # window.addEventListener 'mousemove', @onPointerMove
     return
@@ -66,7 +66,7 @@ class World
 
   addObjects: =>
     @helperPositionTarget = new THREE.Vector3()
-    @helper = new THREE.Mesh(new THREE.IcosahedronGeometry(4), new THREE.MeshPhongMaterial(
+    @helper = new THREE.Mesh(new THREE.IcosahedronGeometry(5, 1), new THREE.MeshPhongMaterial(
       emissive: 0xcccccc
     ))
     @scene.add @helper
@@ -108,6 +108,10 @@ class World
 
     light = new THREE.AmbientLight(0x333333)
     @scene.add light
+
+    @light = new THREE.PointLight(0xffcccc, 3)
+    @scene.add @light
+
     return
 
   initComposer: =>
@@ -156,7 +160,10 @@ class World
     return
 
   onChangeLevel: (level) =>
-    @soundsMatrix.toggleSoundAt @soundsMatrix.sounds[level - 1].id, [0, 16, 32, 48]
+    for i in [0...@soundsMatrix.sounds.length]
+      @soundsMatrix.removeSoundAt @soundsMatrix.sounds[i].id, [0, 16, 32, 48]
+    for i in [0...level]
+      @soundsMatrix.setSoundAt @soundsMatrix.sounds[i].id, [0, 16, 32, 48]
     return
 
   onPointerMove: (e) =>
@@ -164,19 +171,17 @@ class World
     @pointer.y = e.y
     return
 
-  resize: =>
-    quality = .25
-    quality = .5
-
+  resize: (e, @quality = .5) =>
+    console.log @quality
     @camera.aspect = @canvas.offsetWidth / @canvas.offsetHeight
     @camera.updateProjectionMatrix()
     devicePixelRatio = window.devicePixelRatio || 1
     width = Math.floor(window.innerWidth * devicePixelRatio)
     height = Math.floor(window.innerHeight * devicePixelRatio)
     @fxaaShaderPass.uniforms['resolution'].value.set 1 / width, 1 / height
-    @worldShaderPass.uniforms['uResolution'].value.set width * quality, height * quality
+    @worldShaderPass.uniforms['uResolution'].value.set width * @quality, height * @quality
     @renderer.setSize width, height
-    @worldShaderComposer.setSize width * quality, height * quality
+    @worldShaderComposer.setSize width * @quality, height * @quality
     @renderComposer.setSize width, height
     @composer.setSize width, height
 
@@ -215,18 +220,21 @@ class World
 
     @helper.position.lerp @helperPositionTarget, .05
 
+    @light.position.copy @helper.position
+
 
     for byteFrequencyData, i in @soundsMatrix.byteFrequenciesData
       sound = 0
       for value in byteFrequencyData
         sound += value
       sound /= 256 * byteFrequencyData.length
-      @worldShaderPass.uniforms['sounds'].value[i] = sound
+      @worldShaderPass.uniforms['uSounds'].value[i] = sound
     
     # render
 
     @worldShaderPass.uniforms['uTime'].value += deltaTime
     @worldShaderPass.uniforms['uProgress'].value = @progressionHandler.progress
+    @worldShaderPass.uniforms['uDirectionHotness'].value += (@progressionHandler.hotness - @worldShaderPass.uniforms['uDirectionHotness'].value) * .1
     @worldShaderPass.uniforms['uLightPosition'].value.copy @helper.position
     @worldShaderComposer.render()
     @renderComposer.render()

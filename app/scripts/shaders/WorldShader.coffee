@@ -19,10 +19,13 @@ class WorldShader
       'uProgress':
         type: 'f'
         value: 0
+      'uDirectionHotness':
+        type: 'f'
+        value: 0
       'uLightPosition':
         type: 'v3'
         value: new THREE.Vector3()
-      'sounds' :
+      'uSounds' :
         type: 'fv1'
         value: [0, 0, 0, 0, 0]
       'uModelViewMatrix':

@@ -64,6 +64,22 @@ class SoundsMatrix
 
     return
 
+  removeSoundAt: (name, positions) =>
+      y = @soundIds[name]
+
+      for x in positions
+        @matrix[x][y] = false
+
+      return
+
+  setSoundAt: (name, positions) =>
+    y = @soundIds[name]
+
+    for x in positions
+      @matrix[x][y] = true
+
+    return
+
   toggleSoundAt: (name, positions) =>
     y = @soundIds[name]
 

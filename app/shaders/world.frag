@@ -8,11 +8,12 @@ uniform float uFar;
 uniform float uFov;
 uniform float uTime;
 uniform float uProgress;
+uniform float uDirectionHotness;
 uniform vec3 uLightPosition;
 uniform mat4 uModelViewMatrix;
 uniform mat4 uProjectionMatrix;
 uniform sampler2D uNoiseTexture;
-uniform float sounds[5];
+uniform float uSounds[5];
 
 // STRUCTURES
 
@@ -177,20 +178,22 @@ Voxel airCubes( vec3 p ) {
   // if (uProgress > 0.) {
   //   p.y -= 100. * (uProgress * 2. - 1.);
   //   radius += (20. + (noiseRatio.x * noiseRatio.y) * 100.);
-  //   radius *= sounds[0] * 3.;
+  //   radius *= uSounds[0] * 3.;
   // }
   
   vec3 cub = vec3(5., 5., 5.) * (noiseRatio.x + noiseRatio.y);
-  cub *= sounds[1] * 5.;
-  cub *= 1. + sounds[3] * 40.;
+  cub *= uSounds[1] * 5.;
+  if (uProgress <= 4.) {
+    cub *= 1. + uSounds[3] * 30.;
+  }
 
-  // cub.y *= sounds[0];
+  // cub.y *= uSounds[0];
   // cub *= (noiseRatio.x + noiseRatio.y) * 3.;
 
   float scale = .1;
   // p += sin(uTime * .1) * 10.;
   p += sin(p.x * scale * sin(uTime * .1 + (noiseRatio.x + noiseRatio.y))) * sin(p.y * scale) * sin(p.z * scale) * 10.;
-  // cub.y *= sounds[1];
+  // cub.y *= uSounds[1];
 
   float dist = udRoundBox(p, cub, 0.);
 
@@ -222,14 +225,14 @@ Voxel cubes( vec3 p ) {
   // if (uProgress > 0.) {
   //   p.y -= 100. * (uProgress * 2. - 1.);
   //   radius += (20. + (noiseRatio.x * noiseRatio.y) * 100.);
-  //   radius *= sounds[0] * 3.;
+  //   radius *= uSounds[0] * 3.;
   // }
   
   vec3 cub = vec3(2., 10., 2.);
 
-  // cub.y *= sounds[0];
+  // cub.y *= uSounds[0];
   cub.y += (noiseRatio.x + noiseRatio.y) * 10.;
-  cub.y *= sounds[2] * 2.;
+  cub.y *= uSounds[2] * 2.;
 
   float dist = udRoundBox(p, cub, 0.);
 
@@ -261,13 +264,15 @@ Voxel spheres( vec3 p ) {
   if (uProgress > 0.) {
     p.y -= 100. * (uProgress * 2. - 1.);
   }
-  if (uProgress > 4.) {
-    p.y = uProgress - .4;
-  }
 
   radius += (20. + (noiseRatio.x * noiseRatio.y) * 150.);
-  radius *= sounds[0] * 3.;
-  radius *= 1. + sounds[1] * 3.;
+  radius *= uSounds[0] * 3.;
+  radius *= 1. + uSounds[1] * 3.;
+
+  if (uProgress > 4.) {
+    p.y = uProgress - .4;
+    radius *= .4;
+  }
 
   float dist = sdSphere(p, radius);
 
@@ -359,7 +364,7 @@ void main()
   depth = smoothstep( uNear, uFar, depth );
 
   voxel.color.rgb *= (1. - depth);
-  voxel.color.rgb += vec3(0., 0., .1) * depth;
+  voxel.color.rgb += vec3(0., 0., .1) * depth + uDirectionHotness * .1 * vec3(1., .5, .5);
 
   gl_FragColor = vec4(voxel.color.rgb, 1.0 - depth);
   // gl_FragColor = vec4(voxel.color.rgb, 1.0);
