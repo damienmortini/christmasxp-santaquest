@@ -12,6 +12,7 @@ uniform vec3 uLightPosition;
 uniform mat4 uModelViewMatrix;
 uniform mat4 uProjectionMatrix;
 uniform sampler2D uNoiseTexture;
+uniform float sounds[5];
 
 // STRUCTURES
 
@@ -170,6 +171,8 @@ Voxel spheres( vec3 p ) {
   color.g = noiseRatio.x;
   color.b = noiseRatio.y;
 
+  color *= 2.5;
+
   p.xz = mod(p.xz, modulo) - modulo * .5;
   p.xz += noiseRatio * 100.;
 
@@ -181,11 +184,14 @@ Voxel spheres( vec3 p ) {
     p.y -= 100. * (uProgress * 2. - 1.);
     radius += (20. + (noiseRatio.x * noiseRatio.y) * 80.) * (uProgress * 2. - 1.);
     radius += (sin(uTime * PI * .05 + (noiseRatio.x * noiseRatio.y) * 200.) + 1.) * 3.;
+    radius *= sounds[0] * 2.;
   }
   if (uProgress > 2.) {
     p.y -= p.y * min((uProgress - 2.), 1.);
     radius -= ((noiseRatio.x * noiseRatio.y) * 800. + (sin(uTime * PI * .05 + (noiseRatio.x + noiseRatio.y) * 200.) + 1.) * 10.) * min((uProgress - 2.), 1.);
+    radius *= sounds[1] * 2.;
   }
+
 
   float dist = sdSphere(p, radius);
 
@@ -249,7 +255,7 @@ Voxel trace( vec3 ro, vec3 rd)
   if (dist < uFar) {
     vec3 normal = calcNormal(ro + rd * dist);
     voxel.color *= .75 + dot(normal, normalize(vec3(1., 1., 0.))) * .75 * vec4(.4, .4, 1., 1.);
-    voxel.color += max(1. - (abs(length(uLightPosition - (ro + rd * voxel.dist))) / 50.), 0.) * vec4(1., .2, .2, 1.) * 3.;
+    voxel.color += max(1. - (abs(length(uLightPosition - (ro + rd * voxel.dist))) / 70.), 0.) * vec4(1., .2, .2, 1.) * 3.;
     // voxel.color *= dot(normal, uLightPosition * -1.) * vec4(0., 0., .2, 1.);
     // voxel.color += dot(normal, uLightPosition * -1.) * vec4(0., 0., .2, 1.);
   }

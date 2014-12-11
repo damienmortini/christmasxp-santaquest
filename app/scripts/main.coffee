@@ -1,3 +1,5 @@
+window.AudioContext = window.AudioContext || window.webkitAudioContext
+
 window.world = new World document.getElementById('canvas')
 
 onWindowFocus = ->

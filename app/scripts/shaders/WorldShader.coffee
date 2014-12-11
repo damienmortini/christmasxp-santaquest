@@ -22,6 +22,9 @@ class WorldShader
       'uLightPosition':
         type: 'v3'
         value: new THREE.Vector3()
+      'sounds' :
+        type: 'fv1'
+        value: [0, 0, 0, 0, 0]
       'uModelViewMatrix':
         type: 'm4'
         value: new THREE.Matrix4()

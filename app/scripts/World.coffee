@@ -16,6 +16,13 @@ class World
     @deltaTimesSum = 0
     @deltaTimesNumber = 0
 
+    @soundsMatrix = new SoundsMatrix(true)
+    @soundsMatrix.loadSound 'chimney1'
+    @soundsMatrix.loadSound 'chimney2'
+    @soundsMatrix.loadSound 'chimney3'
+    @soundsMatrix.loadSound 'chimney4'
+    @soundsMatrix.loadSound 'chimney5'
+
     @bike = new Bike()
     @bike.position.y = 10
     @scene.add @bike
@@ -33,7 +40,8 @@ class World
     @addLights()
     @addObjects()
     
-    @progressionHandler = new ProgressionHandler(@addGifts(), @bike)
+    @progressionHandler = new ProgressionHandler(@addGifts(), @bike, @soundsMatrix)
+    @progressionHandler.onChangeLevel.add @onChangeLevel
 
     @resize()
 
@@ -147,21 +155,28 @@ class World
 
     return
 
+  onChangeLevel: (level) =>
+    @soundsMatrix.toggleSoundAt "chimney#{level}", [0, 16, 32, 48]
+    return
+
   onPointerMove: (e) =>
     @pointer.x = e.x
     @pointer.y = e.y
     return
 
   resize: =>
+    quality = .25
+    quality = .5
+
     @camera.aspect = @canvas.offsetWidth / @canvas.offsetHeight
     @camera.updateProjectionMatrix()
     devicePixelRatio = window.devicePixelRatio || 1
     width = Math.floor(window.innerWidth * devicePixelRatio)
     height = Math.floor(window.innerHeight * devicePixelRatio)
     @fxaaShaderPass.uniforms['resolution'].value.set 1 / width, 1 / height
-    @worldShaderPass.uniforms['uResolution'].value.set width * .5, height * .5
+    @worldShaderPass.uniforms['uResolution'].value.set width * quality, height * quality
     @renderer.setSize width, height
-    @worldShaderComposer.setSize width * .5, height * .5
+    @worldShaderComposer.setSize width * quality, height * quality
     @renderComposer.setSize width, height
     @composer.setSize width, height
 
@@ -186,12 +201,11 @@ class World
 
     smoothDeltaTime = @deltaTimesSum / @deltaTimesNumber
 
+    @soundsMatrix.update()
     @progressionHandler.update(smoothDeltaTime)
-    
     @bikeControls.update(smoothDeltaTime)
     @cameraControls.update(smoothDeltaTime)
     @bike.update(smoothDeltaTime)
-
 
     @helperPositionTarget.set(0, 0, 0)
     @helperPositionTarget.add @progressionHandler.direction
@@ -201,12 +215,19 @@ class World
 
     @helper.position.lerp @helperPositionTarget, .05
 
+
+    for byteFrequencyData, i in @soundsMatrix.byteFrequenciesData
+      sound = 0
+      for value in byteFrequencyData
+        sound += value
+      sound /= 256 * byteFrequencyData.length
+      @worldShaderPass.uniforms['sounds'].value[i] = sound
+    
     # render
 
     @worldShaderPass.uniforms['uTime'].value += deltaTime
     @worldShaderPass.uniforms['uProgress'].value = @progressionHandler.progress
     @worldShaderPass.uniforms['uLightPosition'].value.copy @helper.position
-    # @worldShaderPass.uniforms['uLightPosition'].value.copy @progressionHandler.direction
     @worldShaderComposer.render()
     @renderComposer.render()
     @composer.render()

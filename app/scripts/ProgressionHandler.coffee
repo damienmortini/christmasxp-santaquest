@@ -1,12 +1,7 @@
 class ProgressionHandler
-  constructor: (@gifts, @object) ->
-    @soundsMatrix = new SoundsMatrix(true)
-    @soundsMatrix.loadSound 'chimney1'
-    @soundsMatrix.loadSound 'chimney2'
-    @soundsMatrix.loadSound 'chimney3'
-    @soundsMatrix.loadSound 'chimney4'
-    @soundsMatrix.loadSound 'chimney5'
-    @soundsMatrix.loadSound 'chimney6'
+  constructor: (@gifts, @object, @soundsMatrix) ->
+
+    @onChangeLevel = new signals.Signal()
 
     @direction = new THREE.Vector3()
     @objectDirection = new THREE.Vector3()
@@ -34,7 +29,6 @@ class ProgressionHandler
     return
 
   onKeyDown: (e) =>
-    console.log e.keyCode
     if 49 <= e.keyCode <= 53
       @gotoLevel(e.keyCode - 48)
     else if e.keyCode is 69
@@ -42,13 +36,11 @@ class ProgressionHandler
     return
 
   gotoLevel: (level) =>
-    @soundsMatrix.toggleSoundAt "chimney#{level}", [0, 16, 32, 48]
     @level = level
+    @onChangeLevel.dispatch(level)
     return
 
   update: =>
-    @soundsMatrix.update()
-
     @progress += (@level - @progress) * .1
 
     if @grabbedGift

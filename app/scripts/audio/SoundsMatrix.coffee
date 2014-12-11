@@ -13,6 +13,9 @@ class SoundsMatrix
     @onProgress = new signals.Signal()
 
     @sounds = []
+    @sounds = []
+    @analysers = []
+    @byteFrequenciesData = []
     @soundIds = {}
     @soundsLoaded = 0
 
@@ -30,20 +33,25 @@ class SoundsMatrix
     if @soundIds[name]?
       return
 
-    if name.indexOf('drum') is 0
-      volume = .7
-
+    # create audio
     audio = new Audio()
     extension = if Modernizr.audio.mp3 then 'mp3' else 'ogg'
     audio.src = "sounds/#{name}.#{extension}"
     audio.addEventListener 'canplaythrough', @onSoundLoad
-    # audio.play()
     @sounds.push audio
 
-    # @sounds.push new Howl
-    #   urls: ["sounds/#{name}.mp3", "sounds/#{name}.ogg"]
-    #   volume: volume
-    #   onload: @onSoundLoad
+    # create analyser
+    context = new AudioContext()
+    analyser = context.createAnalyser()
+    analyser.fftSize = 32
+    byteFrequencyData = new Uint8Array(analyser.frequencyBinCount)
+    source = context.createMediaElementSource(audio)
+    source.connect(analyser)
+    analyser.connect(context.destination)
+
+    @analysers.push analyser
+    @byteFrequenciesData.push byteFrequencyData
+
     @soundIds[name] = @height
 
     @height = @sounds.length
@@ -65,8 +73,15 @@ class SoundsMatrix
     return
 
   update: (progress) ->
-    progress = (Date.now() % 15000) / 15000
 
+    # analysers
+
+    for i in [0...@height]
+      @analysers[i].getByteFrequencyData(@byteFrequenciesData[i])
+
+    # playback
+        
+    progress = (Date.now() % 15000) / 15000
     newPlaybackPosition = Math.floor(progress * @width)
 
     if newPlaybackPosition is @playbackPosition
