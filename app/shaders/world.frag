@@ -180,8 +180,8 @@ Voxel cubes( vec3 p ) {
   vec3 cub = vec3(2., 10., 2.);
 
   // cub.y *= sounds[0];
-  cub.y += (noiseRatio.x + noiseRatio.y) * 40.;
-  cub.y *= sounds[0];
+  cub.y += (noiseRatio.x + noiseRatio.y) * 10.;
+  cub.y *= sounds[1];
 
   float dist = udRoundBox(p, cub, 0.);
 
@@ -192,7 +192,7 @@ Voxel spheres( vec3 p ) {
 
   vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
 
-  float modulo = 500.;
+  float modulo = 400.;
 
   vec2 pos = floor(p.xz / modulo);
 
@@ -212,7 +212,7 @@ Voxel spheres( vec3 p ) {
   p.y += 100.;
   if (uProgress > 0.) {
     p.y -= 100. * (uProgress * 2. - 1.);
-    radius += (20. + (noiseRatio.x * noiseRatio.y) * 100.);
+    radius += (20. + (noiseRatio.x * noiseRatio.y) * 150.);
     radius *= sounds[0] * 3.;
   }
 
