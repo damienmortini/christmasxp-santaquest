@@ -5,6 +5,8 @@ class SoundsMatrix
     @width = 64
     @height = 0
 
+    @volume = 1
+
     @matrix = []
     for i in [0...@width]
       @matrix[i] = []
@@ -62,6 +64,24 @@ class SoundsMatrix
     if @debugMode
       @canvas.height = @height * @CELL_SIZE
 
+    return
+
+  volumeFadeOut: =>
+    TweenLite.to @, 1,
+      volume: 0
+      onUpdate: @setVolume
+    return
+
+  volumeFadeIn: =>
+    TweenLite.to @, 1,
+      volume: 1
+      onUpdate: @setVolume
+    return
+
+  setVolume: =>
+    console.log @volume
+    for sound in @sounds
+      sound.volume = @volume
     return
 
   removeSoundAt: (name, positions) =>

@@ -16,6 +16,8 @@ class World
     @deltaTimesSum = 0
     @deltaTimesNumber = 0
 
+    @onChangeLevel = new signals.Signal()
+
     @quality = .5
 
     @soundsMatrix = new SoundsMatrix(true)
@@ -43,7 +45,7 @@ class World
     @addObjects()
     
     @progressionHandler = new ProgressionHandler(@addGifts(), @bike, @soundsMatrix)
-    @progressionHandler.onChangeLevel.add @onChangeLevel
+    @progressionHandler.onChangeLevel.add @onProgressionChangeLevel
 
     @resize()
 
@@ -159,11 +161,21 @@ class World
 
     return
 
-  onChangeLevel: (level) =>
+  onProgressionChangeLevel: (level) =>
+
+    @onChangeLevel.dispatch(level)
+    
+    if level > @soundsMatrix.sounds.length
+      if level is @soundsMatrix.sounds.length + 1
+        @soundsMatrix.volumeFadeOut()
+      else
+        @soundsMatrix.volumeFadeIn()
+      return
     for i in [0...@soundsMatrix.sounds.length]
       @soundsMatrix.removeSoundAt @soundsMatrix.sounds[i].id, [0, 16, 32, 48]
     for i in [0...level]
       @soundsMatrix.setSoundAt @soundsMatrix.sounds[i].id, [0, 16, 32, 48]
+
     return
 
   onPointerMove: (e) =>

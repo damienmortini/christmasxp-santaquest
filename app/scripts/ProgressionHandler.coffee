@@ -29,7 +29,7 @@ class ProgressionHandler
     return
 
   onKeyDown: (e) =>
-    if 49 <= e.keyCode <= 53
+    if 49 <= e.keyCode <= 57
       @gotoLevel(e.keyCode - 48)
     else if e.keyCode is 69
       @gotoLevel(@level + 1)
@@ -40,14 +40,14 @@ class ProgressionHandler
     @onChangeLevel.dispatch(level)
     return
 
-  update: =>
+  update: (dt) =>
     @progress += (@level - @progress) * .1
 
     if @grabbedGift
       @grabbedGift.scale.x += (.1 - @grabbedGift.scale.x) * .8
       @grabbedGift.scale.y += (.1 - @grabbedGift.scale.y) * .8
       @grabbedGift.scale.z += (.1 - @grabbedGift.scale.z) * .8
-      @grabbedGift.position.lerp @object.position, .5
+      @grabbedGift.position.lerp @object.position, .5 * dt
       @grabbedGift.position.y += 3
       @grabbedGift.rotation.x += .08
       @grabbedGift.rotation.y += .06

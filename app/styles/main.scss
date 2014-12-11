@@ -14,6 +14,7 @@ body {
   overflow: hidden;
   font-family: sans-serif;
   color: white;
+  background: black;
 }
 
 #canvas {
@@ -23,12 +24,62 @@ body {
 }
 
 #outro {
-  &:before {
-    opacity: .5;
+  font-weight: 100;
+  text-align: center;
+  line-height: 2em;
+  position: absolute;
+  width: 100%;
+  top: 15%;
+  
+  letter-spacing: .4em;
+
+  transition-property: visibility;
+  transition-delay: 0s;
+
+  .text {
+    font-size: 20px;
+    font-family: recursive;
+    span {
+      transition-property: opacity;
+      transition-duration: 1s;
+      transition-timing-function: ease-in-out;
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * .2s;
+        }
+      }
+    }
+  }
+  .tip {
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-delay: 3s;
+    transition-timing-function: ease-in-out;
+    margin-top: 100px;
+    span {
+      display: inline-block;
+      border-radius: 10px;
+      padding: 10px 40px;
+      border: 1px solid white;
+    }
+  }
+  &.hide {
+    visibility: hidden;
+    transition-delay: 2s;
+    .text {
+      span {
+        opacity: 0;
+        transition-delay: 0;
+      }
+    }
+    .tip {
+      transition-delay: .2s;
+      opacity: 0;
+    }
   }
 }
 
-#intro, #outro {
+#intro {
   position: absolute;
   left: 0;
   top: 0;
@@ -56,7 +107,7 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: 160px;
+    margin-top: 180px;
     transform: translate(-50%, -50%);
     font-weight: 100;
     letter-spacing: .5em;
