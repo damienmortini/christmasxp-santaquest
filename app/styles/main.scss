@@ -31,7 +31,7 @@ body {
   z-index: 2;
   transition-property: opacity, visibility;
   transition-delay: .4s;
-  transition-duration: 2s;
+  transition-duration: 3s;
   &:before {
     content: "";
     transition: opacity 1s;
@@ -42,6 +42,35 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
+  }
+  p, .music {
+    transition: opacity .1s;
+  }
+  p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: 160px;
+    transform: translate(-50%, -50%);
+    font-weight: 100;
+    letter-spacing: .5em;
+    text-align: center;
+  }
+  .music {
+    position: absolute;
+    letter-spacing: .5em;
+    font-weight: 100;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: 100px;
+    transform: translate(-50%, -50%);
+  }
+  svg {
+    display: block;
+    fill: white;
+    position: relative;
+    width: 50px;
   }
   h1 {
     position: absolute;
@@ -84,6 +113,9 @@ body {
     opacity: 0;
     visibility: hidden;
     &:before {
+      opacity: 0;
+    }
+    p, .music {
       opacity: 0;
     }
     .button {
