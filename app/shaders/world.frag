@@ -104,9 +104,8 @@ float fbm( vec2 p )
 
 // UTILS
 
-Voxel smin( Voxel voxel1, Voxel voxel2 )
+Voxel smin( Voxel voxel1, Voxel voxel2, float blendRatio )
 {
-  float blendRatio = 10.;
   float ratio = clamp(.5 + .5 * (voxel2.dist - voxel1.dist) / blendRatio, 0., 1.);
   
   float dist = mix(voxel2.dist, voxel1.dist, ratio) - blendRatio * ratio * (1. - ratio);
@@ -148,6 +147,44 @@ Voxel stars( vec3 p ) {
   p = mod(p, modulo) - modulo * .5;
   float dist = sdSphere(p, .5);
   
+  return Voxel( dist, color );
+}
+
+Voxel cubes( vec3 p ) {
+
+  vec4 color = vec4(1.0, 0.0, 0.0, 1.0);
+
+  float modulo = 10.;
+
+  vec2 pos = floor(p.xz / modulo);
+
+  vec2 noiseRatio = hash2(pos);
+
+  color.g = noiseRatio.x;
+  color.b = noiseRatio.y;
+  color *= 2.5;
+
+  p.xz = mod(p.xz, modulo) - modulo * .5;
+  // p.xz += noiseRatio * 100.;
+
+  // radius 
+  // float radius = 0.;
+
+  p.y += 10.;
+  // if (uProgress > 0.) {
+  //   p.y -= 100. * (uProgress * 2. - 1.);
+  //   radius += (20. + (noiseRatio.x * noiseRatio.y) * 100.);
+  //   radius *= sounds[0] * 3.;
+  // }
+  
+  vec3 cub = vec3(2., 10., 2.);
+
+  // cub.y *= sounds[0];
+  cub.y += (noiseRatio.x + noiseRatio.y) * 40.;
+  cub.y *= sounds[0];
+
+  float dist = udRoundBox(p, cub, 0.);
+
   return Voxel( dist, color );
 }
 
@@ -203,7 +240,8 @@ Voxel map( vec3 p) {
 
   Voxel voxel = ground(p, noiseTex);
 
-  voxel = smin(spheres(p), voxel);
+  voxel = smin(spheres(p), voxel, 10.);
+  voxel = smin(cubes(p), voxel, 1.);
 
   voxel = min(stars(p), voxel);
 
