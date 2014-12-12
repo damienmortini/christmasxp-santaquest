@@ -21,11 +21,15 @@ class World
     @quality = .5
 
     @soundsMatrix = new SoundsMatrix(true)
-    @soundsMatrix.loadSound 'chimney2'
-    @soundsMatrix.loadSound 'chimney1'
-    @soundsMatrix.loadSound 'chimney3'
-    @soundsMatrix.loadSound 'chimney4'
-    @soundsMatrix.loadSound 'chimney5'
+
+    @soundsMatrix.loadSound 'HO_BeatE128-17', .2, false
+
+    @soundsMatrix.loadSound 'HO_FilPiano128E-02'
+    @soundsMatrix.loadSound 'HO_Chi Lead128E-04'
+    @soundsMatrix.loadSound 'HO_BrokeBass128B-05'
+    @soundsMatrix.loadSound 'HO_MesBass128C-05'
+
+    @soundsMatrix.loadSound 'HO_Chi Lead128E-01'
 
     @bike = new Bike()
     @bike.position.y = 10
@@ -57,6 +61,7 @@ class World
     if @raf?
       return
     @prevTime = Date.now()
+    @soundsMatrix.setSoundAt @soundsMatrix.sounds[0].id, [0, 16, 32, 48]
     @update()
     return
 
@@ -90,7 +95,7 @@ class World
 
   addGifts: =>
     gifts = []
-    for i in [0...5]
+    for i in [0...@soundsMatrix.sounds.length + 1]
       gift  = new Gift()
       gift.position.set(
         Math.random() * 5000 - 2500
@@ -164,16 +169,15 @@ class World
   onProgressionChangeLevel: (level) =>
 
     @onChangeLevel.dispatch(level)
-    
-    if level > @soundsMatrix.sounds.length
-      if level is @soundsMatrix.sounds.length + 1
-        @soundsMatrix.volumeFadeOut()
+    if level >= @soundsMatrix.sounds.length - 1
+      if level is @soundsMatrix.sounds.length - 1
+        @soundsMatrix.volumeFade(.01)
       else
-        @soundsMatrix.volumeFadeIn()
+        @soundsMatrix.volumeFade(1)
       return
     for i in [0...@soundsMatrix.sounds.length]
       @soundsMatrix.removeSoundAt @soundsMatrix.sounds[i].id, [0, 16, 32, 48]
-    for i in [0...level]
+    for i in [0...level + 1]
       @soundsMatrix.setSoundAt @soundsMatrix.sounds[i].id, [0, 16, 32, 48]
 
     return

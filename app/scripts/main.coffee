@@ -28,10 +28,11 @@ onSpaceDown = (e) ->
     document.body.querySelector('#outro').classList.add 'hide'
     window.removeEventListener 'keydown', onSpaceDown
     window.world.progressionHandler.gotoLevel(window.world.progressionHandler.level + 1)
+    window.world.soundsMatrix.setSoundAt 'HO_Chi Lead128E-01', [0, 32]
   return
 
 onChangeLevel = (level) ->
-  if level > window.world.soundsMatrix.sounds.length
+  if level >= window.world.soundsMatrix.sounds.length - 1
     window.world.onChangeLevel.remove onChangeLevel
     setTimeout ->
       document.body.querySelector('#outro').classList.remove 'hide'

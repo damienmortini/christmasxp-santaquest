@@ -26,10 +26,10 @@ body {
 #outro {
   font-weight: 100;
   text-align: center;
-  line-height: 2em;
+  line-height: 3em;
   position: absolute;
   width: 100%;
-  top: 15%;
+  top: 10%;
   
   letter-spacing: .4em;
 
@@ -41,7 +41,7 @@ body {
     font-family: recursive;
     span {
       transition-property: opacity;
-      transition-duration: 1s;
+      transition-duration: 1.5s;
       transition-timing-function: ease-in-out;
       @for $i from 1 through 20 {
         &:nth-child(#{$i}) {
@@ -53,13 +53,13 @@ body {
   .tip {
     transition-property: opacity;
     transition-duration: 1s;
-    transition-delay: 3s;
+    transition-delay: 5s;
     transition-timing-function: ease-in-out;
     margin-top: 100px;
     span {
       display: inline-block;
       border-radius: 10px;
-      padding: 10px 40px;
+      padding: 0px 40px;
       border: 1px solid white;
     }
   }

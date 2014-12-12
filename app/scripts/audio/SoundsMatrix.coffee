@@ -30,29 +30,32 @@ class SoundsMatrix
       document.body.appendChild(@canvas)
     return
 
-  loadSound: (name, volume = .5) =>
+  loadSound: (name, volume = .5, analyse = true) =>
     if @soundIds[name]?
       return
 
     # create audio
     audio = new Audio()
     extension = if Modernizr.audio.mp3 then 'mp3' else 'ogg'
+    extension = 'wav'
     audio.src = "sounds/#{name}.#{extension}"
     audio.addEventListener 'canplaythrough', @onSoundLoad
     audio.id = name
+    audio.volume = volume
     @sounds.push audio
 
-    # create analyser
-    context = new AudioContext()
-    analyser = context.createAnalyser()
-    analyser.fftSize = 32
-    byteFrequencyData = new Uint8Array(analyser.frequencyBinCount)
-    source = context.createMediaElementSource(audio)
-    source.connect(analyser)
-    analyser.connect(context.destination)
+    if analyse
+      # create analyser
+      context = new AudioContext()
+      analyser = context.createAnalyser()
+      analyser.fftSize = 32
+      byteFrequencyData = new Uint8Array(analyser.frequencyBinCount)
+      source = context.createMediaElementSource(audio)
+      source.connect(analyser)
+      analyser.connect(context.destination)
 
-    @analysers.push analyser
-    @byteFrequenciesData.push byteFrequencyData
+      @analysers.push analyser
+      @byteFrequenciesData.push byteFrequencyData
 
     @soundIds[name] = @height
 
@@ -66,15 +69,9 @@ class SoundsMatrix
 
     return
 
-  volumeFadeOut: =>
+  volumeFade: (volume) =>
     TweenLite.to @, 1,
-      volume: 0
-      onUpdate: @setVolume
-    return
-
-  volumeFadeIn: =>
-    TweenLite.to @, 1,
-      volume: 1
+      volume: volume
       onUpdate: @setVolume
     return
 
@@ -112,8 +109,8 @@ class SoundsMatrix
 
     # analysers
 
-    for i in [0...@height]
-      @analysers[i].getByteFrequencyData(@byteFrequenciesData[i])
+    for analyser, i in @analysers
+      analyser.getByteFrequencyData(@byteFrequenciesData[i])
 
     # playback
         
