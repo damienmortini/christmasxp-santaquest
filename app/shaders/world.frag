@@ -183,8 +183,11 @@ Voxel airCubes( vec3 p ) {
   
   vec3 cub = vec3(5., 5., 5.) * (noiseRatio.x + noiseRatio.y);
   cub *= uSounds[1] * 5.;
-  if (uProgress <= 4.) {
-    cub *= 1. + uSounds[3] * 30.;
+  if (uProgress > 5.) {
+    cub *= 1. + uSounds[4] * 4. * (noiseRatio.x + noiseRatio.y);
+  }
+  if (uProgress <= 5.) {
+    cub *= 1. + uSounds[3] * 20.;
   }
 
   // cub.y *= uSounds[0];
@@ -231,8 +234,11 @@ Voxel cubes( vec3 p ) {
   vec3 cub = vec3(2., 10., 2.);
 
   // cub.y *= uSounds[0];
-  cub.y += (noiseRatio.x + noiseRatio.y) * 10.;
-  cub.y *= uSounds[2] * 2.;
+  cub.y += (noiseRatio.x + noiseRatio.y) * 4.;
+  cub.y *= uSounds[1] * 2.;
+  if (uProgress > 5.) {
+    cub.y *= 1. + uSounds[3] * 5.;
+  }
 
   float dist = udRoundBox(p, cub, 0.);
 
@@ -266,12 +272,13 @@ Voxel spheres( vec3 p ) {
   }
 
   radius += (20. + (noiseRatio.x * noiseRatio.y) * 150.);
-  radius *= uSounds[0] * 3.;
+  radius *= uSounds[0] * 1.5;
   radius *= 1. + uSounds[1] * 3.;
 
-  if (uProgress > 4.) {
-    p.y = uProgress - .4;
-    radius *= .4;
+  if (uProgress > 5.) {
+    p.y = 0.;
+    radius *= uProgress - .5;
+    radius *= .1;
   }
 
   float dist = sdSphere(p, radius);

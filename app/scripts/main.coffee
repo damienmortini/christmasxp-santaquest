@@ -49,4 +49,4 @@ window.world.onChangeLevel.add onChangeLevel
 for button in buttons
   button.addEventListener 'click', onButtonClick
 
-# onButtonClick()
+onButtonClick()

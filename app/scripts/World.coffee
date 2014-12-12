@@ -33,6 +33,7 @@ class World
 
     @bike = new Bike()
     @bike.position.y = 10
+    @camera.position.y = 10
     @scene.add @bike
 
     @bikeControls = new BikeControls(@bike, 4)
@@ -95,7 +96,7 @@ class World
 
   addGifts: =>
     gifts = []
-    for i in [0...@soundsMatrix.sounds.length + 1]
+    for i in [0...@soundsMatrix.sounds.length]
       gift  = new Gift()
       gift.position.set(
         Math.random() * 5000 - 2500
