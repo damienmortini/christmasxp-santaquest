@@ -1,4 +1,4 @@
-precision highp float;
+precision mediump float;
 
 #define PI 3.1415926535897932384626433832795
 
@@ -341,7 +341,7 @@ Voxel trace( vec3 ro, vec3 rd)
   if (dist < uFar) {
     vec3 normal = calcNormal(ro + rd * dist);
     voxel.color *= .75 + dot(normal, normalize(vec3(1., 1., 0.))) * .75 * vec4(.4, .4, 1., 1.);
-    voxel.color += max(1. - (abs(length(uLightPosition - (ro + rd * voxel.dist))) / 70.), 0.) * vec4(1., .2, .2, 1.) * 3.;
+    voxel.color += max(1. - (abs(length(uLightPosition - (ro + rd * voxel.dist))) / 100.), 0.) * vec4(1., .2, .2, 1.) * 3.;
   }
 
   return voxel;

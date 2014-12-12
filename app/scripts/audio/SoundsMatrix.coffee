@@ -14,6 +14,8 @@ class SoundsMatrix
     @onLoad = new signals.Signal()
     @onProgress = new signals.Signal()
 
+    @context = new AudioContext()
+
     @sounds = []
     @analysers = []
     @byteFrequenciesData = []
@@ -45,13 +47,13 @@ class SoundsMatrix
 
     if analyse
       # create analyser
-      context = new AudioContext()
-      analyser = context.createAnalyser()
+      
+      analyser = @context.createAnalyser()
       analyser.fftSize = 32
       byteFrequencyData = new Uint8Array(analyser.frequencyBinCount)
-      source = context.createMediaElementSource(audio)
+      source = @context.createMediaElementSource(audio)
       source.connect(analyser)
-      analyser.connect(context.destination)
+      analyser.connect(@context.destination)
 
       @analysers.push analyser
       @byteFrequenciesData.push byteFrequencyData

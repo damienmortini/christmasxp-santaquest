@@ -8,7 +8,7 @@ class Bear extends THREE.Object3D
     @animation = null
 
     @loader = new THREE.JSONLoader()
-    @loader.load '../models/bearBlack.js', (geometry) =>
+    @loader.load 'models/bearBlack.js', (geometry) =>
       @mesh = new THREE.MorphAnimMesh(geometry, new THREE.MeshPhongMaterial(
         color: 0xdd8888
         morphTargets: true

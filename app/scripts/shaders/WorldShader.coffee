@@ -38,10 +38,11 @@ class WorldShader
         type: 't'
         value: null
 
-    @vertexShader = document.querySelector('#world-shader-vertex').import.body.innerText
+    @vertexShader = document.querySelector('#world-shader-vertex').innerText
 
     @fragmentShader = [
-      document.querySelector('#world-shader-fragment').import.body.innerText
+      document.querySelector('#world-shader-fragment').innerText
+      # document.querySelector('#world-shader-fragment').import.body.innerText
     ].join('\n')
 
     return

@@ -4,550 +4,158 @@
 		"selected_items":
 		[
 			[
-				"soun",
-				"soundsMatrix"
-			],
-			[
-				"sound",
-				"sounds"
+				"inline",
+				"inline-block"
 			],
 			[
 				"tr",
-				"transition-duration"
+				"transform"
 			],
 			[
-				"margin",
-				"margin-top"
-			],
-			[
-				"pso",
-				"position"
-			],
-			[
-				"tra",
-				"transition-delay"
-			],
-			[
-				"trans",
-				"transition"
-			],
-			[
-				"nth",
-				"nth-child(  (pseudo-class)"
-			],
-			[
-				"font",
-				"font-size"
+				"displ",
+				"display:   (property)"
 			],
 			[
 				"for",
 				"forin	Array Comprehension"
 			],
 			[
-				"add",
-				"addEventListener"
-			],
-			[
-				"pr",
-				"progressionHandler"
-			],
-			[
-				"sou",
-				"soundIds"
-			],
-			[
-				"anal",
-				"analyser"
-			],
-			[
-				"ana",
-				"analysers"
-			],
-			[
-				"dela",
-				"deltaTime"
-			],
-			[
-				"gi",
-				"gift"
-			],
-			[
-				"nor",
-				"normalize"
-			],
-			[
-				"le",
-				"level"
-			],
-			[
-				"raymarching",
-				"raymarching"
-			],
-			[
-				"ha",
-				"hash1"
-			],
-			[
-				"calc",
-				"calcNormalGridRayMarching"
-			],
-			[
-				"ray",
-				"rayOrigin"
-			],
-			[
-				"d",
-				"dist"
-			],
-			[
-				"cell",
-				"cellSize"
-			],
-			[
-				"ce",
-				"cellSize"
-			],
-			[
-				"dis",
-				"dist"
-			],
-			[
-				"cll",
-				"cellSize"
-			],
-			[
-				"voxe",
-				"voxel"
-			],
-			[
-				"vo",
-				"voxel"
-			],
-			[
-				"hash",
-				"hash1"
-			],
-			[
-				"del",
-				"deltaTimesNumber"
-			],
-			[
-				"nois",
-				"noiseRatio"
-			],
-			[
-				"co",
-				"col"
-			],
-			[
-				"di",
-				"displacement"
-			],
-			[
-				"col",
-				"color"
-			],
-			[
-				"vox",
-				"voxel"
-			],
-			[
-				"voxel",
-				"voxel1"
-			],
-			[
-				"groun",
-				"groundVoxel"
-			],
-			[
-				"sp",
-				"sphereVoxel"
-			],
-			[
-				"angle",
-				"angleEuler"
-			],
-			[
-				"an",
-				"angleQuaternion"
-			],
-			[
-				"el",
-				"else"
-			],
-			[
-				"dire",
-				"directionQuaternion"
-			],
-			[
-				"obje",
-				"objectEuler"
-			],
-			[
-				"ob",
-				"ObjectEuler"
-			],
-			[
-				"s",
-				"speed"
-			],
-			[
-				"upda",
-				"updateDirection"
-			],
-			[
-				"fla",
-				"FLAG_LEFT"
-			],
-			[
-				"FLA",
-				"FLAG_DOWN"
-			],
-			[
-				"key",
-				"keyFlags"
-			],
-			[
-				"ke",
-				"keydown"
-			],
-			[
-				"camer",
-				"camera"
-			],
-			[
-				"rai",
-				"radius"
-			],
-			[
-				"mod",
-				"modulo"
-			],
-			[
-				"dp",
-				"depth"
-			],
-			[
-				"sphe",
-				"sphereCol"
-			],
-			[
-				"ucam",
-				"uCameraFar"
-			],
-			[
-				"rende",
-				"renderer"
-			],
-			[
-				"uca",
-				"uCameraFar"
-			],
-			[
-				"uCa",
-				"uCameraNear"
-			],
-			[
-				"ucame",
-				"uCameraNear"
-			],
-			[
-				"de",
-				"depth_vec"
-			],
-			[
-				"eye",
-				"eyeHitZ"
-			],
-			[
-				"UC",
-				"uCameraNear"
-			],
-			[
-				"project",
-				"projectionMatrix"
-			],
-			[
-				"came",
-				"uCameraFov"
-			],
-			[
-				"hor",
-				"horizontalFov"
-			],
-			[
-				"Veti",
-				"VerticalBlurShader"
-			],
-			[
-				"cop",
-				"copyShaderPass"
-			],
-			[
-				"tex",
-				"texelTextureDepth"
-			],
-			[
-				"vec",
-				"vec3"
-			],
-			[
-				"texe",
-				"texelTextureAlphaDepth"
-			],
-			[
-				"uCam",
-				"uCameraRotation"
-			],
-			[
-				"ucmae",
-				"uCameraRotation"
-			],
-			[
-				"worl",
-				"worldShaderPass"
-			],
-			[
-				"te",
-				"test0"
-			],
-			[
-				"render",
-				"renderTarget1"
-			],
-			[
-				"con",
-				"continue"
-			],
-			[
-				"mix",
-				"mix_depth"
-			],
-			[
-				"class",
-				"classList"
-			],
-			[
-				"shuf",
-				"shuffle"
-			],
-			[
-				"chi",
-				"children"
-			],
-			[
-				"bac",
-				"background-origin"
-			],
-			[
-				"back",
-				"background"
-			],
-			[
-				"tras",
-				"translateZ"
-			],
-			[
-				"boxse",
-				"box-sizing:   (property)"
-			],
-			[
-				"post",
-				"post"
-			],
-			[
-				"Pers",
-				"PERSPECTIVE"
-			],
-			[
-				"time",
-				"timeline"
-			],
-			[
-				"mai",
-				"mainTimeline"
-			],
-			[
-				"timel",
-				"timeline"
-			],
-			[
-				"timelin",
-				"timelines"
-			],
-			[
-				"Twee",
-				"TweenMax"
-			],
-			[
-				"tile",
-				"timeline"
-			],
-			[
-				"po",
-				"post"
-			],
-			[
-				"pos",
-				"posts"
-			],
-			[
-				"hook",
-				"hooks"
-			],
-			[
-				"hoo",
-				"hook"
-			],
-			[
-				"to",
-				"top"
-			],
-			[
-				"chil",
-				"children"
-			],
-			[
-				"offs",
-				"offsetWidth"
-			],
-			[
-				"over",
-				"overflow"
+				"tran",
+				"transition"
 			],
 			[
 				"wid",
 				"width"
 			],
 			[
-				"eleme",
-				"element"
+				"tex",
+				"text"
 			],
 			[
-				"ngre",
-				"ng-textarea	AngularJS"
+				"pso",
+				"position"
 			],
 			[
-				"re",
-				"response"
+				"soun",
+				"soundsMatrix"
 			],
 			[
-				"Pos",
-				"postsCollection"
+				"cop",
+				"copy"
 			],
 			[
-				"he",
-				"height"
+				"Mesh",
+				"MeshPhongMaterial"
 			],
 			[
-				"cre",
-				"createElement"
+				"Gif",
+				"giftDirection"
 			],
 			[
-				"borde",
-				"border-radius"
+				"appl",
+				"applyQuaternion"
 			],
 			[
-				"ba",
-				"bakgrounds"
+				"key",
+				"keyCode"
 			],
 			[
-				"transi",
-				"transition-property:   (property)"
+				"Gifts",
+				"GiftsHandler"
 			],
 			[
-				"op",
-				"opacity"
+				"gif",
+				"gifts"
 			],
 			[
-				"backg",
-				"backgrounds"
+				"rand",
+				"random"
 			],
 			[
-				"im",
-				"images"
+				"vo",
+				"voxel"
 			],
 			[
-				"text",
-				"text-transform"
+				"voxe",
+				"voxel2"
 			],
 			[
-				"new",
-				"newValue"
+				"temp",
+				"tempOffsetAxis"
 			],
 			[
-				"scro",
-				"scrollTo"
+				"offset",
+				"offsetAxis"
 			],
 			[
-				"tran",
-				"transition"
+				"posi",
+				"position"
 			],
 			[
-				"no",
-				"none"
+				"gl_",
+				"gl_FragColor"
 			],
 			[
-				"vis",
-				"visible"
+				"World",
+				"WorldShader"
 			],
 			[
-				"transla",
-				"translateY"
+				"ray",
+				"rayOrigin"
 			],
 			[
-				"ease-in",
-				"ease-in-out  (value)"
+				"ng-re",
+				"ng-repeat	AngularJS"
 			],
 			[
-				"des",
-				"design"
+				"can",
+				"canvas"
 			],
 			[
-				"ca",
-				"category"
-			],
-			[
-				"tag",
-				"tagNames"
-			],
-			[
-				"backgruo-",
-				"background-position"
+				"boc",
+				"bgo:cb	background-origin:content-box"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/shaders/world.frag",
+			"file": "app/scripts/World.coffee",
 			"settings":
 			{
-				"buffer_size": 8331,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "gulpfile.js",
-			"settings":
-			{
-				"buffer_size": 3573,
+				"buffer_size": 8003,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/index.html",
+			"file": "app/shaders/world.frag",
 			"settings":
 			{
-				"buffer_size": 6280,
+				"buffer_size": 8506,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/styles/main.scss",
+			"file": "app/scripts/objects/Bike.coffee",
 			"settings":
 			{
-				"buffer_size": 3633,
+				"buffer_size": 800,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/ProgressionHandler.coffee",
+			"settings":
+			{
+				"buffer_size": 2159,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/scripts/audio/SoundsMatrix.coffee",
+			"settings":
+			{
+				"buffer_size": 3570,
 				"line_ending": "Windows"
 			}
 		},
@@ -560,51 +168,19 @@
 			}
 		},
 		{
-			"file": "Gruntfile.js",
+			"file": "app/styles/main.scss",
 			"settings":
 			{
-				"buffer_size": 11575,
+				"buffer_size": 3633,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "dist/scripts/vendor.js",
+			"file": "app/scripts/main.coffee",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Damien/Desktop/find/bower.json",
-			"settings":
-			{
-				"buffer_size": 114,
+				"buffer_size": 1469,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/scripts/controls/CameraControls.coffee",
-			"settings":
-			{
-				"buffer_size": 753,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/shaders/world.vert",
-			"settings":
-			{
-				"buffer_size": 80,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/scripts/objects/Bear.coffee",
-			"settings":
-			{
-				"buffer_size": 739,
-				"line_ending": "Windows"
 			}
 		},
 		{
@@ -616,19 +192,11 @@
 			}
 		},
 		{
-			"file": "app/scripts/World.coffee",
+			"file": "app/scripts/controls/CameraControls.coffee",
 			"settings":
 			{
-				"buffer_size": 7972,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/scripts/controls/BikeControls_testWithObjectEuler.coffee",
-			"settings":
-			{
-				"buffer_size": 3138,
-				"line_ending": "Windows"
+				"buffer_size": 753,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -636,57 +204,31 @@
 			"settings":
 			{
 				"buffer_size": 3022,
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/scripts/ProgressionHandler.coffee",
+			"file": "app/scripts/EnvironmentHandler.coffee",
 			"settings":
 			{
-				"buffer_size": 2159,
-				"line_ending": "Windows"
+				"buffer_size": 108,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/scripts/main.coffee",
+			"file": "app/scripts/objects/Gift.coffee",
 			"settings":
 			{
-				"buffer_size": 1469,
-				"line_ending": "Windows"
+				"buffer_size": 611,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/scripts/audio/SoundsMatrix.coffee",
+			"file": "app/models/bike.json",
 			"settings":
 			{
-				"buffer_size": 3592,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "find.sublime-project",
-			"settings":
-			{
-				"buffer_size": 204,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/scripts/shaders/WorldShader.coffee",
-			"settings":
-			{
-				"buffer_size": 1030,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 338 files for \"uLightDirection\" (whole word)\n\nC:\\Users\\Damien\\dev\\find\\app\\scripts\\shaders\\WorldShader.coffee:\n   17          type: 'f'\n   18          value: 0\n   19:       'uLightDirection':\n   20          type: 'v3'\n   21          value: new THREE.Vector3()\n\nC:\\Users\\Damien\\dev\\find\\app\\scripts\\World.coffee:\n  197  \n  198      @worldShaderPass.uniforms['uTime'].value += dt / 60\n  199:     @worldShaderPass.uniforms['uLightDirection'].value.copy @helper.position\n  200:     # @worldShaderPass.uniforms['uLightDirection'].value.copy @progressionHandler.direction\n  201      @worldShaderComposer.render()\n  202      @renderComposer.render()\n\nC:\\Users\\Damien\\dev\\find\\app\\shaders\\world.frag:\n    8  uniform float uFov;\n    9  uniform float uTime;\n   10: uniform vec3 uLightDirection;\n   11  uniform mat4 uModelViewMatrix;\n   12  uniform mat4 uProjectionMatrix;\n   ..\n  235      vec3 normal = calcNormal(ro + rd * dist);\n  236      voxel.color *= .75 + dot(normal, vec3(0., 1., 0.)) * .25;\n  237:     voxel.color += max(1. - (abs(length(uLightDirection - (ro + rd * voxel.dist))) / 30.), 0.) * vec4(1., .2, .2, 1.) * 3.;\n  238:     // voxel.color *= dot(normal, uLightDirection * -1.) * vec4(0., 0., .2, 1.);\n  239:     // voxel.color += dot(normal, uLightDirection * -1.) * vec4(0., 0., .2, 1.);\n  240    }\n  241  \n\n7 matches across 3 files\n",
-			"settings":
-			{
-				"buffer_size": 1352,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 281799,
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -694,537 +236,149 @@
 			"settings":
 			{
 				"buffer_size": 563,
-				"line_ending": "Windows"
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/scripts/shaders/WorldShader.coffee",
+			"settings":
+			{
+				"buffer_size": 1030,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/index.html",
+			"settings":
+			{
+				"buffer_size": 6019,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "Packages/User/Grunt.sublime-build",
 	"command_palette":
 	{
-		"height": 237.0,
+		"height": 400.0,
 		"selected_items":
 		[
 			[
-				"kill",
-				"Build: Grunt kill tasks"
-			],
-			[
-				"kil",
-				"Build: Grunt kill tasks"
-			],
-			[
-				"grd",
-				"Build: Grunt serve:dist"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
-				"gulbi",
-				"Build: gulp build"
-			],
-			[
-				"gulb",
-				"Build: gulp build"
-			],
-			[
-				"gulbui",
-				"Build: gulp build"
-			],
-			[
-				"gu",
-				"Build: gulp build"
-			],
-			[
-				"gbui",
-				"Build: gulp build"
-			],
-			[
-				"colo",
-				"Color Picker"
-			],
-			[
-				"close",
-				"File: Close All"
-			],
-			[
-				"lin",
-				"SublimeLinter: Next Error"
+				"bower",
+				"Bower: Install"
 			],
 			[
 				"rena",
 				"File: Rename"
 			],
 			[
-				"gulp",
-				"Build: gulp build"
+				"bowe",
+				"Bower: Install"
 			],
 			[
-				"g",
-				"Build: gulp build"
+				"cons",
+				"Indentation: Convert to Spaces"
 			],
 			[
-				"uild",
-				"Build: gulp build"
+				"colo",
+				"Color Picker"
 			],
 			[
-				"coffee",
-				"Set Syntax: CoffeeScript"
-			],
-			[
-				"lis",
-				"Package Control: List Packages"
+				"move",
+				"File: Move"
 			],
 			[
 				"clos",
 				"File: Close All"
 			],
 			[
-				"low",
-				"Convert Case: Lower Case"
-			],
-			[
-				"uppe",
-				"Convert Case: Upper Case"
-			],
-			[
-				"upper",
-				"Convert Case: Upper Case"
-			],
-			[
-				"re",
-				"File: Rename"
-			],
-			[
-				"grunt",
-				"Build: Grunt serve:dist"
-			],
-			[
-				"grb",
-				"Build: Grunt build"
-			],
-			[
-				"insta",
-				"Bower: Install"
-			],
-			[
-				"enable",
-				"Package Control: Enable Package"
-			],
-			[
-				"bower",
-				"Bower: Install"
-			],
-			[
-				"gr",
-				"Build: Grunt build"
-			],
-			[
-				"math",
-				"Emmet: Evaluate Math Expression"
-			],
-			[
-				"imgsi",
-				"Emmet: Update Image Size"
-			],
-			[
-				"copy",
-				"File: Copy as Tag script"
-			],
-			[
-				"sort",
-				"Sort Lines"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
-				"sortline",
-				"Sort Lines"
-			],
-			[
-				"sortli",
-				"Sort Lines"
-			],
-			[
-				"sortby",
-				"SortBy: Alphabetically"
-			],
-			[
-				"sor",
-				"Sort Lines"
-			],
-			[
-				"dele",
-				"File: Delete"
-			],
-			[
-				"ins",
-				"Bower: Install"
-			],
-			[
-				"grdis",
-				"Build: Grunt serve:dist"
-			],
-			[
-				"sedis",
-				"Build: Grunt serve:dist"
-			],
-			[
-				"rena	",
-				"File: Rename"
-			],
-			[
-				"dist",
-				"Build: Grunt serve:dist"
-			],
-			[
-				"space",
-				"Indentation: Convert to Spaces"
-			],
-			[
-				"spa",
-				"Indentation: Convert to Spaces"
-			],
-			[
-				"sapce",
-				"Indentation: Convert to Spaces"
-			],
-			[
-				"ren",
-				"File: Rename"
-			],
-			[
-				"scss",
-				"Set Syntax: SCSS"
-			],
-			[
-				"sass",
-				"Set Syntax: Sass"
-			],
-			[
-				"tabs",
-				"Indentation: Convert to Tabs"
-			],
-			[
-				"html",
-				"Set Syntax: HTML"
-			],
-			[
-				"copyna",
-				"File: Copy Name"
-			],
-			[
-				"tab",
-				"Indentation: Convert to Tabs"
-			],
-			[
-				"sty",
-				"Set Syntax: Stylus"
-			],
-			[
-				"remo",
-				"Package Control: Remove Package"
+				"gub",
+				"Build: gulp build"
 			],
 			[
 				"list",
 				"Package Control: List Packages"
 			],
 			[
-				"reinde",
-				"Indentation: Reindent Lines"
+				"gulp",
+				"Gulp"
 			],
 			[
-				"renam",
-				"File: Rename"
-			],
-			[
-				"git log",
-				"Git: Log Current File"
-			],
-			[
-				"gitlo",
-				"Git: Log Current File"
-			],
-			[
-				"log",
-				"Git: Log Current File"
-			],
-			[
-				"intsall",
-				"Bower: Install"
-			],
-			[
-				"remove packa",
-				"Package Control: Remove Package"
-			],
-			[
-				"git",
-				"Git: Log"
-			],
-			[
-				"gitlog",
-				"Git: Quick Log Current File"
-			],
-			[
-				"gits",
-				"Git: Status"
-			],
-			[
-				"grun",
-				"Build: Nutella grunt build"
-			],
-			[
-				"bowe",
-				"Bower: Discover packages"
-			],
-			[
-				"reve",
-				"File: Reveal"
-			],
-			[
-				"ope",
-				"File: Open In Browser - Production Server"
-			],
-			[
-				"GRB",
-				"Build: grunt build"
-			],
-			[
-				"inden	",
-				"Indentation: Convert to Tabs"
-			],
-			[
-				"reva",
-				"File: Reveal"
-			],
-			[
-				"confli",
-				"FindKeyConflicts: All Key Maps to Quick Panel"
-			],
-			[
-				"keycon",
-				"FindKeyConflicts: All Key Maps to Quick Panel"
-			],
-			[
-				"upe",
-				"Convert Case: Upper Case"
-			],
-			[
-				"rev",
-				"File: Reveal"
-			],
-			[
-				"copy na",
-				"File: Copy Name"
-			],
-			[
-				"rem",
-				"Package Control: Remove Package"
-			],
-			[
-				"gitstat",
-				"Git: Status"
-			],
-			[
-				"settin",
-				"Preferences: Settings - Default"
-			],
-			[
-				"lo",
+				"low",
 				"Convert Case: Lower Case"
 			],
 			[
-				"lowe",
-				"Convert Case: Lower Case"
-			],
-			[
-				"lower",
-				"Convert Case: Lower Case"
-			],
-			[
-				"case",
-				"Convert Case: Title Case"
-			],
-			[
-				"colse",
+				"close",
 				"File: Close All"
 			],
 			[
-				"conflict",
-				"FindKeyConflicts: All Key Maps to Quick Panel"
-			],
-			[
-				"rene",
-				"File: Rename"
-			],
-			[
-				"json",
-				"Set Syntax: JSON"
-			],
-			[
-				"conflic",
-				"FindKeyConflicts: All Conflicts"
-			],
-			[
-				"js",
-				"JS2Coffee: Convert selection"
-			],
-			[
-				"js2",
-				"JS2Coffee: Convert file"
-			],
-			[
-				"packarepo",
-				"Package Control: Add Repository"
-			],
-			[
-				"insa",
+				"install",
 				"Package Control: Install Package"
 			],
 			[
-				"select",
-				"Bookmarks: Select All"
+				"ena",
+				"Package Control: Enable Package"
 			],
 			[
-				"",
-				"Build: Grunt Kill Server"
-			],
-			[
-				"scs",
-				"Set Syntax: SCSS"
-			],
-			[
-				"rename",
-				"File: Rename"
-			],
-			[
-				"convert",
-				"Convert Case: Swap Case"
-			],
-			[
-				"uper",
-				"Convert Case: Upper Case"
-			],
-			[
-				"lint",
-				"SublimeLinter: Show Error List"
-			],
-			[
-				"css",
-				"Set Syntax: CSS"
-			],
-			[
-				"sa",
-				"Set Syntax: Sass"
-			],
-			[
-				"Package Control: ",
-				"Package Control: Upgrade Package"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
-				"bo",
-				"Bower: Install"
-			],
-			[
-				"bow",
-				"Bower: Install"
-			],
-			[
-				"rein",
-				"Indentation: Reindent Lines"
-			],
-			[
-				"join",
-				"Emmet: Split\\Join Tag"
-			],
-			[
-				"revea",
-				"File: Reveal"
-			],
-			[
-				"dis",
-				"Package Control: Disable Package"
-			],
-			[
-				"setting",
-				"Preferences: Settings - User"
-			],
-			[
-				"packa",
-				"Preferences: Browse Packages"
-			],
-			[
-				"cop",
-				"File: Copy Name"
-			],
-			[
-				"reind",
-				"Indentation: Reindent Lines"
-			],
-			[
-				"sideba",
-				"View: Toggle Open Files in Side Bar"
-			],
-			[
-				"side",
-				"Snippet: isDefined"
-			],
-			[
-				"chan",
-				"Git: Change Branch"
-			],
-			[
-				"bra",
-				"Git: Change Branch"
-			],
-			[
-				"disab",
-				"Package Control: Disable Package"
-			],
-			[
-				"bof",
-				":0 - BOF"
-			],
-			[
-				"cre",
-				"Create Xiki Buffer"
-			],
-			[
-				"xiki",
-				"Create Xiki Buffer"
-			],
-			[
-				"xik",
-				"Create Xiki Buffer"
-			],
-			[
-				"htm",
-				"Set Syntax: HTML"
+				"enab",
+				"Package Control: Enable Package"
 			],
 			[
 				"disa",
 				"Package Control: Disable Package"
 			],
 			[
-				"in",
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"diasb",
+				"Package Control: Disable Package"
+			],
+			[
+				"mark",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"gul",
+				"Gulp"
+			],
+			[
+				"kill",
+				"Gulp: Kill running tasks"
+			],
+			[
+				"gul	",
+				"Gulp"
+			],
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"ins",
 				"Package Control: Install Package"
+			],
+			[
+				"gull",
+				"Gulp: List plugins"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"sidebar",
+				"View: Toggle Open Files in Side Bar"
 			]
 		],
-		"width": 746.0
+		"width": 538.0
 	},
 	"console":
 	{
-		"height": 222.0,
+		"height": 126.0,
 		"history":
 		[
-			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 		]
 	},
 	"distraction_free":
@@ -1238,238 +392,110 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/Damien/dev/find"
+		"/Users/damien/dev/find",
+		"/Users/damien/dev/find/app/scripts/objects"
 	],
 	"file_history":
 	[
-		"/C/Users/Damien/dev/find/dist/scripts/vendor/modernizr.js",
-		"/C/Users/Damien/dev/find/dist/scripts/main.js",
-		"/C/Users/Damien/dev/find/.tmp/styles/main.css",
-		"/C/Users/Damien/Desktop/find/gulpfile.js",
-		"/C/Users/Damien/dev/find/app/sounds/tone1.mp3",
-		"/C/Users/Damien/dev/find/app/scripts/Bear.coffee",
-		"/C/Users/Damien/dev/find/app/scripts/World.coffee",
-		"/C/Users/Damien/dev/find/app/scripts/main.coffee",
-		"/C/Users/Damien/dev/find/app/scripts/controls/BikeControls.coffee",
-		"/C/Users/Damien/dev/find/app/scripts/controls/BikeControls_testWithObjectEuler.coffee",
-		"/C/Users/Damien/dev/find/app/models/bearBlack.js",
-		"/C/Users/Damien/dev/find/app/models/horse.js",
-		"/C/Users/Damien/dev/find/app/scripts/Path.coffee",
-		"/C/Users/Damien/dev/find/find.sublime-project",
-		"/C/Users/Damien/dev/find/app/shaders/noise3D.glsl",
-		"/C/Users/Damien/dev/find/app/index.html",
-		"/C/Users/Damien/dev/find/app/bower_components/threejs/build/three.js",
-		"/C/Users/Damien/dev/find/app/shaders/world.vert",
-		"/C/Users/Damien/dev/find/gulpfile.js",
-		"/C/Users/Damien/dev/find/app/shaders/mix_depth.frag",
-		"/C/Users/Damien/dev/find/app/shaders/world.frag",
-		"/C/Users/Damien/dev/find/app/scripts/Controls.coffee",
-		"/C/Users/Damien/dev/find/app/models/bearBlack.json",
-		"/C/Users/Damien/dev/find/app/bower_components/threejs-firstpersoncontrols/index.js",
-		"/C/Users/Damien/dev/find/bower.json",
-		"/C/Users/Damien/dev/find/app/bower_components/threejs-shaderpass/index.js",
-		"/C/Users/Damien/dev/find/app/bower_components/threejs-renderpass/index.js",
-		"/C/Users/Damien/dev/find/app/bower_components/threejs-effectcomposer/index.js",
-		"/C/Users/Damien/dev/find/app/shaders/mix_depth.vert",
-		"/C/Users/Damien/dev/find/app/styles/main.scss",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/elem-track.js",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/workers-blobworkers.js",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/workers-dataworkers.js",
-		"/C/Users/Damien/dev/find/app/bower_components/gsap/src/minified/plugins/EndArrayPlugin.min.js",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/elem-ruby.js",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/gamepad.js",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/css-mask.js",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/dom-createElement-attrs.js",
-		"/C/Users/Damien/dev/find/app/bower_components/js-signals/CHANGELOG.md",
-		"/C/Users/Damien/dev/find/app/bower_components/threejs-effectcomposer/.bower.json",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/file-filesystem.js",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/exif-orientation.js",
-		"/C/Users/Damien/dev/find/app/bower_components/modernizr/feature-detects/emoji.js",
-		"/C/Users/Damien/dev/find/app/scripts/shaders/MixDepthShader.js",
-		"/C/Users/Damien/dev/find/.gitignore",
-		"/C/Users/Damien/dev/find/.gitattributes",
-		"/C/Users/Damien/dev/find/.editorconfig",
-		"/C/Users/Damien/dev/find/.bowerrc",
-		"/C/Users/Damien/Dropbox/.dropbox",
-		"/C/Users/Damien/dev/_SyncIgnore",
-		"/C/Users/Damien/AppData/Roaming/Sublime Text 3/Packages/User/gulp.sublime-build",
-		"/C/Users/Damien/Dropbox/perso/dev/website/app/scripts/SpansSwap.coffee",
-		"/C/Users/Damien/Dropbox/perso/dev/website/app/scripts/Project.coffee",
-		"/C/Users/Damien/Desktop/app/index.html",
-		"/C/Users/Damien/dev/find/.tmp/scripts/World.js",
-		"/C/Users/Damien/dev/find/node_modules/wiredep/node_modules/bower-config/node_modules/mout/date/weekOfTheYear.js",
-		"/C/Users/Damien/dev/find/node_modules/wiredep/node_modules/bower-config/node_modules/mout/object/equals.js",
-		"/C/Users/Damien/dev/find/node_modules/wiredep/node_modules/bower-config/node_modules/optimist/example/line_count.js",
-		"/C/Users/Damien/dev/find/node_modules/.bin/wiredep",
-		"/C/Users/Damien/dev/find/node_modules/gulp/node_modules/gulp-util/lib/isNull.js",
-		"/C/Users/Damien/dev/find/package.json",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/.htaccess",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/Gruntfile.js",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/package.json",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/.travis.yml",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/bower_components/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/app/scripts/directives/3d-gallery.coffee",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/app/scripts/controllers/about.coffee",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/app/views/about.html",
-		"/C/Users/Damien/dev/partager-cuisiner/app/scripts/app.js",
-		"/C/Users/Damien/dev/partager-cuisiner/app/scripts/controllers/about.js",
-		"/C/Users/Damien/dev/partager-cuisiner/app/scripts/models/post.coffee",
-		"/C/Users/Damien/dev/partager-cuisiner/app/scripts/main.coffee",
-		"/C/Users/Damien/dev/partager-cuisiner/app/scripts/collections/posts.coffee",
-		"/C/Users/Damien/dev/partager-cuisiner/.tmp/styles/main.css",
-		"/C/Users/Damien/dev/partager-cuisiner/.tmp/scripts/main.js",
-		"/C/Users/Damien/dev/partager-cuisiner/Gruntfile.js",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/node_modules/grunt-contrib-imagemin/node_modules/image-min/node_modules/mout/src/collection.js",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/node_modules/grunt-contrib-imagemin/node_modules/image-min/node_modules/mout/doc/collection.md",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/node_modules/grunt-contrib-imagemin/node_modules/image-min/node_modules/mout/array/collect.js",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/node_modules/grunt-contrib-imagemin/node_modules/image-min/node_modules/mout/collection.js",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/node_modules/grunt/node_modules/colors/colors.js",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/node_modules/grunt-contrib-clean/docs/clean-options.md",
-		"/C/Users/Damien/dev/coq-sportif-tumblr/coq-sportif-tumblr.sublime-project",
-		"/C/Users/Damien/dev/partager-cuisiner/dist/index.html",
-		"/C/Users/Damien/dev/partager-cuisiner/partager-cuisiner.sublime-project",
-		"/C/Users/Damien/dev/partager-cuisiner/app/index.html",
-		"/C/Users/Damien/Desktop/Cambria_13992320093139/fontsmoothie.min.js",
-		"/C/Users/Damien/Desktop/Cambria_13992320093139/Cambria-Regular.css",
-		"/C/Users/Damien/dev/partager-cuisiner/app/styles/main.css",
-		"/C/Users/Damien/dev/partager-cuisiner/app/scripts/main.js",
-		"/C/Users/Damien/dev/partager-cuisiner/package.json",
-		"/C/Users/Damien/dev/partager-cuisiner/bower.json",
-		"/C/Users/Damien/Desktop/www/index.html",
-		"/C/Users/Damien/dev/partager-cuisiner/app/styles/fonts/stylesheet.css",
-		"/C/Users/Damien/dev/partager-cuisiner/bower_components/modernizr/feature-detects/pointerlock-api.js",
-		"/C/Users/Damien/Desktop/index.html",
-		"/C/Users/Damien/dev/partager-cuisiner/app/styles/main.scss",
-		"/C/Users/Damien/Downloads/logo_blanc_pc.svg",
-		"/C/Users/Damien/Desktop/test.html",
-		"/C/Users/Damien/dev/tiffanybeucher/app/data/data.json",
-		"/C/Users/Damien/dev/tiffanybeucher/app/styles/main.scss",
-		"/C/Users/Damien/dev/tiffanybeucher/app/views/post.html",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/animations/post-transition.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/views/list.html",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/directives/list-post.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/app.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/controllers/list.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/controllers/nav.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/controllers/header.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/bower_components/es5-shim/es5-sham.map",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/services/api.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/styles/_list.scss",
-		"/C/Users/Damien/AppData/Roaming/Sublime Text 3/Packages/User/Grunt.sublime-build",
-		"/C/Users/Damien/dev/tiffanybeucher/app/styles/_fonts.scss",
-		"/C/Users/Damien/dev/tiffanybeucher/app/styles/_mixins.scss",
-		"/C/Users/Damien/dev/tiffanybeucher/app/styles/_post.scss",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/directives/scrollable.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/controllers/post.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/controllers/main.coffee",
-		"/C/Users/Damien/dev/tiffanybeucher/app/scripts/animations/dash-animation.coffee",
-		"/C/Users/Damien/Desktop/list-pattern.svg",
-		"/C/Users/Damien/dev/tiffanybeucher/app/index.html",
-		"/C/Users/Damien/dev/tiffanybeucher/app/views/main.html",
-		"/C/Users/Damien/dev/tiffanybeucher/app/images/pattern.svg",
-		"/C/Users/Damien/dev/tiffanybeucher/app/bower_components/greensock/src/uncompressed/plugins/AttrPlugin.js",
-		"/C/Users/Damien/dev/tiffanybeucher/Gruntfile.js",
-		"/C/Users/Damien/dev/tiffanybeucher/app/bower_components/greensock/src/uncompressed/plugins/ScrollToPlugin.js"
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/scripts/introduction/base-template.html",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/scripts/introduction/base-controller.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/scripts/index.js",
+		"/Users/damien/dev/find/app/scripts/objects/Bear.coffee",
+		"/Users/damien/dev/find/app/shaders/world.frag",
+		"/Users/damien/dev/find/app/scripts/shaders/WorldShader.coffee",
+		"/Users/damien/dev/find/app/shaders/world.vert",
+		"/Users/damien/dev/find/app/scripts/objects/Bike.coffee",
+		"/Users/damien/dev/find/app/scripts/objects/Tree.coffee",
+		"/Users/damien/dev/find/app/scripts/objects/Gift.coffee",
+		"/Users/damien/dev/find/app/scripts/controls/CameraControls.coffee",
+		"/Users/damien/Desktop/minime-setup.sh",
+		"/Users/damien/dev/find/app/scripts/Bear.coffee",
+		"/Users/damien/dev/find/app/scripts/Bike.coffee",
+		"/Users/damien/dev/find/app/shaders/mix_depth.frag",
+		"/Users/damien/dev/find/app/scripts/World.coffee",
+		"/Users/damien/dev/find/app/scripts/WorldShader.coffee",
+		"/Users/damien/dev/find/app/scripts/MixDepthShader.coffee",
+		"/Users/damien/dev/find/app/index.html",
+		"/Users/damien/dev/find/app/horse.html",
+		"/Users/damien/rehab/minime-standalone/node_modules/protractor/node_modules/selenium-webdriver/docs/interface_webdriver_promise_Thenable.html",
+		"/Users/damien/rehab/minime-standalone/node_modules/material-design-icons/image/svg/ic_control_point_24px.svg",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-autoprefixer/node_modules/autoprefixer-core/node_modules/caniuse-db/features-json/intrinsic-width.json",
+		"/Users/damien/rehab/minime-standalone/node_modules/karma-jasmine/integration-tests.sh",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-util/lib/isNull.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/browser-sync/index.js",
+		"/Users/damien/rehab/minime-standalone/app/app/config.py",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/styles/map-introduction.scss",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/components/image-loader/scripts/service.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/scripts/style/service-canvases.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/scripts/style/service-renderer.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/components/ripple-animation/scripts/index.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/components/ripple-animation/scripts/directive-transition.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/components/ripple-animation/scripts/directive-animation.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/scripts/style/service-style.js",
+		"/Users/damien/rehab/minime-standalone/ops/frontend/tasks/browsersync/gulp.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/components/ripple-animation/scripts/service.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/components/ripple-animation/scripts/directive.js",
+		"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/scripts/introduction/view-directive.js",
+		"/Users/damien/rehab/minime-standalone/app/third_party/js/angular-ui-router/test/viewDirectiveSpec.js",
+		"/Users/damien/rehab/minime-standalone/app/third_party/js/angular-ui-router/src/viewDirective.js",
+		"/Users/damien/rehab/minime-standalone/app/third_party/js/angular-ui-router/viewpath.diff",
+		"/Users/damien/rehab/minime-standalone/ops/makefiles/variables.mk",
+		"/Users/damien/rehab/minime-standalone/app/third_party/js/angular-ui-router/sample/common/utils/utils-service.js",
+		"/Users/damien/rehab/minime-standalone/app/third_party/js/angular-ui-router/sample/app/contacts/contacts-service.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/karma-phantomjs-launcher/node_modules/phantomjs/lib/phantom/examples/serverkeepalive.coffee",
+		"/Users/damien/rehab/minime-standalone/node_modules/protractor/node_modules/selenium-webdriver/docs/module_selenium-webdriver_remote_class_DriverService.html",
+		"/Users/damien/rehab/minime-standalone/node_modules/browserify-shim/node_modules/rename-function-calls/test/fixtures/script-level-return-call.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/browserify/node_modules/browser-resolve/test/fixtures/node_modules/override-engine-shim/url-browser.js",
+		"/Users/damien/rehab/minime-standalone/app/third_party/js/angular-ui-router/test/urlRouterSpec.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/html-minifier/node_modules/clean-css/lib/text/urls.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/browserify/node_modules/url/url.js",
+		"/Users/damien/rehab/minime-standalone/app/third_party/js/angular-ui-router/src/urlRouter.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/underscore/underscore.js",
+		"/Users/damien/rehab/minime-standalone/ops/frontend/tasks/cms-scripts/gulp.js",
+		"/Users/damien/rehab/minime-standalone/ops/frontend/tasks/cms-styles/gulp.js",
+		"/Users/damien/rehab/minime-standalone/ops/frontend/tasks/icons/gulp.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-gjslint/lib/GulpGjslint.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-gjslint/Gulpfile.example.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp/bin/gulp.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-svg-sprites/gulpfile.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-rename/Gulpfile.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-gjslint/Gulpfile.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/.bin/gulp",
+		"/Users/damien/rehab/minime-standalone/node_modules/browser-sync/lib/cli/cli-options.js",
+		"/Users/damien/rehab/minime-standalone/ops/appcfg/cookies",
+		"/Users/damien/Library/Application Support/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/Users/damien/rehab/minime-standalone/node_modules/karma/node_modules/colors/ReadMe.md",
+		"/Users/damien/rehab/minime-standalone/README.md",
+		"/Users/damien/rehab/minime-standalone/app/Makefile",
+		"/Users/damien/rehab/minime-standalone/ops/makefiles/run.mk",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-svg-sprites/node_modules/svgo/plugins/removeUnusedNS.js",
+		"/Users/damien/rehab/minime-standalone/node_modules/browserify/node_modules/http-browserify/test/request_url.js",
+		"/Users/damien/rehab/minime-standalone/Makefile",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-uglify/node_modules/uglify-js/lib/mozilla-ast.js",
+		"/Users/damien/rehab/minime-standalone/output/README.md",
+		"/Users/damien/rehab/minime-standalone/app/frontend/README.md",
+		"/Users/damien/rehab/minime-standalone/node_modules/gulp-util/lib/replaceExtension.js",
+		"/Users/damien/rehab/minime-standalone/app/app/standalone/exceptions.py",
+		"/Users/damien/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/damien/Library/Application Support/Sublime Text 3/Packages/User/Package Syncing.sublime-settings"
 	],
 	"find":
 	{
-		"height": 47.0
+		"height": 43.0
 	},
 	"find_in_files":
 	{
-		"height": 117.0,
+		"height": 119.0,
 		"where_history":
 		[
-			"C:\\Users\\Damien\\dev\\find\\app",
-			"C:\\Users\\Damien\\dev\\find\\app\\bower_components",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\app\\scripts",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\app\\views",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\app",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\app\\scripts",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost\\core",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost\\core\\server",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost\\core",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost\\core\\server\\middleware",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost\\core",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost\\core\\server",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost\\core",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\ghost\\core",
-			"C:\\Users\\Damien\\dev\\tiffanybeucher\\core",
-			"C:\\Users\\Damien\\unit9\\reebok\\website\\app\\styles",
-			"C:\\Users\\Damien\\unit9\\reebok\\website\\app\\scripts",
-			"C:\\Users\\Damien\\unit9\\reebok\\website",
-			"C:\\Users\\Damien\\unit9\\reebok\\website\\prototypes\\transition",
-			"C:\\Users\\Damien\\dev\\myArtInvest",
-			"/Users/damienmortini/Sync/dev/myArtInvest",
-			"/Users/damienmortini/Documents/unit9/emirates/website/prototypes/content",
-			"/Users/damienmortini/Documents/unit9/emirates/website/prototypes/content/app",
-			"/Users/damienmortini/Documents/unit9/emirates/website/prototypes/content/app/styles",
-			"/Users/damienmortini/Documents/unit9/emirates/website/prototypes/content/app/scripts",
-			"/Users/damienmortini/Documents/unit9/emirates/website/prototypes/content",
-			"/Users/damienmortini/Documents/unit9/emirates/website/prototypes/content/test",
-			"/Users/damienmortini/Documents/unit9/emirates/website/prototypes/content/app/scripts",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/styles",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/scripts",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/templates",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/styles",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/scripts",
-			"/Users/damienmortini/Documents/unit9/nutella/website",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/templates/book/pages",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/templates/book/pages",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/scripts",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/scripts/modules/book",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/templates/book/pages",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/scripts",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/styles",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/scripts/modules/book",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/scripts",
-			"/Users/damienmortini/Documents/unit9/nutella/website/app/templates",
-			"C:\\Users\\Damien\\Dropbox\\blondie\\beautynews-spring2014\\dist\\model",
-			"C:\\Users\\Damien\\Dropbox\\blondie\\beautynews-spring2014\\app\\scripts",
-			"C:\\Users\\Damien\\Dropbox\\blondie\\beautynews-spring2014\\app",
-			"/Users/damienmortini/Dropbox/blondie/beautynews-winter2013//app",
-			"/Users/damienmortini/Dropbox/blondie/beautynews-winter2013//app/scripts",
-			"C:\\Users\\Damien\\Dropbox\\blondie\\beautynews-winter2013\\\\dist\\model",
-			"/Users/damienmortini/Dropbox/blondie/beautynews-winter2013//dist/model/scenes",
-			"/Users/damienmortini/Dropbox/blondie/beautynews-winter2013//dist/model",
-			"C:\\Users\\Damien\\Dropbox\\blondie\\beautynews-winter2013\\\\dist\\model",
-			"C:\\Users\\Damien\\Dropbox\\blondie\\beautynews-winter2013\\\\dist\\model\\scenes",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee\\app",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee\\app\\view",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee\\app\\view",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\website",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee\\app\\view",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\website",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\website\\data",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee",
-			"<project>",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project",
-			"C:\\Users\\Damien\\dev\\UNIT9\\peanut_power\\project\\develop\\coffee",
-			"C:\\Users\\Damien\\Dropbox\\blondie\\beautynews\\app\\model",
-			"C:\\Users\\Damien\\Dropbox\\beautynews-spring-2013",
-			"C:\\Users\\Damien\\Dropbox\\beautynews-spring-2013\\javascript",
-			"C:\\Users\\Damien\\Dropbox\\blondie\\beautynews\\app\\model",
-			"D:\\Dropbox\\beautynews\\app\\model",
-			"D:\\Dropbox\\blondie\\beautynews\\app\\model",
-			"/Users/dm/Documents/dev/somewhat/lsn-global-website/app/scripts",
-			"<project>"
+			"/Users/damien/rehab/minime-standalone/app/templates",
+			"/Users/damien/rehab/minime-standalone/",
+			"/Users/damien/rehab/minime-standalone/app",
+			"/Users/damien/rehab/minime-standalone/app/frontend",
+			"/Users/damien/rehab/minime-standalone/app/frontend/app/components/ripple-animation",
+			"/Users/damien/rehab/minime-standalone/app/frontend/app",
+			"/Users/damien/rehab/minime-standalone/app/frontend/app/generators/maps/scripts/style",
+			"/Users/damien/rehab/minime-standalone/app/frontend"
 		]
 	},
 	"find_state":
@@ -1477,134 +503,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"styles",
-			"imagemin",
-			"image",
-			"coffee",
-			"images",
-			"image",
-			"serve",
-			"'],",
-			"context",
-			" * dt",
-			"onProgress",
-			"window.world",
-			"onChangeLevel",
-			"onMaxLevel",
-			"@worldShaderPass.uniforms['sounds']",
+			"p",
+			"quality",
+			"resize",
+			"start",
+			"8",
 			"sounds",
-			"sound1",
-			"uIntArray1",
-			"int",
-			"@byte",
-			"byteTimeDomainData",
-			"byteTimeDomainsData",
 			"soundsMatrix",
-			"onLoad",
-			"\"",
-			"onProgress",
-			"onLoad",
-			"\"",
-			".5",
-			"shaders",
-			"fonts",
-			"shade",
-			"dt",
+			"50",
 			"10",
-			"duration",
-			"offset",
-			"04",
-			"position",
-			".5",
-			"x",
-			"1",
 			".1",
-			"@helper.position",
-			"@helper",
+			"2",
+			"95",
+			"smin",
+			"Pos",
+			"pos",
+			".8",
+			"30",
+			"@grabbedGift",
+			"20",
+			"200",
 			"100",
-			"100.",
+			"2",
+			"50",
 			"100",
-			"modulo",
-			"5",
-			"uLightDirection",
-			"9",
-			"1.",
-			"helper",
-			"0.0",
-			"1.0",
-			"calcNormalRayMarching",
-			"10000",
-			"addGifts",
+			"20",
+			"05",
+			"gotoLevel",
+			"array",
+			"giftDirection",
+			"plane",
+			"Plane",
+			"plane",
+			"Plane",
+			"plane",
+			"gifts",
+			"Gifts",
+			"gifts",
+			"progressionHandler",
+			"onSoundLoad",
+			"@sounds[i]",
+			"newPlaybackPosition",
+			"GiftsHandler",
+			"giftsHandler",
+			"direction",
+			"audio",
+			"play",
+			"Howl",
+			"Progress",
+			"progress",
+			"Signal",
+			"@debug",
+			"debug",
+			"null",
 			"gifts",
 			"@gifts",
-			"gifts",
-			".1",
-			"p",
-			"q",
-			"ground",
-			"map",
-			"mapNormalRayMarching",
-			"50",
-			"calcNormalGridRayMarching",
-			"mapGrid",
-			"mapGridRayMarching",
-			"calcNormalGridRayMarching",
-			"mapNormalRayMarching",
-			"calcNormalGridRayMarching",
-			"trace",
-			"mapGridRayMarching",
-			"calcNormalGridRayMarching",
-			"uNear",
-			"calcNormalGridRayMarching",
-			".5",
-			"map",
-			"mapNormalRayMarching",
-			"voxel",
-			"voxel.color",
-			"res",
-			"color",
-			"25",
-			"udBox",
+			"20",
 			"10",
-			"25",
-			"10",
-			"sdBox",
-			"ra",
-			"100",
-			"mapGridRayMarching",
-			"rayDirection",
+			"10000",
+			"20",
+			"5000",
+			"addGifts",
+			"cellPos",
+			"cellSize",
+			"ro",
 			"rayOrigin",
-			"voxel2",
-			"rda",
-			"rdi",
-			"ra",
-			"rayMarchingStep",
-			"14",
+			"depth",
+			"mm",
+			"voxel",
+			"Voxel",
+			"voxel",
+			"Voxel",
+			"voxel",
+			"Voxel",
+			"voxel",
+			"cellDist",
+			"250",
 			"10",
-			"dist",
-			"Dist",
+			"50",
+			"tF",
+			"tN",
+			"rc",
+			"ce",
+			"cellDist",
+			"tN",
+			"voxel",
+			"Voxel",
+			"mapGridRayMarching",
+			"sdSphere",
+			"mapGridRayMarching",
+			"spheres",
+			"map",
+			"Map",
+			"map",
+			"voxel",
+			"trace",
 			"dist",
 			"voxel",
-			"dist",
-			"cellDist",
-			"cellSize",
-			"cellPos",
-			"xz",
-			"cellSize",
-			"min",
-			"cellSize",
-			"trace",
-			"cellIntersection",
-			"distToEdge",
-			"cellPos",
-			"rayDirectionComp",
-			"rayDirectionCompAbs",
-			"  \n",
-			"mm",
-			"dis",
-			"rayDirectionInv",
-			"margin",
-			"rds"
+			"Voxel",
+			"voxel",
+			"Voxel",
+			"voxel",
+			"Voxel",
+			"voxel",
+			"Voxel",
+			"calcNormal",
+			"SPEED",
+			"speed",
+			"p",
+			"backwardQuaternion",
+			"tempQuaternion",
+			"camera",
+			"@loader",
+			"@mesh",
+			"uCamera",
+			"uCameraFov",
+			"uFov",
+			"uCameraQuaternion",
+			"uCameraRotation",
+			"uCameraPosition",
+			"uCameraAspect",
+			"uResolution",
+			"uTime",
+			"PI",
+			"vPosition",
+			"uResolution",
+			"uCameraAspect",
+			"aspect",
+			"uResolution"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1612,21 +638,6 @@
 		"regex": false,
 		"replace_history":
 		[
-			"<div class=\"background asset book-page-left image\"></div>\n<div class=\"background asset book-page-right image\"></div>",
-			"own-size",
-			"0AtHEF4S5sKkNdDgzbmxJNnZNM1U2RUZlV0RfNnFHZEE",
-			"\"navColor\": \"#8b6d49\"",
-			"/basic?alt=json&callback=?",
-			"basic",
-			"0AuXGX2n4ZUp9dHNic3AtNTFieXNldXFhRUxuYnViV1E",
-			"[",
-			"public/basic?alt=json&callback=?",
-			"vimeoVideoId",
-			"imageUrl",
-			"content",
-			"$scope",
-			"Canvas",
-			"canvas"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1637,16 +648,153 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "app/scripts/World.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8003,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4603,
+								4603
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"glsv_configured": true,
+							"glsv_enabled": 1,
+							"glsv_spec": 0,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2040.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "app/shaders/world.frag",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8331,
+						"buffer_size": 8506,
 						"regions":
 						{
 						},
@@ -1771,27 +919,164 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 232.0,
+						"translation.y": 2724.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/scripts/objects/Bike.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								800,
+								800
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"glsv_configured": true,
+							"glsv_enabled": 1,
+							"glsv_spec": 0,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "gulpfile.js",
+					"buffer": 3,
+					"file": "app/scripts/ProgressionHandler.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3573,
+						"buffer_size": 2159,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3386,
-								3386
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1902,33 +1187,34 @@
 							"glsv_configured": true,
 							"glsv_enabled": 1,
 							"glsv_spec": 0,
+							"open_with_edit": true,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1523.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/index.html",
+					"buffer": 4,
+					"file": "app/scripts/audio/SoundsMatrix.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6280,
+						"buffer_size": 3570,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								320,
-								320
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2040,7 +1326,144 @@
 							"glsv_enabled": 1,
 							"glsv_spec": 0,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 363.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "bower.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"glsv_configured": true,
+							"glsv_enabled": 1,
+							"glsv_spec": 0,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Better JavaScript/JSON.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -2048,11 +1471,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 6,
 					"file": "app/styles/main.scss",
 					"semi_transient": false,
 					"settings":
@@ -2064,8 +1487,8 @@
 						"selection":
 						[
 							[
-								557,
-								557
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2182,164 +1605,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 247.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "bower.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1845,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1845,
-								1845
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "Gruntfile.js",
+					"buffer": 7,
+					"file": "app/scripts/main.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11575,
+						"buffer_size": 1469,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9754,
-								9754
+								0,
+								0
 							]
 						],
 						"settings":
@@ -2451,490 +1737,19 @@
 							"glsv_enabled": 1,
 							"glsv_spec": 0,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6114.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "dist/scripts/vendor.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/C/Users/Damien/Desktop/find/bower.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 114,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "app/scripts/controls/CameraControls.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								753,
-								753
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 17,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/shaders/world.vert",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 80,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								43,
-								43
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/OpenGL Shading Language (GLSL)/GLSL.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 20,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "app/scripts/objects/Bear.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 739,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 19,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
 					"file": "app/shaders/mix_depth.frag",
 					"semi_transient": false,
 					"settings":
@@ -2946,8 +1761,8 @@
 						"selection":
 						[
 							[
-								563,
-								563
+								0,
+								0
 							]
 						],
 						"settings":
@@ -3067,285 +1882,148 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/scripts/controls/CameraControls.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 753,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								521,
+								521
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"glsv_configured": true,
+							"glsv_enabled": 1,
+							"glsv_spec": 0,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
-					"file": "app/scripts/World.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7972,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								374,
-								374
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2448.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "app/scripts/controls/BikeControls_testWithObjectEuler.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3138,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2,
-								3138
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 121.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 18,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
+					"buffer": 10,
 					"file": "app/scripts/controls/BikeControls.coffee",
 					"semi_transient": false,
 					"settings":
@@ -3357,8 +2035,8 @@
 						"selection":
 						[
 							[
-								689,
-								689
+								989,
+								989
 							]
 						],
 						"settings":
@@ -3475,27 +2153,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 17.0,
+						"translation.y": 74.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "app/scripts/ProgressionHandler.coffee",
+					"buffer": 11,
+					"file": "app/scripts/EnvironmentHandler.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2159,
+						"buffer_size": 108,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								768,
-								768
+								97,
+								97
 							]
 						],
 						"settings":
@@ -3606,143 +2284,7 @@
 							"glsv_configured": true,
 							"glsv_enabled": 1,
 							"glsv_spec": 0,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 93.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "app/scripts/main.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1469,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								131,
-								131
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
+							"open_with_edit": true,
 							"sublime_auto_complete": true,
 							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
 						},
@@ -3750,24 +2292,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 17,
-					"file": "app/scripts/audio/SoundsMatrix.coffee",
+					"buffer": 12,
+					"file": "app/scripts/objects/Gift.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3592,
+						"buffer_size": 611,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2462,
-								2462
+								611,
+								611
 							]
 						],
 						"settings":
@@ -3884,27 +2426,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 984.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
-					"file": "find.sublime-project",
+					"buffer": 13,
+					"file": "app/models/bike.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 204,
+						"buffer_size": 281799,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								116,
-								116
+								342,
+								342
 							]
 						],
 						"settings":
@@ -4016,23 +2558,23 @@
 							"glsv_enabled": 1,
 							"glsv_spec": 0,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"syntax": "Packages/Better JavaScript/JSON.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 21,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 19,
-					"file": "app/scripts/shaders/WorldShader.coffee",
+					"buffer": 14,
+					"file": "app/scripts/shaders/MixDepthShader.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1030,
+						"buffer_size": 563,
 						"regions":
 						{
 						},
@@ -4160,202 +2702,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 15,
+					"file": "app/scripts/shaders/WorldShader.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1352,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										184,
-										199
-									],
-									[
-										431,
-										446
-									],
-									[
-										517,
-										532
-									],
-									[
-										778,
-										793
-									],
-									[
-										1047,
-										1062
-									],
-									[
-										1172,
-										1187
-									],
-									[
-										1260,
-										1275
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								1269,
-								1269
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"detect_indentation": false,
-							"glsv_configured": true,
-							"glsv_enabled": 1,
-							"glsv_spec": 0,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "app/scripts/shaders/MixDepthShader.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 563,
+						"buffer_size": 1030,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								347,
-								347
+								388,
+								388
 							]
 						],
 						"settings":
@@ -4475,19 +2839,162 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 8,
 					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "app/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6019,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2926,
+								2926
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"glsv_configured": true,
+							"glsv_enabled": 1,
+							"glsv_spec": 0,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 257.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"file": "app/favicon.ico",
+					"semi_transient": true,
+					"stack_index": 5,
+					"type": "image"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 21.0
 	},
 	"input":
 	{
-		"height": 30.0
+		"height": 36.0
 	},
 	"layout":
 	{
@@ -4514,16 +3021,20 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 215.0
+		"height": 243.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
+	"output.gulp_output":
+	{
+		"height": 194.0
+	},
 	"project": "find.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -4532,535 +3043,63 @@
 		"selected_items":
 		[
 			[
+				"main",
+				"app/styles/main.scss"
+			],
+			[
 				"",
-				"app\\scripts\\World.coffee"
-			],
-			[
-				"worl",
-				"app\\scripts\\World.coffee"
-			],
-			[
-				"mix",
-				"app\\shaders\\mix_depth.frag"
-			],
-			[
-				"inde",
-				"app\\index.html"
+				"app/scripts/World.coffee"
 			],
 			[
 				"world",
-				"app\\shaders\\world.frag"
+				"app/scripts/World.coffee"
 			],
 			[
-				"main",
-				"app\\scripts\\main.coffee"
+				"intro",
+				"app/frontend/app/generators/maps/styles/map-introduction.scss"
 			],
 			[
-				"gall",
-				"app\\views\\gallery.html"
+				"gulp",
+				"ops/frontend/tasks/browsersync/gulp.js"
 			],
 			[
-				"pos",
-				"app\\styles\\post.scss"
+				"confi",
+				"app/app/config.py"
 			],
 			[
-				"galle",
-				"app\\scripts\\controllers\\gallery.coffee"
+				"run",
+				"ops/makefiles/run.mk"
 			],
 			[
-				"galler",
-				"app\\scripts\\directives\\gallery-3d.coffee"
+				"make",
+				"app/Makefile"
 			],
 			[
-				"gal",
-				"app\\views\\gallery.html"
+				"read",
+				"README.md"
 			],
 			[
-				"in",
-				"app\\index.html"
-			],
-			[
-				"bower",
-				"bower.json"
-			],
-			[
-				"packa",
-				"package.json"
-			],
-			[
-				"grun",
-				"Gruntfile.js"
-			],
-			[
-				"mai",
-				"app\\styles\\main.css"
-			],
-			[
-				"list",
-				"app\\styles\\_list.scss"
-			],
-			[
-				"api",
-				"app\\scripts\\services\\api.coffee"
-			],
-			[
-				"nav",
-				"app\\views\\nav.html"
-			],
-			[
-				"data",
-				"app\\data\\data.json"
-			],
-			[
-				"post",
-				"app\\styles\\_post.scss"
-			],
-			[
-				"heade",
-				"app\\views\\header.html"
-			],
-			[
-				"patter",
-				"app\\images\\pattern.svg"
-			],
-			[
-				"lis",
-				"app\\views\\list.html"
-			],
-			[
-				"ma",
-				"app\\styles\\main.scss"
-			],
-			[
-				"app",
-				"app\\scripts\\app.coffee"
-			],
-			[
-				"svg",
-				"app\\images\\pattern.svg"
-			],
-			[
-				"mixin",
-				"app\\styles\\_mixins.scss"
-			],
-			[
-				"font",
-				"app\\styles\\_fonts.scss"
-			],
-			[
-				"scroll",
-				"app\\scripts\\directives\\scrollable.coffee"
-			],
-			[
-				"pa",
-				"app\\images\\pattern.svg"
-			],
-			[
-				"patte",
-				"app\\images\\pattern.svg"
-			],
-			[
-				"patt",
-				"app\\images\\pattern.svg"
-			],
-			[
-				"dash",
-				"app\\scripts\\animations\\dashAnimation.coffee"
-			],
-			[
-				"po",
-				"app\\views\\post.html"
-			],
-			[
-				"tiff",
-				"tiffanybeucher.sublime-project"
-			],
-			[
-				"header",
-				"app\\styles\\_header.scss"
-			],
-			[
-				"middle",
-				"ghost\\core\\server\\middleware\\middleware.js"
-			],
-			[
-				"fonts",
-				"app\\styles\\_fonts.scss"
-			],
-			[
-				"grunt",
-				"Gruntfile.js"
-			],
-			[
-				"postscs",
-				"app\\styles\\_post.scss"
-			],
-			[
-				"about",
-				"app\\styles\\_about.scss"
-			],
-			[
-				"hea",
-				"app\\scripts\\controllers\\header.coffee"
-			],
-			[
-				"ghosapi",
-				"ghost\\core\\server\\routes\\api.js"
-			],
-			[
-				"idne",
-				"app\\index.html"
-			],
-			[
-				"secti",
-				"app\\scripts\\services\\data\\sections.coffee"
-			],
-			[
-				"look",
-				"app\\scripts\\controllers\\look.coffee"
-			],
-			[
-				"videomaincss",
-				"prototypes\\video\\app\\styles\\main.scss"
-			],
-			[
-				"sass",
-				"app\\styles\\base\\_assets.scss"
-			],
-			[
-				"video",
-				"app\\scripts\\controllers\\prototype-video.coffee"
-			],
-			[
-				"index.h",
-				"app\\index.html"
-			],
-			[
-				"polygon",
-				"prototypes\\transition\\app\\scripts\\animations\\polygon-transition.coffee"
-			],
-			[
-				"imgse",
-				"prototypes\\video\\app\\scripts\\directives\\img-sequence.coffee"
-			],
-			[
-				"vide",
-				"app\\views\\prototype-video.html"
-			],
-			[
-				"nde",
-				"app\\index.html"
-			],
-			[
-				"gale",
-				"app\\scripts\\views\\galery.coffee"
-			],
-			[
-				"gae",
-				"app\\scripts\\views\\galery.coffee"
-			],
-			[
-				"abs",
-				"app\\scripts\\views\\abstract\\abstract.coffee"
-			],
-			[
-				"abstr",
-				"app\\scripts\\templates\\abstract.hbs"
-			],
-			[
-				"route",
-				"app\\scripts\\routes\\app.coffee"
-			],
-			[
-				"mapimages",
-				"app/scripts/controllers/contentMapImages.coffee"
-			],
-			[
-				"places",
-				"app/scripts/controllers/contentmapplaces.coffee"
-			],
-			[
-				"content",
-				"app/styles/views/content.scss"
-			],
-			[
-				"contenplaces",
-				"app/scripts/controllers/contentmapplaces.coffee"
-			],
-			[
-				"spee",
-				".tmp/scripts/directives/speechrecognize.js"
-			],
-			[
-				"content.scss",
-				"app/styles/views/content.scss"
-			],
-			[
-				"google",
-				"app/scripts/services/GoogleMapsAPIService.coffee"
-			],
-			[
-				"service",
-				"app/scripts/services/GooglePlacesAPIService.coffee"
-			],
-			[
-				"consta",
-				"app/scripts/services/Constants.coffee"
-			],
-			[
-				"turn",
-				"app/scripts/vendor/turn.js"
-			],
-			[
-				"book",
-				"app/scripts/modules/book/views/layout/BookLayout.js"
-			],
-			[
-				"booklayouscss",
-				"app/styles/views/layout/BookLayout.scss"
-			],
-			[
-				"profile",
-				"app/scripts/modules/book/views/pages/ProfilePageView.js"
-			],
-			[
-				"videojs",
-				"app/styles/vendor/_video-js.scss"
-			],
-			[
-				"videovie",
-				"app/scripts/modules/book/views/pages/VideoPageView.js"
-			],
-			[
-				"videosc",
-				"app/styles/book/pages/StoryVideo.scss"
-			],
-			[
-				"videopage",
-				"app/scripts/modules/book/views/pages/VideoPageView.js"
-			],
-			[
-				"booklayou",
-				"app/scripts/modules/book/views/layout/BookLayout.js"
-			],
-			[
-				"introview",
-				"app/scripts/views/item/IntroItemView.js"
-			],
-			[
-				"pageview",
-				"app/scripts/modules/book/views/pages/PageView.js"
-			],
-			[
-				"pagevi",
-				"app/scripts/modules/book/views/pages/VideoPageView.js"
-			],
-			[
-				"event",
-				"app/scripts/utils/Event.js"
-			],
-			[
-				"booklayout",
-				"app/scripts/modules/book/views/layout/BookLayout.js"
-			],
-			[
-				"bookcn",
-				"app/scripts/modules/book/controllers/BookController.js"
-			],
-			[
-				"bui",
-				"app/scripts/utils/bookBuilder.js"
-			],
-			[
-				"bookcontrolle",
-				"app/scripts/modules/book/controllers/BookController.js"
-			],
-			[
-				"booklayjs",
-				"app/scripts/modules/book/views/layout/BookLayout.js"
-			],
-			[
-				"person",
-				"app/scripts/modules/nav/views/item/PersonalisedNavView.js"
-			],
-			[
-				"booklayoujs",
-				"app/scripts/modules/book/views/layout/BookLayout.js"
-			],
-			[
-				"videotmpl",
-				"website/app/templates/book/pages/StoryVideo_tmpl.hbs"
-			],
-			[
-				"bookbuilder",
-				"app/scripts/utils/bookBuilder.js"
-			],
-			[
-				"section",
-				"app/styles/book/pages/Section.scss"
-			],
-			[
-				"build",
-				"app/scripts/utils/bookBuilder.js"
-			],
-			[
-				"navscss",
-				"app/styles/views/item/NavItem.scss"
-			],
-			[
-				"navitem",
-				"app/styles/views/item/NavItem.scss"
-			],
-			[
-				"navla",
-				"app/scripts/modules/nav/views/layout/NavLayout.js"
-			],
-			[
-				"turnjs",
-				"app/scripts/vendor/turn.js"
-			],
-			[
-				"bookla",
-				"app/scripts/modules/book/views/layout/BookLayout.js"
-			],
-			[
-				"pro",
-				"app/scripts/modules/book/views/pages/ProfilePageView.js"
-			],
-			[
-				"appla",
-				"app/styles/views/layout/AppLayout.scss"
-			],
-			[
-				"layoubook",
-				"app/scripts/modules/book/views/layout/BookLayout.js"
-			],
-			[
-				"pagevie",
-				"website/app/scripts/modules/book/views/pages/PageView.js"
-			],
-			[
-				"buil",
-				"website/app/scripts/utils/bookBuilder.js"
-			],
-			[
-				"bookbuil",
-				"app/scripts/utils/bookBuilder.js"
-			],
-			[
-				"bookconr",
-				"app/scripts/modules/book/controllers/BookController.js"
-			],
-			[
-				"storyima",
-				"app/templates/book/pages/StoryImageText_tmpl.hbs"
-			],
-			[
-				"applayout",
-				"app/templates/layout/AppLayout_tmpl.hbs"
-			],
-			[
-				"navlayou",
-				"app/scripts/modules/nav/views/layout/NavLayout.js"
-			],
-			[
-				"navl",
-				"app/styles/views/layout/NavLayout.scss"
-			],
-			[
-				"footer",
-				"app/templates/layout/FooterLayout_tmpl.hbs"
-			],
-			[
-				"pla",
-				"app/scripts/utils/Platform.js"
-			],
-			[
-				"covertp",
-				"app/templates/book/CoverTmpl_tmpl.hbs"
-			],
-			[
-				"platfo",
-				"app/scripts/utils/Platform.js"
-			],
-			[
-				"booklayoutj",
-				"app/scripts/modules/book/views/layout/BookLayout.js"
-			],
-			[
-				"appscss",
-				"app/styles/views/layout/AppLayout.scss"
-			],
-			[
-				"regionmanager",
-				"app/bower_components/backbone.marionette/src/marionette.regionManager.js"
-			],
-			[
-				"marionetteappli",
-				"app/bower_components/backbone.marionette/src/marionette.application.js"
-			],
-			[
-				"bookcon",
-				"app/scripts/modules/book/controllers/BookController.js"
-			],
-			[
-				"marionetteregio",
-				"app/bower_components/backbone.marionette/src/marionette.region.js"
-			],
-			[
-				"bookcontr",
-				"app/scripts/modules/book/controllers/BookController.js"
-			],
-			[
-				"cover",
-				"app/templates/book/Cover_tmpl.hbs"
-			],
-			[
-				"contro",
-				"app/scripts/modules/book/controllers/BookController.js"
-			],
-			[
-				"storysmall",
-				"app/templates/pages/StorySmallImage_tmpl.hbs"
-			],
-			[
-				"small",
-				"app/templates/pages/StorySmallImage_tmpl.hbs"
-			],
-			[
-				"story",
-				"app/templates/pages/StoryText_tmpl.hbs"
-			],
-			[
-				"uset",
-				"app/templates/pages/UserProfileTmpl_tmpl.hbs"
-			],
-			[
-				"events",
-				"app/scripts/utils/Event.js"
-			],
-			[
-				"bookmodel",
-				"app/scripts/modules/book/models/BookModel.js"
+				"readme",
+				"node_modules/karma/node_modules/colors/ReadMe.md"
 			]
 		],
 		"width": 0.0
 	},
 	"select_project":
 	{
-		"height": 625.0,
+		"height": 500.0,
 		"selected_items":
 		[
 			[
-				"",
-				"C:\\Users\\Damien\\Dropbox\\perso\\dev\\javascript\\tune-house\\tune-house.sublime-project"
+				"house",
+				"~/dev/tune-house/tune-house.sublime-project"
 			],
 			[
-				"nike",
-				"~/Documents/unit9/nike/nike.sublime-project"
+				"",
+				"~/rehab/minime-standalone/minime.sublime-project"
 			]
 		],
-		"width": 475.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
@@ -5078,7 +3117,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 354.0,
+	"side_bar_width": 399.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

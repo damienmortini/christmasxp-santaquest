@@ -20,6 +20,7 @@ class World
 
     @quality = .5
 
+    # @soundsMatrix = new SoundsMatrix()
     @soundsMatrix = new SoundsMatrix(true)
 
     @soundsMatrix.loadSound 'HO_BeatE128-17', .2, false
@@ -74,7 +75,7 @@ class World
 
   addObjects: =>
     @helperPositionTarget = new THREE.Vector3()
-    @helper = new THREE.Mesh(new THREE.IcosahedronGeometry(5, 1), new THREE.MeshPhongMaterial(
+    @helper = new THREE.Mesh(new THREE.IcosahedronGeometry(10, 1), new THREE.MeshPhongMaterial(
       emissive: 0xcccccc
     ))
     @scene.add @helper
@@ -193,14 +194,14 @@ class World
     @camera.aspect = @canvas.offsetWidth / @canvas.offsetHeight
     @camera.updateProjectionMatrix()
     devicePixelRatio = window.devicePixelRatio || 1
-    width = Math.floor(window.innerWidth * devicePixelRatio)
-    height = Math.floor(window.innerHeight * devicePixelRatio)
-    @fxaaShaderPass.uniforms['resolution'].value.set 1 / width, 1 / height
+    width = Math.floor(window.innerWidth)
+    height = Math.floor(window.innerHeight)
+    @fxaaShaderPass.uniforms['resolution'].value.set 1 / (width * devicePixelRatio), 1 / (height * devicePixelRatio)
     @worldShaderPass.uniforms['uResolution'].value.set width * @quality, height * @quality
     @renderer.setSize width, height
     @worldShaderComposer.setSize width * @quality, height * @quality
     @renderComposer.setSize width, height
-    @composer.setSize width, height
+    @composer.setSize width * devicePixelRatio, height * devicePixelRatio
 
     @worldShaderPass.uniforms['uNear'].value = 20
     @worldShaderPass.uniforms['uFar'].value = @camera.far

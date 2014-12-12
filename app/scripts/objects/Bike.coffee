@@ -3,10 +3,10 @@ class Bike extends THREE.Object3D
     super()
 
     loader = new THREE.JSONLoader()
-    loader.load '../models/bike.json', (geometry, materials) =>
+    loader.load 'models/bike.json', (geometry, materials) =>
       mesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials))
       @add mesh
-      loader.load '../models/santa.json', (geometry, materials) =>
+      loader.load 'models/santa.json', (geometry, materials) =>
         @santa = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial(materials))
         @add @santa
         return
