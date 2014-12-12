@@ -20,8 +20,8 @@ class World
 
     @quality = .5
 
-    # @soundsMatrix = new SoundsMatrix()
-    @soundsMatrix = new SoundsMatrix(true)
+    @soundsMatrix = new SoundsMatrix()
+    # @soundsMatrix = new SoundsMatrix(true)
 
     @soundsMatrix.loadSound 'HO_BeatE128-17', .2, false
 
@@ -64,7 +64,11 @@ class World
       return
     @prevTime = Date.now()
     @soundsMatrix.setSoundAt @soundsMatrix.sounds[0].id, [0, 16, 32, 48]
-    @update()
+    try
+      @update()
+    catch e
+      alert 'Sorry your graphic card isn\'t supported yet, Santa and the Elves Team is hardly working on it ;)'
+    
     return
 
   stop: =>
@@ -190,7 +194,6 @@ class World
     return
 
   resize: (e, @quality = .5) =>
-    console.log @quality
     @camera.aspect = @canvas.offsetWidth / @canvas.offsetHeight
     @camera.updateProjectionMatrix()
     devicePixelRatio = window.devicePixelRatio || 1

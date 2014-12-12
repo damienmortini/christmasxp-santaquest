@@ -362,6 +362,13 @@ module.exports = function (grunt) {
         cwd: '<%= config.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
+      },
+      concats: {
+        expand: true,
+        dot: true,
+        cwd: '.tmp/concat',
+        dest: '<%= config.dist %>',
+        src: '**/*.*'
       }
     },
 
@@ -456,6 +463,7 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'uglify',
+    // 'copy:concats',
     'copy:dist',
     'modernizr',
     // 'rev',

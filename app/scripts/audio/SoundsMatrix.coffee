@@ -77,7 +77,6 @@ class SoundsMatrix
     return
 
   setVolume: =>
-    console.log @volume
     for sound in @sounds
       sound.volume = @volume
     return

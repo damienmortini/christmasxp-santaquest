@@ -4,8 +4,11 @@ window.world = new World document.getElementById('canvas')
 
 buttons = document.body.querySelectorAll '.button'
 
+if !window.chrome
+  document.body.querySelector('#intro .error-chrome').classList.remove 'hide'
+
 if window.innerWidth < 640
-  document.body.querySelector('#error').classList.remove 'hide'
+  document.body.querySelector('#error-mobile').classList.remove 'hide'
 
 onWindowFocus = ->
   window.world.start()
@@ -45,6 +48,10 @@ onChangeLevel = (level) ->
   return
 
 window.world.onChangeLevel.add onChangeLevel
+window.world.soundsMatrix.onLoad.add =>
+  document.body.querySelector('#intro .loading').classList.add 'hide'
+  for button in buttons
+    button.classList.remove 'hide'
 
 for button in buttons
   button.addEventListener 'click', onButtonClick

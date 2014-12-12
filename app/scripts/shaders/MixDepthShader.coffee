@@ -10,12 +10,9 @@ class MixDepthShader
       'uTextureAlphaDepth':
         type: 't'
         value: null
-      'uNoiseTexture':
-        type: 't'
-        value: THREE.ImageUtils.loadTexture( 'images/tex03.jpg' )
     
-    @vertexShader = document.querySelector('#mix-depth-shader-vertex').innerText
+    @vertexShader = document.querySelector('#mix-depth-shader-vertex').textContent
     
-    @fragmentShader = document.querySelector('#mix-depth-shader-fragment').innerText
+    @fragmentShader = document.querySelector('#mix-depth-shader-fragment').textContent
     
     return
