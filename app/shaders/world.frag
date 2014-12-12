@@ -234,8 +234,8 @@ Voxel cubes( vec3 p ) {
   vec3 cub = vec3(2., 10., 2.);
 
   // cub.y *= uSounds[0];
-  cub.y += (noiseRatio.x + noiseRatio.y) * 4.;
-  cub.y *= uSounds[1] * 2.;
+  cub.y += (noiseRatio.x + noiseRatio.y) * 10.;
+  cub.y *= uSounds[2] * 2.;
   if (uProgress > 5.) {
     cub.y *= 1. + uSounds[3] * 5.;
   }
@@ -273,7 +273,7 @@ Voxel spheres( vec3 p ) {
 
   radius += (20. + (noiseRatio.x * noiseRatio.y) * 150.);
   radius *= uSounds[0] * 1.5;
-  radius *= 1. + uSounds[1] * 3.;
+  radius *= 1. + uSounds[1] * 5.;
 
   if (uProgress > 5.) {
     p.y = 0.;

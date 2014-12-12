@@ -37,7 +37,6 @@ class SoundsMatrix
     # create audio
     audio = new Audio()
     extension = if Modernizr.audio.mp3 then 'mp3' else 'ogg'
-    extension = 'wav'
     audio.src = "sounds/#{name}.#{extension}"
     audio.addEventListener 'canplaythrough', @onSoundLoad
     audio.id = name
