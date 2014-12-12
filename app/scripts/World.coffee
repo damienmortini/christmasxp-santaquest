@@ -96,12 +96,12 @@ class World
 
   addGifts: =>
     gifts = []
-    for i in [0...@soundsMatrix.sounds.length]
+    for i in [0...@soundsMatrix.analysers.length]
       gift  = new Gift()
       gift.position.set(
-        Math.random() * 5000 - 2500
+        Math.random() * 8000 - 4000
         30
-        Math.random() * 5000 - 2500
+        Math.random() * 8000 - 4000
       )
       gifts.push gift
       @scene.add gift
