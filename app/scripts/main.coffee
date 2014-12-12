@@ -4,6 +4,9 @@ window.world = new World document.getElementById('canvas')
 
 buttons = document.body.querySelectorAll '.button'
 
+if !window.chrome or window.innerWidth < 640
+  document.body.querySelector('#error').classList.remove 'hide'
+
 onWindowFocus = ->
   window.world.start()
   return

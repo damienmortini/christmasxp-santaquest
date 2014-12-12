@@ -23,6 +23,27 @@ body {
   transition: filter .4s;
 }
 
+#error {
+  font-weight: 100;
+  text-align: center;
+  line-height: 3em;
+  position: absolute;
+  background: black;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 50%;
+  padding: 0 20%;
+  z-index: 1;
+  margin-top: -50px;
+  
+  letter-spacing: .4em;
+
+  &.hide {
+    visibility: hidden;
+  }
+}
+
 #outro {
   font-weight: 100;
   text-align: center;
@@ -85,7 +106,6 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
   transition-property: opacity, visibility;
   transition-delay: .4s;
   transition-duration: 3s;
