@@ -41,7 +41,7 @@ class ProgressionHandler
     return
 
   update: (dt) =>
-    @progress += (@level - @progress) * .1
+    @progress += (@level - @progress) * Math.max(.1 * dt)
 
     if @grabbedGift
       @grabbedGift.scale.x += (.1 - @grabbedGift.scale.x) * .8

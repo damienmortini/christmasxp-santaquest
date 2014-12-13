@@ -233,13 +233,12 @@ class World
     @cameraControls.update(smoothDeltaTime)
     @bike.update(smoothDeltaTime)
 
-    @helperPositionTarget.set(0, 0, 0)
-    @helperPositionTarget.add @progressionHandler.direction
+    @helperPositionTarget.copy @progressionHandler.direction
     @helperPositionTarget.multiplyScalar(500)
     @helperPositionTarget.add @bike.position
     @helperPositionTarget.y += 10
 
-    @helper.position.lerp @helperPositionTarget, .05
+    @helper.position.lerp @helperPositionTarget, .05 * smoothDeltaTime
 
     @light.position.copy @helper.position
 
@@ -250,6 +249,8 @@ class World
         sound += value
       sound /= 256 * byteFrequencyData.length
       @worldShaderPass.uniforms['uSounds'].value[i] = sound
+
+    # console.log @worldShaderPass.uniforms['uSounds'].value[1]
     
     # render
 
