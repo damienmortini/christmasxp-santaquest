@@ -7,8 +7,9 @@ buttons = document.body.querySelectorAll '.button'
 if !window.chrome
   document.body.querySelector('#intro .error-chrome').classList.remove 'hide'
 
-if window.innerWidth < 640
+if window.innerWidth < 640 and Modernizr.touch
   document.body.querySelector('#error-mobile').classList.remove 'hide'
+  document.body.querySelector('#intro p').classList.add 'hide'
 
 onWindowFocus = ->
   window.world.start()
