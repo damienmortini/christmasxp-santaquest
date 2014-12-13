@@ -78,6 +78,7 @@ body {
     transition-delay: 5s;
     transition-timing-function: ease-in-out;
     margin-top: 100px;
+    transform: translateZ(0);
     span {
       display: inline-block;
       border-radius: 10px;
@@ -147,16 +148,14 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-top: 180px;
+    margin-top: -110px;
     transform: translate(-50%, -50%);
     font-weight: 100;
     letter-spacing: .5em;
+    line-height: 3em;
     text-align: center;
     span {
-      display: inline-block;
-      border-radius: 10px;
-      padding: 10px 40px;
-      border: 1px solid white;
+      color: #FF9B9B;
     }
   }
   .music {
@@ -182,7 +181,7 @@ body {
     width: 100%;
     text-align: center;
     transform: translate(-50%, -50%);
-    margin-top: -100px;
+    margin-top: -200px;
     text-transform: uppercase;
     font-weight: 100;
     letter-spacing: 1em;
