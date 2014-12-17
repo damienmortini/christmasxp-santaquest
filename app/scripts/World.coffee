@@ -104,9 +104,9 @@ class World
     for i in [0...@soundsMatrix.analysers.length]
       gift  = new Gift()
       gift.position.set(
-        Math.random() * 8000 - 4000
+        Math.random() * 5000 - 2500
         30
-        Math.random() * 8000 - 4000
+        Math.random() * 5000 - 2500
       )
       gifts.push gift
       @scene.add gift
