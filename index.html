@@ -369,7 +369,7 @@
           
           if (dist < uFar) {
             vec3 normal = calcNormal(ro + rd * dist);
-            voxel.color *= .75 + dot(normal, normalize(vec3(1., 1., 0.))) * .75 * vec4(.4, .4, 1., 1.);
+            voxel.color *= .75 + max(0., dot(normal, normalize(vec3(1., 1., 0.)))) * .75 * vec4(.4, .4, 1., 1.);
             voxel.color += max(1. - (abs(length(uLightPosition - (ro + rd * voxel.dist))) / 100.), 0.) * vec4(1., .2, .2, 1.) * 3.;
           }
 
